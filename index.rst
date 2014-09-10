@@ -3,8 +3,6 @@
 Welcome to the PDC Documentation
 ================================
 
-Contents:
-
 .. toctree::
    :maxdepth: 2
 
