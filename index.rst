@@ -9,3 +9,4 @@ Welcome to the PDC Documentation
 
    software/dalton.rst
    software/gamess.rst
+   software/allinea-performance-reports.rst
