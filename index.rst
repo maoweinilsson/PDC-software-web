@@ -8,3 +8,4 @@ Welcome to the PDC Documentation
    :maxdepth: 2
 
    software/dalton.rst
+   software/gamess.rst
