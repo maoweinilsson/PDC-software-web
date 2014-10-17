@@ -17,4 +17,4 @@ PDC software documentation
 Overview over software installations
 ====================================
 
-.. include:: generated/table.rst.inc
+.. include:: table.rst.inc
