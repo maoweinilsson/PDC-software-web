@@ -1,8 +1,8 @@
 
 
-================================
-Welcome to the PDC Documentation
-================================
+==========================
+PDC software documentation
+==========================
 
 .. toctree::
    :maxdepth: 2
