@@ -1,3 +1,3 @@
 
 
-.. include:: index_generated.rst.inc
+.. include:: include.inc

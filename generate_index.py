@@ -1,7 +1,7 @@
 
 '''
 This script crawls through subdirectories of software/
-and generates index_generated.rst.inc
+and generates include files
 '''
 
 import os
@@ -44,7 +44,7 @@ def get_sphinx_table(table):
 
     for line in table:
         if len(line) != num_columns:
-            sys.stderr.write("ERROR: number of columns inconsistent\n")
+            sys.stderr.write("ERROR: number of columns inconsistent in line %s\n" % line)
             sys.exit(-1)
         for i in range(num_columns):
             width = len(line[i])
@@ -77,20 +77,29 @@ def get_sphinx_table(table):
 
 #-------------------------------------------------------------------------------
 
-def generate_table(table, programs, version_d, systems, section):
+def generate_table(table, programs, version_d, systems, section, only_program=''):
 
-    for program in programs:
+    if only_program != '':
+        programs_local = [only_program]
+    else:
+        programs_local = programs[:]
+
+    for program in programs_local:
         for version in version_d[program]:
             doc_exists = []
             for system in systems:
                 doc_exists.append(os.path.isfile(os.path.join('software', program, system.lower(), version, '%s.rst' % section)))
             if any(doc_exists):
                 line = []
-                line.append(":doc:`%s <software/%s/general>`" % (program, program))
+                if only_program == '':
+                    line.append(":doc:`%s <software/%s/general>`" % (program, program))
                 line.append(version)
                 for i, system in enumerate(systems):
                     if doc_exists[i]:
-                        line.append(":doc:`x <software/%s/%s/%s/%s>`" % (program, system.lower(), version, section))
+                        if only_program == '':
+                            line.append(":doc:`x <software/%s/%s/%s/%s>`" % (program, system.lower(), version, section))
+                        else:
+                            line.append(":doc:`x <%s/%s/%s>`" % (system.lower(), version, section))
                     else:
                         line.append('')
                 table.append(line)
@@ -126,7 +135,12 @@ top_line.append('Version')
 for system in SYSTEMS:
     top_line.append(system)
 
-with open('index_generated.rst.inc', 'w') as f:
+top_line_program = []
+top_line_program.append('Version')
+for system in SYSTEMS:
+    top_line_program.append(system)
+
+with open('generated.inc', 'w') as f:
 
     f.write('\n\nRunning software at PDC\n')
     f.write('-----------------------\n\n')
@@ -135,6 +149,16 @@ with open('index_generated.rst.inc', 'w') as f:
     table.append(top_line)
     table = generate_table(table, programs, version_d, SYSTEMS, 'running')
     f.write(get_sphinx_table(table))
+
+    for program in programs:
+        with open(os.path.join('software', program, 'generated.inc'), 'w') as f_program:
+            s = 'Running %s at PDC' % program
+            f_program.write('%s\n' % s)
+            f_program.write('%s\n' % repeat_to_length('=', len(s)))
+            table = []
+            table.append(top_line_program)
+            table = generate_table(table, programs, version_d, SYSTEMS, 'running', only_program=program)
+            f_program.write(get_sphinx_table(table))
 
     f.write('\n\n\nBuilding software at PDC\n')
     f.write('------------------------\n\n')

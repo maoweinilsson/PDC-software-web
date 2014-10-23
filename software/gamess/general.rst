@@ -1,12 +1,6 @@
 
 
-======
-GAMESS
-======
-
-
-About GAMESS
-============
+.. include:: include.inc
 
 The General Atomic and Molecular Electronic Structure System (GAMESS)
 is a general ab initio quantum chemistry package.
@@ -36,7 +30,7 @@ gamess should cite at least the following paper::
 
 
 Performance optimization
-========================
+------------------------
 
 It is highly recommended to use::
 
