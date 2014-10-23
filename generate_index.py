@@ -1,11 +1,15 @@
 
 '''
 This script crawls through subdirectories of software/
-and generates index.rst
+and generates index_generated.rst.inc
 '''
 
 import os
 import sys
+
+# globals
+
+SYSTEMS = ['Beskow', 'Lindgren', 'Povel', 'Zorn']
 
 #-------------------------------------------------------------------------------
 
@@ -95,13 +99,6 @@ def generate_table(table, programs, version_d, systems, section):
 
 #-------------------------------------------------------------------------------
 
-# list of systems
-systems = []
-systems.append('Beskow')
-systems.append('Lindgren')
-systems.append('Povel')
-systems.append('Zorn')
-
 software_path = os.path.join(os.getcwd(), 'software')
 
 # get list of all installed programs
@@ -126,23 +123,23 @@ for root, dirnames, filenames in os.walk(software_path):
 top_line = []
 top_line.append('Software')
 top_line.append('Version')
-for system in systems:
+for system in SYSTEMS:
     top_line.append(system)
 
-with open('index.rst', 'w') as f:
+with open('index_generated.rst.inc', 'w') as f:
 
     f.write('\n\nRunning software at PDC\n')
-    f.write('=======================\n\n')
+    f.write('-----------------------\n\n')
     
     table = []
     table.append(top_line)
-    table = generate_table(table, programs, version_d, systems, 'running')
+    table = generate_table(table, programs, version_d, SYSTEMS, 'running')
     f.write(get_sphinx_table(table))
 
     f.write('\n\n\nBuilding software at PDC\n')
-    f.write('========================\n\n')
+    f.write('------------------------\n\n')
     
     table = []
     table.append(top_line)
-    table = generate_table(table, programs, version_d, systems, 'building')
+    table = generate_table(table, programs, version_d, SYSTEMS, 'building')
     f.write(get_sphinx_table(table))
