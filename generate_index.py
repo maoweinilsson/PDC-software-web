@@ -147,10 +147,18 @@ with open('include.inc', 'w') as f:
 
     f.write('\n\nRunning software\n')
     f.write('----------------\n')
-    
+
     table = []
     table.append(top_line)
     table = generate_table(table, programs, version_d, SYSTEMS, 'running')
+    f.write(get_sphinx_table(table))
+
+    f.write('\n\n\nBuilding software\n')
+    f.write('-----------------\n\n')
+
+    table = []
+    table.append(top_line)
+    table = generate_table(table, programs, version_d, SYSTEMS, 'building')
     f.write(get_sphinx_table(table))
 
     # this generates a version overview for each program separately
@@ -174,11 +182,3 @@ with open('include.inc', 'w') as f:
                             s = '%s %s %s on %s' % (section, program, version, system)
                             f_include.write('%s\n' % s)
                             f_include.write('%s\n' % repeat_to_length('=', len(s)))
-
-    f.write('\n\n\nBuilding software\n')
-    f.write('-----------------\n\n')
-    
-    table = []
-    table.append(top_line)
-    table = generate_table(table, programs, version_d, SYSTEMS, 'building')
-    f.write(get_sphinx_table(table))
