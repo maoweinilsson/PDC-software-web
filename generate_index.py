@@ -140,7 +140,7 @@ top_line_program.append('Version')
 for system in SYSTEMS:
     top_line_program.append(system)
 
-with open('generated.inc', 'w') as f:
+with open('include.inc', 'w') as f:
 
     f.write('\n\nRunning software at PDC\n')
     f.write('-----------------------\n\n')
@@ -150,8 +150,9 @@ with open('generated.inc', 'w') as f:
     table = generate_table(table, programs, version_d, SYSTEMS, 'running')
     f.write(get_sphinx_table(table))
 
+    # this generates a version overview for each program separately
     for program in programs:
-        with open(os.path.join('software', program, 'generated.inc'), 'w') as f_program:
+        with open(os.path.join('software', program, 'include.inc'), 'w') as f_program:
             s = 'Running %s at PDC' % program
             f_program.write('%s\n' % s)
             f_program.write('%s\n' % repeat_to_length('=', len(s)))
@@ -159,6 +160,17 @@ with open('generated.inc', 'w') as f:
             table.append(top_line_program)
             table = generate_table(table, programs, version_d, SYSTEMS, 'running', only_program=program)
             f_program.write(get_sphinx_table(table))
+
+    # build include files which contain title and version
+    for program in programs:
+        for version in version_d[program]:
+            for system in SYSTEMS:
+                for section in ['Running', 'Building']:
+                    if os.path.isfile(os.path.join('software', program, system.lower(), version, '%s.rst' % section.lower())):
+                        with open(os.path.join('software', program, system.lower(), version, '%s.inc' % section.lower()), 'w') as f_include:
+                            s = '%s %s %s on %s' % (section, program, version, system)
+                            f_include.write('%s\n' % s)
+                            f_include.write('%s\n' % repeat_to_length('=', len(s)))
 
     f.write('\n\n\nBuilding software at PDC\n')
     f.write('------------------------\n\n')

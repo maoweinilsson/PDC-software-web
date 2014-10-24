@@ -1,7 +1,6 @@
 
 
-GAMESS on Lindgren
-==================
+.. include:: running.inc
 
 The most recent version installed on Lindgren is 20120501R1_v2::
 

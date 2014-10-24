@@ -1,7 +1,6 @@
 
 
-GAMESS on Povel
-===============
+.. include:: running.inc
 
 The most recent version installed on Povel is 2013-05-01-R1::
 

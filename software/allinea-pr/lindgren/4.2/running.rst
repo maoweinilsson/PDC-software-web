@@ -1,8 +1,6 @@
 
 
-===========================
-Allinea Performance Reports
-===========================
+.. include:: running.inc
 
 
 About Allinea Performance Reports

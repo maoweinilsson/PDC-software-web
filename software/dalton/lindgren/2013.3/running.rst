@@ -1,7 +1,10 @@
 
 
-Running DALTON 2013.3 on Lindgren
-=================================
+.. include:: running.inc
+
+
+Dalton
+------
 
 To run DALTON we need two input files (one dal file for the job specification
 and one mol file to specify the molecule structure and basis set). In addition
@@ -65,8 +68,8 @@ Now we are ready to submit the calculation::
   $ qsub dalton.run
 
 
-Running LSDALTON 2013.3 on Lindgren
-===================================
+LSDalton
+--------
 
 As an example calculation we will repeat the above example now using LSDALTON.
 
