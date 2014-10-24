@@ -35,5 +35,3 @@ Example job script::
 
   # now start gamess
   rungms exam01.inp 01 $MPI_PROCS $PROCS_PER_NODE
-
-.. include:: ../../../../disclaimer.rst

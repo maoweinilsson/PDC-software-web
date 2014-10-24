@@ -39,3 +39,5 @@ It is highly recommended to use::
 The default value of DIRSCF=.FALSE. causes integrals to be written to disk for
 later use and considerably (negatively) affects the performance of the file
 system and of your calculation.
+
+.. include:: ../../disclaimer.rst
