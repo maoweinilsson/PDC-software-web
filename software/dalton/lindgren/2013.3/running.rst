@@ -118,3 +118,5 @@ and the following example runscript (lsdalton.run)::
   export OMP_NUM_THREADS=1
   export LSDALTON_LAUNCHER="aprun -n 48"
   lsdalton b3lyp_energy.dal h2o2.mol
+
+.. include:: ../../../../disclaimer.rst

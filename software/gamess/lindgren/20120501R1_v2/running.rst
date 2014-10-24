@@ -43,3 +43,5 @@ Example job script::
   # run gamess with input file example.inp
   # the number of mpi tasks has to match mppwidth above
   rungms example 01 96 > example.out
+
+.. include:: ../../../../disclaimer.rst

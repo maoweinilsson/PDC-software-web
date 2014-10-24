@@ -19,16 +19,6 @@ Then build both the dalton.x and lsdalton.x binaries::
 For more information see: http://daltonprogram.org/installation/2013/
 
 
-Disclaimer
-----------
-
-PDC takes no responsibility for the correctness of results produced with the
-binaries. We have ran the test set after installation but a number of tests
-fail (see below). Hence, always evaluate the binaries against known results for
-the systems and properties you are investigating before using the binaries for
-production jobs.
-
-
 Failed Dalton tests
 -------------------
 
