@@ -142,8 +142,11 @@ for system in SYSTEMS:
 
 with open('include.inc', 'w') as f:
 
-    f.write('\n\nRunning software at PDC\n')
-    f.write('-----------------------\n\n')
+    f.write('\n\nSoftware at PDC\n')
+    f.write('===============\n')
+
+    f.write('\n\nRunning software\n')
+    f.write('----------------\n')
     
     table = []
     table.append(top_line)
@@ -172,8 +175,8 @@ with open('include.inc', 'w') as f:
                             f_include.write('%s\n' % s)
                             f_include.write('%s\n' % repeat_to_length('=', len(s)))
 
-    f.write('\n\n\nBuilding software at PDC\n')
-    f.write('------------------------\n\n')
+    f.write('\n\n\nBuilding software\n')
+    f.write('-----------------\n\n')
     
     table = []
     table.append(top_line)
