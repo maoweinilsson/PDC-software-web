@@ -2,11 +2,11 @@
 
 .. include:: running.inc
 
-The most recent version installed on Lindgren is 20120501R1_v2::
 
-  module avail gamess
+Example job script
+------------------
 
-Example job script::
+::
 
   # the name of this job
   #PBS -N gamess
