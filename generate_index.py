@@ -134,7 +134,7 @@ programs = sorted(programs, key=lambda s: s.lower())
 
 # sort versions
 for program in programs:
-    version_d[program].sort()
+    version_d[program].sort(reverse=True)
 
 top_line = []
 top_line.append('Software')
