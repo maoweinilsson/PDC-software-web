@@ -1,0 +1,24 @@
+# The name of the script is myjob
+#PBS -N myjob
+
+# Only 1 hour wall-clock time will be given to this job
+#PBS -l walltime=1:00:00
+
+# Number of MPI tasks.
+# always ask for complete nodes (i.e. mppwidth should normally
+# be a multiple of 24 )
+#PBS -l mppwidth=240
+
+#PBS -e error_file.e
+#PBS -o output_file.o
+
+# Change to the work directory
+cd $PBS_O_WORKDIR
+#enable modules within the batch system
+. /opt/modules/default/etc/modules.sh
+
+#load the lammps module
+module add lammps
+
+# Run with the file infile as input and write to outfile
+aprun -n 240 lmp < infile > outfile
