@@ -129,6 +129,13 @@ for root, dirnames, filenames in os.walk(software_path):
             if version not in version_d[program]:
                 version_d[program].append(version)
 
+# sort programs
+programs = sorted(programs, key=lambda s: s.lower())
+
+# sort versions
+for program in programs:
+    version_d[program].sort()
+
 top_line = []
 top_line.append('Software')
 top_line.append('Version')
