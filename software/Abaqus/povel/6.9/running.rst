@@ -12,7 +12,7 @@ Note that this script does not include all the arguments that you can supply to 
 
   chmod u+x  abaqusPovel.sh
 
-The script takes two arguments. The first says how many of Ferlin's cores you want to use for your run (1 to 8). The second says what the name of your input file is. So, in order to run Abaqus on one node on Povel all you have to do is type the following:
+The script takes two arguments. The first says how many of Povel's cores you want to use for your run. The second says what the name of your input file is. So, in order to run Abaqus on one node on Povel all you have to do is type the following:
 
 .. code-block:: bash
 
