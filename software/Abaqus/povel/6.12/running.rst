@@ -1,1 +1,1 @@
-6.9/running.rst
+../6.9/running.rst
