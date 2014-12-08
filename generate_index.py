@@ -9,7 +9,7 @@ import sys
 
 # globals
 
-SYSTEMS = ['Beskow', 'Lindgren', 'Povel', 'Zorn']
+SYSTEMS = ['Beskow', 'Lindgren', 'Povel', 'Ellen', 'Zorn']
 
 #-------------------------------------------------------------------------------
 

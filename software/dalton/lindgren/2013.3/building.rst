@@ -1,3 +1,4 @@
+:orphan:
 
 
 .. include:: building.inc
