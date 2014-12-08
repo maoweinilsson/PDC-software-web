@@ -1,1 +1,1 @@
-6.9/files/abaqusPovel.sh
+../../6.9/files/abaqusPovel.sh
