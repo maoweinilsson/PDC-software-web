@@ -1,0 +1,11 @@
+  #!/bin/bash
+
+  module load R/3.0.2
+
+  # This is 8 for ferlin, 24 for povel, ...
+  CORES_PER_NODE=8
+
+  TOT_CORES=$(($CORES_PER_NODE * $SP_NODES))
+
+  mpirun -np $TOT_CORES --hostfile $SP_HOSTFILE -x PATH -x LD_LIBRARY_PATH RMPISNOW < parallel_script.r
+
