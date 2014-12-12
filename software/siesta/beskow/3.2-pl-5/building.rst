@@ -1,5 +1,7 @@
 :orphan:
 
+.. include:: building.inc
+
 You can download the software for free if you work within academics/research or at a computer center at:
 http://departments.icmab.es/leem/siesta/CodeAccess/selector.html
 
