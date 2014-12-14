@@ -69,12 +69,15 @@ For testing modify file ``environment_variables``::
 
   #PARA_PREFIX="mpirun -np 2"
   #PARA_PREFIX=" "
-  PARA_PREFIX="aprun -n 32"
+  PARA_PREFIX="aprun -n 2"
+
+  #PARA_IMAGE_PREFIX="mpirun -np 4"
+  PARA_IMAGE_PREFIX="aprun -n 4"
 
 Then test::
 
   $ salloc
   $ cd /pdc/vol/espresso/5.1.1/src/espresso-5.1.1/PW/tests
-  $ ./check_pw.x.j
+  $ ./check-pw.x.j
   $ cd /pdc/vol/espresso/5.1.1/src/espresso-5.1.1/CPV/tests
-  $ ./check_cp.x.j
+  $ ./check-cp.x.j
