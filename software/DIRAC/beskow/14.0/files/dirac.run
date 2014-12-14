@@ -16,7 +16,7 @@
 module add dirac/14.0
 
 export DIRAC_TMPDIR=$SNIC_TMP/dirac_scratch/$SLURM_JOB_ID
-export DIRAC_MPI_COMMAND="aprun -n 8"
+export DIRAC_MPI_COMMAND="aprun -n 32"
 
 cd $SLURM_SUBMIT_DIR
 pam --inp=scf.inp --mol=methanol.xyz
