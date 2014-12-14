@@ -61,3 +61,12 @@ For more information see: http://diracprogram.org/doc/release-14/installation/ge
 
 The sources need to be made readable only to sinstall. They should not be readable
 to all users.
+
+
+Failed tests
+------------
+
+::
+
+  28 - geo_opt_saddle (Failed)
+  94 - xcfun (Failed)
