@@ -1,0 +1,22 @@
+#!/bin/bash --login
+
+#SBATCH -J dirac
+
+#SBATCH -t 00:10:00
+
+# number of nodes
+#SBATCH -N 1
+
+# number of MPI processes
+#SBATCH -n 32
+
+#SBATCH -o stdout.txt
+#SBATCH -e stderr.txt
+
+module add dirac/14.0
+
+export DIRAC_TMPDIR=$SNIC_TMP/dirac_scratch/$SLURM_JOB_ID
+export DIRAC_MPI_COMMAND="aprun -n 8"
+
+cd $SLURM_SUBMIT_DIR
+pam --inp=scf.inp --mol=methanol.xyz

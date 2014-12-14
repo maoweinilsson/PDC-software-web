@@ -27,7 +27,7 @@ and the following example runscript (dalton.run):
     :language: bash
 
 Here we run on 2 nodes (64 processors in total).
-Do not run serial calculations on Lindgren for anything other than small tests!
+Do not run serial calculations on Beskow for anything other than small tests!
 
 Now we are ready to submit the calculation::
 
