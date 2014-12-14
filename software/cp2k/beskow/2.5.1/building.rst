@@ -13,7 +13,7 @@ Installation instructions can be found in INSTALL or online at:
 http://sourceforge.net/p/cp2k/code/HEAD/tree/trunk/cp2k/INSTALL
 
 Instructions for Intel
---------------------
+----------------------
 
 The following arch-file can be used (:code:`arch/CRAY-XC40-gfortran.popt`) for a pure MPI build with gfortran.
 
