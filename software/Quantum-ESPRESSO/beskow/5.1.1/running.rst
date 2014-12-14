@@ -30,4 +30,4 @@ This run requires the ``H_HSCV_PBE-1.0.UPF`` pseudopotential.
 
 Now we are ready to submit the calculation::
 
-  $ qe dirac.run
+  $ sbatch qe.run
