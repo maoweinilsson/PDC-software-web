@@ -52,12 +52,12 @@ To test the installation you can create a work directory in /nobackup and do the
 
 This should generate a series of files described shortly below (extracted from the manual):
 
- * fdf.log (contains all the data used, explicit or chosen by default)
- * O.ion and H.ion (complete information about the basis and KB projectors)
- * h2o.XV (contains positions and velocities)
- * h2o.STRUCT-OUT (contains the nal cell vectors and positions in crystallographic" format)
- * h2o.DM (contains the density matrix to allow a restart)
- * h2o.ANI (contains the coordinates of every MD step, in this case only one)
- * h2o.FA (contains the forces on the atoms)
- * h2o.EIG (contains the eigenvalues of the Kohn-Sham Hamiltonian)
- * h2o.xml (XML marked-up output)
+* fdf.log (contains all the data used, explicit or chosen by default)
+* O.ion and H.ion (complete information about the basis and KB projectors)
+* h2o.XV (contains positions and velocities)
+* h2o.STRUCT-OUT (contains the nal cell vectors and positions in crystallographic" format)
+* h2o.DM (contains the density matrix to allow a restart)
+* h2o.ANI (contains the coordinates of every MD step, in this case only one)
+* h2o.FA (contains the forces on the atoms)
+* h2o.EIG (contains the eigenvalues of the Kohn-Sham Hamiltonian)
+* h2o.xml (XML marked-up output)
