@@ -1,0 +1,20 @@
+#PBS -N myjob
+# 23 hour wall-clock time will be given to this job
+#PBS -l walltime=23:00:00
+# Number of MPI tasks.
+#PBS -l mppwidth=96
+#PBS -e error_file.e
+#PBS -o output_file.o
+
+# Change to the work directory
+cd $PBS_O_WORKDIR
+
+#make a scratch directory
+mkdir -p $PBS_O_WORKDIR/temp
+#enable modules within the batch system
+. /opt/modules/default/etc/modules.sh
+
+module add starccm+
+
+# Run starcd
+starccm -dp -mpi=xt -scratch=$PBS_O_WORKDIR/temp 96
