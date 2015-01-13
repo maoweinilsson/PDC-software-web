@@ -9,7 +9,7 @@ Running on the Batch system
 
 sample job script
 
-.. literalinclude:: files/run.pbs
+.. literalinclude:: files/starccm_run.sh
   :language: bash
 
 .. code-block:: bash
