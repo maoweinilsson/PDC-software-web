@@ -14,13 +14,13 @@ sample job script
 
 .. code-block:: bash
 
- #PBS -l mppwidth=288
+ #SBATCH -n 96
 
 line and at the bottom when you specify
 
 .. code-block:: bash
 
- -np 288
+ -np 96
 
-Formation on how to submit jobs on Beskow, see Job Submission on Beskow.
+Formation on how to submit jobs on Beskow, see  `Job submission on Beskow <https://www.pdc.kth.se/resources/computers/beskow/how-to/run>`_ .
 
