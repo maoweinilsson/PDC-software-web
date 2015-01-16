@@ -59,6 +59,31 @@ Note
 
 Edit 'rungms': set GAMESSROOT, GAMESSUSER, SCR etc. 
 
+Need to add the code to allow overriding of SCR with custom gamess scratch
+ 
+   if ($?CUSTOM_GAMESS_SCRATCH) then
+     echo "rungms uses custom scratch directory: $CUSTOM_GAMESS_SCRATCH"
+     set SCR=$CUSTOM_GAMESS_SCRATCH/scr
+     set USERSCR=$CUSTOM_GAMESS_SCRATCH/userscr
+     mkdir -p $SCR
+     mkdir -p $USERSCR
+   else
+     set LETTER=`echo $USER | cut -c1`
+     set LUSTRE_SCRATCH=/cfs/klemming/scratch/$LETTER/$USER
+     set LUSTRE_NOBACKUP=/cfs/klemming/nobackup/$LETTER/$USER
+     set SCR=$LUSTRE_SCRATCH/gamess_scratch
+     mkdir -p $SCR
+     
+     set USERSCR=$LUSTRE_NOBACKUP/gamess_scratch
+     mkdir -p $USERSCR
+ 
+     echo "rungms uses default scratch directory: $SCR"
+   endif
+ 
+ 
+
+
+
 test run
   rungms exam01.inp 01 24
 
