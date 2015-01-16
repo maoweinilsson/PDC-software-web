@@ -32,9 +32,13 @@ sample job script
 
 Notice that you have to set the number of cores in two places at the top in the
 
+.. code-block:: bash
+
  #SBATCH -n 96
 
 line and at the bottom when you specify
+
+.. code-block:: bash
 
  -np 96
 
