@@ -18,7 +18,7 @@ cd $PBS_O_WORKDIR
 # and write the output into my_output_file
 #enable modules within the batch system
 . /opt/modules/default/etc/modules.sh
-module load starccm+/9.06.009-dp
+module load starccm+/6.06.008
 sim_file="testcase.sim"
 LETTER=`echo $USER | cut -c1`
 LUSTRE_ROOT=/cfs/klemming/nobackup/$LETTER/$USER/StarCCM_config
@@ -29,10 +29,7 @@ export TMPDIR=/cfs/klemming/scratch/$LETTER/$USER
 # Set the environment variable to point to your starccm+ 
 # license server (not PoD server 1999@flex.cd-adapco.com)
 export CDLMD_LICENSE_FILE=1022@yourserver.pdc.kth.se
-starccm+ -collab -np 288 -pio -batch -arch linux-x86_64-2.5 -mpidriver crayxt -nbuserdir $LUSTRE_ROOT ${sim_file}> starccmRun.${PBS_JOBID}.log 2>&1
+starccm+ -collab -np 288 -pio -batch -arch linux-x86_64-2.3.4 -mpidriver crayxt -nbuserdir $LUSTRE_ROOT ${sim_file}> starccmRun.${PBS_JOBID}.log 2>&1
  
 # Only used with license keys to access to the external license server
-# starccm+ -power -podkey your_license_key -licpath 1999@flex.cd-adapco.com -collab -np 288 $STARTMACRO -pio -batch -arch linux-x86_64-2.3.4 -mpidriver crayxt -nbuserdir $LUSTRE_ROO
-T ${sim_file}> starccmRun.${PBS_JOBID}.log 2>&1
-
-
+# starccm+ -power -podkey your_license_key -licpath 1999@flex.cd-adapco.com -collab -np 288 $STARTMACRO -pio -batch -arch linux-x86_64-2.3.4 -mpidriver crayxt -nbuserdir $LUSTRE_ROOT ${sim_file}> starccmRun.${PBS_JOBID}.log 2>&1
