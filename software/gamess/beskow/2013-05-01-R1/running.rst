@@ -5,6 +5,6 @@
 Example job script
 ------------------
 
-.. literalinclude:: files/games.run
+.. literalinclude:: files/gamess.run
     :language: bash
 
