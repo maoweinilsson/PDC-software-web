@@ -7,6 +7,9 @@ and generates include files
 import os
 import sys
 
+# sorting of version numbers
+from distutils.version import LooseVersion
+
 # globals
 
 SYSTEMS = ['Beskow', 'Lindgren', 'Povel', 'Ellen', 'Zorn']
@@ -134,7 +137,7 @@ programs = sorted(programs, key=lambda s: s.lower())
 
 # sort versions
 for program in programs:
-    version_d[program].sort(reverse=True)
+    version_d[program].sort(reverse=True, key=LooseVersion)
 
 top_line = []
 top_line.append('Software')

@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# The name of the script is myjob
+#PBS -N myjob
+
+# Only 1 hour wall-clock time will be given to this job
+#PBS -l walltime=1:00:00
+
+# Number of cores to be allocated is 288.
+# always ask for complete nodes (i.e. mppwidth should normally
+# be a multiple of 24)
+#PBS -l mppwidth=288
+
+# Change to the work directory
+cd $PBS_O_WORKDIR
+
+# Run the executable named testcase
+# and write the output into my_output_file
+#enable modules within the batch system
+. /opt/modules/default/etc/modules.sh
+module load starccm+/9.02.007-dp
+sim_file="testcase.sim"
+LETTER=`echo $USER | cut -c1`
+LUSTRE_ROOT=/cfs/klemming/nobackup/$LETTER/$USER/StarCCM_config
+
+# Set the temporary path
+export TMPDIR=/cfs/klemming/scratch/$LETTER/$USER
+ 
+# Set the environment variable to point to your starccm+ 
+# license server (not PoD server 1999@flex.cd-adapco.com)
+export CDLMD_LICENSE_FILE=1022@yourserver.pdc.kth.se
+starccm+ -collab -np 288 -pio -batch -arch linux-x86_64-2.5 -mpidriver crayxt -nbuserdir $LUSTRE_ROOT ${sim_file}> starccmRun.${PBS_JOBID}.log 2>&1
+ 
+# Only used with license keys to access to the external license server
+# starccm+ -power -podkey your_license_key -licpath 1999@flex.cd-adapco.com -collab -np 288 $STARTMACRO -pio -batch -arch linux-x86_64-2.5 -mpidriver crayxt -nbuserdir $LUSTRE_ROOT ${sim_file}> starccmRun.${PBS_JOBID}.log 2>&1
+
+
