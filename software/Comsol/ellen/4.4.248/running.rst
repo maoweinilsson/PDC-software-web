@@ -13,7 +13,7 @@ Start the Comsol server on Ellen
 
 .. code-block:: bash
 
-    module add comsol/4.4.248a
+    module add comsol/4.4.248
 
 4. Start the Comsol server:
 

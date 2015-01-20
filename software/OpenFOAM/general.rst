@@ -8,7 +8,7 @@ How to use OpenFOAM on PDC machines
 =================================
 Openfoam is a free, open source CFD software package.
 
-`http://www.openfoam.org<http://www.openfoam.org>`_
+http://www.openfoam.org
 
 .. include:: ../../disclaimer.rst
 
