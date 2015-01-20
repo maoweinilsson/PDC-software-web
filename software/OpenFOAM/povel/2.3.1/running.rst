@@ -56,5 +56,5 @@ The sample job script
   :language: bash
 
 
-Formation on how to submit jobs on Povel, see `Job Submission on Povel <://www.pdc.kth.se/resources/software/job-scheduler/easy-main>`_ .
+Formation on how to submit jobs on Povel, see `Job Submission on Povel <http://www.pdc.kth.se/resources/software/job-scheduler/easy-main>`_ .
 
