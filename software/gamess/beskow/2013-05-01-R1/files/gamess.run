@@ -32,10 +32,7 @@ module add gamess/2013-05-01-R1
 # NEVER point CUSTOM_GAMESS_SCRATCH to your home directory
 # since the program might erase the scratch space after the calculation
 # terminates
-export CUSTOM_GAMESS_SCRATCH=/cfs/klemming/scratch/${USER:0:1}/${USER}/gamess_scratch/$PBS_JOBID
-
-# change to the work directory
-cd $PBS_O_WORKDIR
+export CUSTOM_GAMESS_SCRATCH=$SNIC_TMP/${USER:0:1}/${USER}/gamess_scratch/$SLURM_JOBID
 
 # run gamess with input file example.inp
 # the number of mpi tasks has to match mppwidth above
