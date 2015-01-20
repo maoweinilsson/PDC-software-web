@@ -7,6 +7,6 @@ using mixture models.
 
 External Links
 --------------
-`Official site <http://megasun.bch.umontreal.ca/People/lartillot/www/downloadmpi.html`_
+`Official site <http://megasun.bch.umontreal.ca/People/lartillot/www/downloadmpi.html>`_
 
 .. include:: ../../disclaimer.rst
