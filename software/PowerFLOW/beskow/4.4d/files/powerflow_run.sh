@@ -26,10 +26,6 @@ export NPROCS=32
 # Number of timesteps
 export NUM_TIMESTEPS=1000
 
-# Link to cray mpi library 5.6.5
-export EXA_ALT_XE6_ROOT=/opt/cray/mpt/5.6.5
-export LD_LIBRARY_PATH=/opt/cray/mpt/5.6.5/gni/mpich2-intel/120/lib:$LD_LIBRARY_PATH
-
 module add powerflow/4.4d
 
 # Not sure the environment variables still used for intel haswell

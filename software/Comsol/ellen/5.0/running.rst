@@ -8,7 +8,9 @@ Start the Comsol server on Ellen
 --------------------------------
 
 1. Login to Ellen (ellen.pdc.kth.se)
+
 2. Go to your working directory (cd /cfs/klemming/...)
+
 3. Load the comsol module you want, for instance:
 
 .. code-block:: bash
