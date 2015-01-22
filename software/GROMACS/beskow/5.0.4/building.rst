@@ -5,7 +5,6 @@
 On Beskow we recommend compiling GROMACS with the GNU compilers::
 
   $ module swap PrgEnv-cray PrgEnv-gnu
-  $ module add fftw
   $ module add cmake/2.8.12.2
   $ module add git/2.2.0
   $ module load craype-haswell
