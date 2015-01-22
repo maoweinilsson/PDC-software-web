@@ -15,7 +15,7 @@ Building with CMake currently has problems on some CRAY systems when trying to b
 
   $ export CRAYPE_LINK_TYPE=dynamic
 
-Get the sources:
+Get the sources::
 
   $ wget ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.0.4.tar.gz
   $ tar xfvz gromacs-5.0.4.tar.gz
