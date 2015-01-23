@@ -8,7 +8,8 @@ First fetch and build plumed::
   $ cd plumed
   $ module swap PrgEnv-cray PrgEnv-gnu
   $ module add fftw
-  $ ./configure --prefix=/pdc/vol/plumed/2.1.1
+  $ ./configure --prefix=/pdc/vol/plumed/2.1.1 CXX=CC CC=cc
+  $ export CRAYPE_LINK_TYPE=dynamic
   $ make -j 4 install
 
 Check it runs::
@@ -34,7 +35,6 @@ Use the same procedure for configuring/building::
   $ module add git/2.2.0
   $ module load craype-haswell
   $ module unload cray-libsci/13.0.1
-  $ export CRAYPE_LINK_TYPE=dynamic
 
 Install in a different directory from vanilla GROMACS::
 
