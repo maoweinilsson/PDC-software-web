@@ -201,7 +201,7 @@ def main():
     with open('include.inc', 'w') as include_file:
 
         top_line = []
-        top_line.append('Soinclude_file')
+        top_line.append('Program')
         top_line.append('Version')
         for system in systems:
             top_line.append(system)
