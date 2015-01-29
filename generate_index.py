@@ -4,17 +4,15 @@ This script crawls through subdirectories of software/
 and generates include files
 """
 
-import os
-import sys
-
-# sorting of version numbers
-from distutils.version import LooseVersion
-
 #-------------------------------------------------------------------------------
 
-def repeat_to_length(string_to_expand, length):
+def repeat_char(char, length):
 
-    return (string_to_expand * ((length/len(string_to_expand))+1))[:length]
+    return char*length
+
+def test_repeat_char():
+
+    assert(repeat_char('r', 5) == 'rrrrr')
 
 #-------------------------------------------------------------------------------
 
@@ -26,11 +24,19 @@ def get_divider_line(max_column_width, char, skip_first=False):
         text = ['+']
     for i, width in enumerate(max_column_width):
         if i == 0 and skip_first:
-            text.append(repeat_to_length(' ', width + 2))
+            text.append(repeat_char(' ', width + 2))
         else:
-            text.append(repeat_to_length(char, width + 2))
+            text.append(repeat_char(char, width + 2))
         text.append('+')
     return ''.join(text)
+
+def test_get_divider_line():
+
+    divider = get_divider_line([3, 4, 5], '=')
+    assert(divider == '+=====+======+=======+')
+
+    divider = get_divider_line([3, 4, 5], '-', skip_first=True)
+    assert(divider == '|     +------+-------+')
 
 #-------------------------------------------------------------------------------
 
@@ -43,9 +49,7 @@ def get_sphinx_table(table):
         max_column_width.append(0)
 
     for line in table:
-        if len(line) != num_columns:
-            sys.stderr.write("ERROR: number of columns inconsistent in line %s\n" % line)
-            sys.exit(-1)
+        assert(len(line) == num_columns)
         for i in range(num_columns):
             width = len(line[i])
             if width > max_column_width[i]:
@@ -68,16 +72,33 @@ def get_sphinx_table(table):
                 word2 = ' '
             else:
                 word2 = word
-            text2.append(' %s%s ' % (word2, repeat_to_length(' ', max_column_width[j] - len(word2))))
+            text2.append(' %s%s ' % (word2, repeat_char(' ', max_column_width[j] - len(word2))))
             text2.append('|')
         text.append(''.join(text2))
     text.append(get_divider_line(max_column_width, '-'))
 
     return '\n'.join(text)
 
+def test_get_sphinx_table():
+
+    table = get_sphinx_table([['foo', 'bar'], ['1', '2'], ['hey', 'ho']])
+
+    reference = []
+    reference.append('+-----+-----+')
+    reference.append('| foo | bar |')
+    reference.append('+=====+=====+')
+    reference.append('| 1   | 2   |')
+    reference.append('+-----+-----+')
+    reference.append('| hey | ho  |')
+    reference.append('+-----+-----+')
+
+    assert(table == '\n'.join(reference))
+
 #-------------------------------------------------------------------------------
 
 def generate_table(table, programs, version_d, systems, section, only_program=''):
+
+    import os
 
     if only_program != '':
         programs_local = [only_program]
@@ -109,6 +130,11 @@ def generate_table(table, programs, version_d, systems, section, only_program=''
 #-------------------------------------------------------------------------------
 
 def main():
+
+    import os
+
+    # sorting of version numbers
+    from distutils.version import LooseVersion
 
     systems = ['Beskow', 'Lindgren', 'Povel', 'Ellen', 'Zorn']
 
@@ -149,7 +175,7 @@ def main():
                         with open(os.path.join('software', program, system.lower(), version, '%s.inc' % section.lower()), 'w') as f_include:
                             text = '%s %s %s on %s' % (section, program, version, system)
                             f_include.write('%s\n' % text)
-                            f_include.write('%s\n' % repeat_to_length('=', len(text)))
+                            f_include.write('%s\n' % repeat_char('=', len(text)))
 
     # here we remove Lindgren
     # we need it for the above until we also remove the files from the repo
@@ -165,7 +191,7 @@ def main():
         with open(os.path.join('software', program, 'include.inc'), 'w') as f_program:
             title = 'Running %s at PDC' % program
             f_program.write('%s\n' % title)
-            f_program.write('%s\n' % repeat_to_length('=', len(title)))
+            f_program.write('%s\n' % repeat_char('=', len(title)))
             table = []
             table.append(top_line_program)
             table = generate_table(table, programs, version_d, systems, 'running', only_program=program)
