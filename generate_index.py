@@ -206,6 +206,10 @@ def main():
                 for section in ['Running', 'Building']:
                     if os.path.isfile(os.path.join('software', program, system.lower(), version, '%s.rst' % section.lower())):
                         with open(os.path.join('software', program, system.lower(), version, '%s.inc' % section.lower()), 'w') as f_include:
+
+                            # add navigation
+                            f_include.write(":doc:`../../../../index` - :doc:`../../general` - :doc:`%s`\n\n" % section.lower())
+
                             text = '%s %s %s on %s' % (section, program, version, system)
                             f_include.write('%s\n' % underline_text(text, '='))
 
@@ -216,6 +220,11 @@ def main():
     # this generates a version overview for each program separately
     for program in programs:
         with open(os.path.join('software', program, 'include.inc'), 'w') as f_program:
+
+            # add navigation
+            f_program.write(":doc:`../../index` - :doc:`general`\n\n")
+
+            f_program.write("%s\n\n" % underline_text("General information about %s" % program, '='))
             for section in ['Running', 'Building']:
                 title_line = ['System', '%s instructions' % section]
                 table = generate_table(title_line, [program], version_d, systems, '%s' % section.lower())
