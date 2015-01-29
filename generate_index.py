@@ -152,6 +152,10 @@ def main():
                             f_include.write('%s\n' % s)
                             f_include.write('%s\n' % repeat_to_length('=', len(s)))
 
+    # here we remove Lindgren
+    # we need it for the above until we also remove the files from the repo
+    SYSTEMS.remove('Lindgren')
+
     top_line_program = []
     top_line_program.append('Version')
     for system in SYSTEMS:
