@@ -1,6 +1,6 @@
 
-This documentation is currently **not the official
-PDC software documentation**. You can find the offical PDC software
-documentation at https://www.pdc.kth.se/resources/software/installed-software.
+This documentation will gradually replace the previous PDC software
+documentation located at
+https://www.pdc.kth.se/resources/software/installed-software.
 
 .. include:: include.inc
