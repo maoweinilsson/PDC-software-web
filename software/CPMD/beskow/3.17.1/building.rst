@@ -29,8 +29,8 @@ The relevant configuration section of the Makefile is::
                  -DPOINTER8 -DMALLOC8
   NOOPT_FLAG =
   CC = cc -O2
-  FC = ftn -O2 -g -openmp
-  LD = ftn -O2 -g -openmp
+  FC = ftn -O2 -openmp
+  LD = ftn -O2 -openmp
   AR = ar
   #----------------------------------------------------------------------------
   # Personal Configuration
