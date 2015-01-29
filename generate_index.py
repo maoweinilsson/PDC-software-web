@@ -111,7 +111,7 @@ def generate_table(table, programs, version_d, systems, section, only_program=''
 
 def main():
 
-    SYSTEMS = ['Beskow', 'Povel', 'Ellen', 'Zorn']
+    SYSTEMS = ['Beskow', 'Lindgren', 'Povel', 'Ellen', 'Zorn']
 
     software_path = os.path.join(os.getcwd(), 'software')
 
