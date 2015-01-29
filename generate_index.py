@@ -205,8 +205,7 @@ def main():
                     if os.path.isfile(os.path.join('software', program, system.lower(), version, '%s.rst' % section.lower())):
                         with open(os.path.join('software', program, system.lower(), version, '%s.inc' % section.lower()), 'w') as f_include:
                             text = '%s %s %s on %s' % (section, program, version, system)
-                            f_include.write('%s\n' % text)
-                            f_include.write('%s\n' % repeat_char('=', len(text)))
+                            f_include.write('%s\n' % underline_text(text, '='))
 
     # here we remove Lindgren
     # we need it for the above until we also remove the files from the repo
@@ -221,8 +220,7 @@ def main():
     for program in programs:
         with open(os.path.join('software', program, 'include.inc'), 'w') as f_program:
             title = 'Running %s at PDC' % program
-            f_program.write('%s\n' % title)
-            f_program.write('%s\n' % repeat_char('=', len(title)))
+            f_program.write('%s\n' % underline_text(title, '='))
             table = []
             table.append(top_line_program)
             table += generate_table([program], version_d, systems, 'running')
