@@ -16,8 +16,7 @@ Check it runs::
 
   $ /pdc/vol/plumed/2.1.1/bin/plumed -h
 
-Now build GROMACS with support for plumed::
-
+Now build GROMACS with support for plumed.
 
 Use a copy of the GROMACS sources::
 
