@@ -1,4 +1,0 @@
-:orphan:
-
-.. code-block:: bash
-
