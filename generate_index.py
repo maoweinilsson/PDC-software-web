@@ -12,7 +12,7 @@ from distutils.version import LooseVersion
 
 # globals
 
-SYSTEMS = ['Beskow', 'Lindgren', 'Povel', 'Ellen', 'Zorn']
+SYSTEMS = ['Beskow', 'Povel', 'Ellen', 'Zorn']
 
 #-------------------------------------------------------------------------------
 
