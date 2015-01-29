@@ -125,7 +125,7 @@ def test_get_sphinx_table():
 
 #-------------------------------------------------------------------------------
 
-def generate_table(top_line, programs, version_d, systems, section):
+def generate_table(title_line, programs, version_d, systems, section):
     """
     Build table with hyperlinks.
     Function checks whether corresponding files exist and only
@@ -133,30 +133,30 @@ def generate_table(top_line, programs, version_d, systems, section):
     """
     import os
 
-    table = []
-    table.append(top_line)
-
+    table_body = []
     for program in programs:
-        for version in version_d[program]:
-            doc_exists = []
-            for system in systems:
-                doc_exists.append(os.path.isfile(os.path.join('software', program, system.lower(), version, '%s.rst' % section)))
-            if any(doc_exists):
-                line = []
-                if len(programs) > 1:
-                    line.append(":doc:`%s <software/%s/general>`" % (program, program))
-                line.append(version)
-                for i, system in enumerate(systems):
-                    if doc_exists[i]:
-                        if len(programs) > 1:
-                            line.append(":doc:`x <software/%s/%s/%s/%s>`" % (program, system.lower(), version, section))
-                        else:
-                            line.append(":doc:`x <%s/%s/%s>`" % (system.lower(), version, section))
+        for system in systems:
+            line = []
+            for version in version_d[program]:
+                if os.path.isfile(os.path.join('software', program, system.lower(), version, '%s.rst' % section)):
+                    if len(programs) > 1:
+                        line.append(":doc:`%s <software/%s/%s/%s/%s>`" % (version, program, system.lower(), version, section))
                     else:
-                        line.append('')
-                table.append(line)
+                        line.append(":doc:`%s <%s/%s/%s>`" % (version, system.lower(), version, section))
+            if len(line) > 0:
+                if len(programs) > 1:
+                    table_body.append([':doc:`%s <software/%s/general>`' % (program, program), system, ', '.join(line)])
+                else:
+                    table_body.append([system, ', '.join(line)])
 
-    return table
+    if table_body:
+        table = []
+        table.append(title_line)
+        for line in table_body:
+            table.append(line)
+        return table
+
+    return []
 
 #-------------------------------------------------------------------------------
 
@@ -213,33 +213,23 @@ def main():
     # we need it for the above until we also remove the files from the repo
     systems.remove('Lindgren')
 
-    top_line_program = []
-    top_line_program.append('Version')
-    for system in systems:
-        top_line_program.append(system)
-
     # this generates a version overview for each program separately
     for program in programs:
         with open(os.path.join('software', program, 'include.inc'), 'w') as f_program:
-            title = 'Running %s at PDC' % program
-            f_program.write('%s\n' % underline_text(title, '='))
-            table = generate_table(top_line_program, [program], version_d, systems, 'running')
-            f_program.write(get_sphinx_table(table))
+            for section in ['Running', 'Building']:
+                title_line = ['System', '%s instructions' % section]
+                table = generate_table(title_line, [program], version_d, systems, '%s' % section.lower())
+                if table:
+                    f_program.write('\n\n')
+                    f_program.write(get_sphinx_table(table))
 
     # generate main index file
+    title_line = ['Program', 'System', 'Available versions']
     with open('include.inc', 'w') as include_file:
-
-        top_line = []
-        top_line.append('Program')
-        top_line.append('Version')
-        for system in systems:
-            top_line.append(system)
-
         include_file.write('\n\n%s\n' % underline_text('Software at PDC', '='))
-
         for section in ['Running', 'Building']:
-            include_file.write('\n\n%s\n' % underline_text('%s Software' % section, '-'))
-            table = generate_table(top_line, programs, version_d, systems, '%s' % section.lower())
+            include_file.write('\n\n%s\n' % underline_text('%s software' % section, '-'))
+            table = generate_table(title_line, programs, version_d, systems, '%s' % section.lower())
             include_file.write(get_sphinx_table(table))
 
 #-------------------------------------------------------------------------------
