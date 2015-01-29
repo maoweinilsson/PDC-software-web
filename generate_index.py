@@ -96,28 +96,23 @@ def test_get_sphinx_table():
 
 #-------------------------------------------------------------------------------
 
-def generate_table(table, programs, version_d, systems, section, only_program=''):
+def generate_table(table, programs, version_d, systems, section):
 
     import os
 
-    if only_program != '':
-        programs_local = [only_program]
-    else:
-        programs_local = programs[:]
-
-    for program in programs_local:
+    for program in programs:
         for version in version_d[program]:
             doc_exists = []
             for system in systems:
                 doc_exists.append(os.path.isfile(os.path.join('software', program, system.lower(), version, '%s.rst' % section)))
             if any(doc_exists):
                 line = []
-                if only_program == '':
+                if len(programs) > 1:
                     line.append(":doc:`%s <software/%s/general>`" % (program, program))
                 line.append(version)
                 for i, system in enumerate(systems):
                     if doc_exists[i]:
-                        if only_program == '':
+                        if len(programs) > 1:
                             line.append(":doc:`x <software/%s/%s/%s/%s>`" % (program, system.lower(), version, section))
                         else:
                             line.append(":doc:`x <%s/%s/%s>`" % (system.lower(), version, section))
@@ -194,7 +189,7 @@ def main():
             f_program.write('%s\n' % repeat_char('=', len(title)))
             table = []
             table.append(top_line_program)
-            table = generate_table(table, programs, version_d, systems, 'running', only_program=program)
+            table = generate_table(table, [program], version_d, systems, 'running')
             f_program.write(get_sphinx_table(table))
 
     # generate main index file
