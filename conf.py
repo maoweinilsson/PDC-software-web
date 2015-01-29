@@ -124,7 +124,7 @@ html_theme_options = {
     'bgcolor' : '#FFFFFF',
     'textcolor' : '#111111',
     'headbgcolor' : '#FFFFFF',
-    'codebgcolor' : "#F4F4F4",
+    'codebgcolor' : "#AADDFF",
     'codetextcolor' : "#000000",
     'bodyfont' : 'Verdana, Arial, Helvetica, sans-serif',
     'headfont' : 'Verdana, Arial, Helvetica, sans-serif'
