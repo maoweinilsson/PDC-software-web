@@ -7,17 +7,23 @@ and generates include files
 #-------------------------------------------------------------------------------
 
 def repeat_char(char, length):
-
+    """
+    Repeats character length times.
+    """
     return char*length
 
 def test_repeat_char():
-
-    assert(repeat_char('r', 5) == 'rrrrr')
+    """
+    Tests test_repeat_char.
+    """
+    assert repeat_char('r', 5) == 'rrrrr'
 
 #-------------------------------------------------------------------------------
 
 def get_divider_line(max_column_width, char, skip_first=False):
-
+    """
+    Constructs divider line for a Sphinx table.
+    """
     if skip_first:
         text = ['|']
     else:
@@ -31,17 +37,21 @@ def get_divider_line(max_column_width, char, skip_first=False):
     return ''.join(text)
 
 def test_get_divider_line():
-
+    """
+    Tests get_divider_line.
+    """
     divider = get_divider_line([3, 4, 5], '=')
-    assert(divider == '+=====+======+=======+')
+    assert divider == '+=====+======+=======+'
 
     divider = get_divider_line([3, 4, 5], '-', skip_first=True)
-    assert(divider == '|     +------+-------+')
+    assert divider == '|     +------+-------+'
 
 #-------------------------------------------------------------------------------
 
 def get_sphinx_table(table):
-
+    """
+    Constructs Sphinx table from a two-dimensional list.
+    """
     num_columns = len(table[0])
 
     max_column_width = []
@@ -49,7 +59,7 @@ def get_sphinx_table(table):
         max_column_width.append(0)
 
     for line in table:
-        assert(len(line) == num_columns)
+        assert len(line) == num_columns
         for i in range(num_columns):
             width = len(line[i])
             if width > max_column_width[i]:
@@ -80,7 +90,9 @@ def get_sphinx_table(table):
     return '\n'.join(text)
 
 def test_get_sphinx_table():
-
+    """
+    Tests get_sphinx_table.
+    """
     table = get_sphinx_table([['foo', 'bar'], ['1', '2'], ['hey', 'ho']])
 
     reference = []
@@ -92,7 +104,7 @@ def test_get_sphinx_table():
     reference.append('| hey | ho  |')
     reference.append('+-----+-----+')
 
-    assert(table == '\n'.join(reference))
+    assert table == '\n'.join(reference)
 
 #-------------------------------------------------------------------------------
 
@@ -125,7 +137,9 @@ def generate_table(table, programs, version_d, systems, section):
 #-------------------------------------------------------------------------------
 
 def main():
-
+    """
+    Main function.
+    """
     import os
 
     # sorting of version numbers
