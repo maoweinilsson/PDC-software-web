@@ -169,7 +169,7 @@ def main():
     # sorting of version numbers
     from distutils.version import LooseVersion
 
-    systems = ['Beskow', 'Lindgren', 'Povel', 'Ellen', 'Zorn']
+    systems = ['Beskow', 'Ellen', 'Lindgren', 'Povel', 'Zorn']
 
     software_path = os.path.join(os.getcwd(), 'software')
 
