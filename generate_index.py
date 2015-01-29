@@ -10,18 +10,16 @@ import sys
 # sorting of version numbers
 from distutils.version import LooseVersion
 
-# globals
-
-SYSTEMS = ['Beskow', 'Povel', 'Ellen', 'Zorn']
-
 #-------------------------------------------------------------------------------
 
 def repeat_to_length(string_to_expand, length):
+
     return (string_to_expand * ((length/len(string_to_expand))+1))[:length]
 
 #-------------------------------------------------------------------------------
 
 def get_divider_line(max_column_width, c, skip_first=False):
+
     if skip_first:
         s = ['|']
     else:
@@ -111,84 +109,93 @@ def generate_table(table, programs, version_d, systems, section, only_program=''
 
 #-------------------------------------------------------------------------------
 
-software_path = os.path.join(os.getcwd(), 'software')
+def main():
 
-# get list of all installed programs
-programs = []
-version_d = {}
-for root, dirnames, filenames in os.walk(software_path):
-    for f in filenames:
-        if f == 'general.rst':
-            program = root.split('/')[-1]
-            programs.append(program)
-            version_d[program] = []
+    SYSTEMS = ['Beskow', 'Povel', 'Ellen', 'Zorn']
 
-# get list of all installed versions
-for root, dirnames, filenames in os.walk(software_path):
-    for f in filenames:
-        if f == 'running.rst' or f == 'building.rst':
-            version = root.split('/')[-1]
-            program = root.split('/')[-3]
-            if version not in version_d[program]:
-                version_d[program].append(version)
+    software_path = os.path.join(os.getcwd(), 'software')
 
-# sort programs
-programs = sorted(programs, key=lambda s: s.lower())
+    # get list of all installed programs
+    programs = []
+    version_d = {}
+    for root, dirnames, filenames in os.walk(software_path):
+        for f in filenames:
+            if f == 'general.rst':
+                program = root.split('/')[-1]
+                programs.append(program)
+                version_d[program] = []
 
-# sort versions
-for program in programs:
-    version_d[program].sort(reverse=True, key=LooseVersion)
+    # get list of all installed versions
+    for root, dirnames, filenames in os.walk(software_path):
+        for f in filenames:
+            if f == 'running.rst' or f == 'building.rst':
+                version = root.split('/')[-1]
+                program = root.split('/')[-3]
+                if version not in version_d[program]:
+                    version_d[program].append(version)
 
-top_line = []
-top_line.append('Software')
-top_line.append('Version')
-for system in SYSTEMS:
-    top_line.append(system)
+    # sort programs
+    programs = sorted(programs, key=lambda s: s.lower())
 
-top_line_program = []
-top_line_program.append('Version')
-for system in SYSTEMS:
-    top_line_program.append(system)
-
-with open('include.inc', 'w') as f:
-
-    f.write('\n\nSoftware at PDC\n')
-    f.write('===============\n')
-
-    f.write('\n\nRunning software\n')
-    f.write('----------------\n')
-
-    table = []
-    table.append(top_line)
-    table = generate_table(table, programs, version_d, SYSTEMS, 'running')
-    f.write(get_sphinx_table(table))
-
-    f.write('\n\n\nBuilding software\n')
-    f.write('-----------------\n\n')
-
-    table = []
-    table.append(top_line)
-    table = generate_table(table, programs, version_d, SYSTEMS, 'building')
-    f.write(get_sphinx_table(table))
-
-    # this generates a version overview for each program separately
+    # sort versions
     for program in programs:
-        with open(os.path.join('software', program, 'include.inc'), 'w') as f_program:
-            s = 'Running %s at PDC' % program
-            f_program.write('%s\n' % s)
-            f_program.write('%s\n' % repeat_to_length('=', len(s)))
-            table = []
-            table.append(top_line_program)
-            table = generate_table(table, programs, version_d, SYSTEMS, 'running', only_program=program)
-            f_program.write(get_sphinx_table(table))
+        version_d[program].sort(reverse=True, key=LooseVersion)
 
-    # build include files which contain title and version
-    for program in programs:
-        for version in version_d[program]:
-            for system in SYSTEMS:
-                for section in ['Running', 'Building']:
-                    if os.path.isfile(os.path.join('software', program, system.lower(), version, '%s.rst' % section.lower())):
-                        with open(os.path.join('software', program, system.lower(), version, '%s.inc' % section.lower()), 'w') as f_include:
-                            s = '%s %s %s on %s' % (section, program, version, system)
-                            f_include.write('%s\n' % s)
-                            f_include.write('%s\n' % repeat_to_length('=', len(s)))
+    top_line = []
+    top_line.append('Software')
+    top_line.append('Version')
+    for system in SYSTEMS:
+        top_line.append(system)
+
+    top_line_program = []
+    top_line_program.append('Version')
+    for system in SYSTEMS:
+        top_line_program.append(system)
+
+    with open('include.inc', 'w') as f:
+
+        f.write('\n\nSoftware at PDC\n')
+        f.write('===============\n')
+
+        f.write('\n\nRunning software\n')
+        f.write('----------------\n')
+
+        table = []
+        table.append(top_line)
+        table = generate_table(table, programs, version_d, SYSTEMS, 'running')
+        f.write(get_sphinx_table(table))
+
+        f.write('\n\n\nBuilding software\n')
+        f.write('-----------------\n\n')
+
+        table = []
+        table.append(top_line)
+        table = generate_table(table, programs, version_d, SYSTEMS, 'building')
+        f.write(get_sphinx_table(table))
+
+        # this generates a version overview for each program separately
+        for program in programs:
+            with open(os.path.join('software', program, 'include.inc'), 'w') as f_program:
+                s = 'Running %s at PDC' % program
+                f_program.write('%s\n' % s)
+                f_program.write('%s\n' % repeat_to_length('=', len(s)))
+                table = []
+                table.append(top_line_program)
+                table = generate_table(table, programs, version_d, SYSTEMS, 'running', only_program=program)
+                f_program.write(get_sphinx_table(table))
+
+        # build include files which contain title and version
+        for program in programs:
+            for version in version_d[program]:
+                for system in SYSTEMS:
+                    for section in ['Running', 'Building']:
+                        if os.path.isfile(os.path.join('software', program, system.lower(), version, '%s.rst' % section.lower())):
+                            with open(os.path.join('software', program, system.lower(), version, '%s.inc' % section.lower()), 'w') as f_include:
+                                s = '%s %s %s on %s' % (section, program, version, system)
+                                f_include.write('%s\n' % s)
+                                f_include.write('%s\n' % repeat_to_length('=', len(s)))
+
+#-------------------------------------------------------------------------------
+
+if __name__ == '__main__':
+    main()
