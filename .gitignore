@@ -1,5 +1,4 @@
-_build/doctrees/
-_build/html/
+_build/*
 *.pyc
 
 # .inc files are generated on the web server
