@@ -13,13 +13,17 @@
 
 /* -- page layout ----------------------------------------------------------- */
 
+.wrapper {
+    padding: 0 10px;
+    background: #FFFFFF;
+}
+
 .header {
     clear: both;
-    padding: 5px 0 20px 0;
+    padding: 2px 0 20px 0;
     position: relative;
     background: #FFFFFF;
-    /* margin-left: 38px; */
-    /* margin-right: 38px; */
+    margin: 0 auto;
 }
 
 .block.figure {
@@ -32,11 +36,10 @@
 body {
     font-family: {{ theme_bodyfont }};
     font-size: 100%;
-    background-color: #FFFFFF;
+    background-color: #E4E4E4;
     color: #000;
-    margin-left: 38px;
-    margin-right: 38px;
-    /*width: 960px;*/
+    margin: 0 auto;
+    width: 980px;
 }
 
 div.document {
@@ -313,7 +316,7 @@ tt {
 }
 
 th {
-    background-color: #ede;
+    background-color: #ddf;
 }
 
 .warning tt {
@@ -506,7 +509,7 @@ div.viewcode-block:target {
     padding: 0;
     position: relative;
     background: #FFFFFF;
-    margin-top: 5px;
+    margin-top: 12px;
     /* margin-left: 38px; */
     /* margin-right: 38px; */
 }
