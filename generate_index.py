@@ -108,10 +108,11 @@ def test_get_sphinx_table():
 
 #-------------------------------------------------------------------------------
 
-def generate_table(table, programs, version_d, systems, section):
+def generate_table(programs, version_d, systems, section):
 
     import os
 
+    table = []
     for program in programs:
         for version in version_d[program]:
             doc_exists = []
@@ -203,7 +204,7 @@ def main():
             f_program.write('%s\n' % repeat_char('=', len(title)))
             table = []
             table.append(top_line_program)
-            table = generate_table(table, [program], version_d, systems, 'running')
+            table += generate_table([program], version_d, systems, 'running')
             f_program.write(get_sphinx_table(table))
 
     # generate main index file
@@ -223,7 +224,7 @@ def main():
 
         table = []
         table.append(top_line)
-        table = generate_table(table, programs, version_d, systems, 'running')
+        table += generate_table(programs, version_d, systems, 'running')
         include_file.write(get_sphinx_table(table))
 
         include_file.write('\n\n\nBuilding software\n')
@@ -231,7 +232,7 @@ def main():
 
         table = []
         table.append(top_line)
-        table = generate_table(table, programs, version_d, systems, 'building')
+        table += generate_table(programs, version_d, systems, 'building')
         include_file.write(get_sphinx_table(table))
 
 #-------------------------------------------------------------------------------
