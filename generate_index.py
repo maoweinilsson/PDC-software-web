@@ -125,7 +125,7 @@ def test_get_sphinx_table():
 
 #-------------------------------------------------------------------------------
 
-def generate_table(programs, version_d, systems, section):
+def generate_table(top_line, programs, version_d, systems, section):
     """
     Build table with hyperlinks.
     Function checks whether corresponding files exist and only
@@ -134,6 +134,8 @@ def generate_table(programs, version_d, systems, section):
     import os
 
     table = []
+    table.append(top_line)
+
     for program in programs:
         for version in version_d[program]:
             doc_exists = []
@@ -221,9 +223,7 @@ def main():
         with open(os.path.join('software', program, 'include.inc'), 'w') as f_program:
             title = 'Running %s at PDC' % program
             f_program.write('%s\n' % underline_text(title, '='))
-            table = []
-            table.append(top_line_program)
-            table += generate_table([program], version_d, systems, 'running')
+            table = generate_table(top_line_program, [program], version_d, systems, 'running')
             f_program.write(get_sphinx_table(table))
 
     # generate main index file
@@ -239,9 +239,7 @@ def main():
 
         for section in ['Running', 'Building']:
             include_file.write('\n\n%s\n' % underline_text('%s Software' % section, '-'))
-            table = []
-            table.append(top_line)
-            table += generate_table(programs, version_d, systems, '%s' % section.lower())
+            table = generate_table(top_line, programs, version_d, systems, '%s' % section.lower())
             include_file.write(get_sphinx_table(table))
 
 #-------------------------------------------------------------------------------
