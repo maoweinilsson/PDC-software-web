@@ -20,6 +20,23 @@ def test_repeat_char():
 
 #-------------------------------------------------------------------------------
 
+def underline_text(text, char):
+    """
+    Underline text with char.
+    """
+    underlined = []
+    underlined.append(text)
+    underlined.append(repeat_char(char, len(text)))
+    return '\n'.join(underlined)
+
+def test_underline_text():
+    """
+    Tests test_underline_text.
+    """
+    assert underline_text('Raboof!', '=') == 'Raboof!\n======='
+
+#-------------------------------------------------------------------------------
+
 def get_divider_line(max_column_width, char, skip_first=False):
     """
     Constructs divider line for a Sphinx table.
@@ -109,7 +126,11 @@ def test_get_sphinx_table():
 #-------------------------------------------------------------------------------
 
 def generate_table(programs, version_d, systems, section):
-
+    """
+    Build table with hyperlinks.
+    Function checks whether corresponding files exist and only
+    includes the version where documentation is present.
+    """
     import os
 
     table = []
@@ -216,24 +237,14 @@ def main():
         for system in systems:
             top_line.append(system)
 
-        include_file.write('\n\nSoftware at PDC\n')
-        include_file.write('===============\n')
+        include_file.write('\n\n%s\n' % underline_text('Software at PDC', '='))
 
-        include_file.write('\n\nRunning software\n')
-        include_file.write('----------------\n')
-
-        table = []
-        table.append(top_line)
-        table += generate_table(programs, version_d, systems, 'running')
-        include_file.write(get_sphinx_table(table))
-
-        include_file.write('\n\n\nBuilding software\n')
-        include_file.write('-----------------\n\n')
-
-        table = []
-        table.append(top_line)
-        table += generate_table(programs, version_d, systems, 'building')
-        include_file.write(get_sphinx_table(table))
+        for section in ['Running', 'Building']:
+            include_file.write('\n\n%s\n' % underline_text('%s Software' % section, '-'))
+            table = []
+            table.append(top_line)
+            table += generate_table(programs, version_d, systems, '%s' % section.lower())
+            include_file.write(get_sphinx_table(table))
 
 #-------------------------------------------------------------------------------
 
