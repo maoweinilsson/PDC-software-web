@@ -373,6 +373,7 @@ div.viewcode-block:target {
   padding: 0 12px;
   text-decoration: none;
   text-transform: none;
+  min-width: 6em;
 }
 
 #portal-globalnav li.selected a {
