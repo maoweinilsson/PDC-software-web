@@ -172,6 +172,8 @@ div.sphinxsidebar input {
     border: 1px solid {{ theme_sidebarlinkcolor }};
     font-family: sans-serif;
     font-size: 1em;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 {% if theme_collapsiblesidebar|tobool %}
