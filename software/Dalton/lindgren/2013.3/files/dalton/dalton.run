@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#PBS -l walltime=0:05:00
+#PBS -l mppwidth=48
+
+# enable modules within the batch system
+. /opt/modules/default/etc/modules.sh
+
+module add dalton/2013.3
+
+# this is where dalton will write temporary files
+export DALTON_TMPDIR=/cfs/klemming/scratch/${USER:0:1}/${USER}/dalton_scratch/$PBS_JOBID
+
+# it is important that we submit from /cfs/klemming and not from /afs
+# we need to cd to current directory
+cd $PBS_O_WORKDIR
+
+# run dalton
+export DALTON_LAUNCHER="aprun -n 48"
+dalton -o b3lyp_energy_h2o2.out b3lyp_energy.dal h2o2.mol

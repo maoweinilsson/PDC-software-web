@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#SBATCH -J abinit-job
+
+#SBATCH -t 00:30:00
+
+# number of nodes
+#SBATCH -N 2
+
+# number of MPI processes
+#SBATCH -n 64
+
+#SBATCH -o stdout.txt
+#SBATCH -e stderr.txt
+
+module load abinit/7.6.1
+
+cd $SLURM_SUBMIT_DIR
+
+aprun -n 64 abinit < test.files

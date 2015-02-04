@@ -1,5 +1,7 @@
 :orphan:
 
+.. include:: running.inc
+
 Here's an example way of running SIESTA on beskow, untested but it should work:
 
 .. code-block:: bash

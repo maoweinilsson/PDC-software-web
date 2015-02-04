@@ -1,41 +1,74 @@
 
-'''
+"""
 This script crawls through subdirectories of software/
 and generates include files
-'''
-
-import os
-import sys
-
-# globals
-
-SYSTEMS = ['Beskow', 'Lindgren', 'Povel', 'Ellen', 'Zorn']
+"""
 
 #-------------------------------------------------------------------------------
 
-def repeat_to_length(string_to_expand, length):
-    return (string_to_expand * ((length/len(string_to_expand))+1))[:length]
+def repeat_char(char, length):
+    """
+    Repeats character length times.
+    """
+    return char*length
+
+def test_repeat_char():
+    """
+    Tests test_repeat_char.
+    """
+    assert repeat_char('r', 5) == 'rrrrr'
 
 #-------------------------------------------------------------------------------
 
-def get_divider_line(max_column_width, c, skip_first=False):
+def underline_text(text, char):
+    """
+    Underline text with char.
+    """
+    underlined = []
+    underlined.append(text)
+    underlined.append(repeat_char(char, len(text)))
+    return '\n'.join(underlined)
+
+def test_underline_text():
+    """
+    Tests test_underline_text.
+    """
+    assert underline_text('Raboof!', '=') == 'Raboof!\n======='
+
+#-------------------------------------------------------------------------------
+
+def get_divider_line(max_column_width, char, skip_first=False):
+    """
+    Constructs divider line for a Sphinx table.
+    """
     if skip_first:
-        s = ['|']
+        text = ['|']
     else:
-        s = ['+']
+        text = ['+']
     for i, width in enumerate(max_column_width):
         if i == 0 and skip_first:
-            s.append(repeat_to_length(' ', width + 2))
+            text.append(repeat_char(' ', width + 2))
         else:
-            s.append(repeat_to_length(c, width + 2))
-        s.append('+')
-    return ''.join(s)
+            text.append(repeat_char(char, width + 2))
+        text.append('+')
+    return ''.join(text)
+
+def test_get_divider_line():
+    """
+    Tests get_divider_line.
+    """
+    divider = get_divider_line([3, 4, 5], '=')
+    assert divider == '+=====+======+=======+'
+
+    divider = get_divider_line([3, 4, 5], '-', skip_first=True)
+    assert divider == '|     +------+-------+'
 
 #-------------------------------------------------------------------------------
 
 def get_sphinx_table(table):
-
-    num_lines = len(table)
+    """
+    Constructs Sphinx table from a two-dimensional list.
+    """
     num_columns = len(table[0])
 
     max_column_width = []
@@ -43,149 +76,172 @@ def get_sphinx_table(table):
         max_column_width.append(0)
 
     for line in table:
-        if len(line) != num_columns:
-            sys.stderr.write("ERROR: number of columns inconsistent in line %s\n" % line)
-            sys.exit(-1)
+        assert len(line) == num_columns
         for i in range(num_columns):
             width = len(line[i])
             if width > max_column_width[i]:
                 max_column_width[i] = width
 
-    s = []
+    text = []
     for i, line in enumerate(table):
         skip_first = False
         if i == 0:
-            s.append(get_divider_line(max_column_width, '-'))
+            text.append(get_divider_line(max_column_width, '-'))
         elif i == 1:
-            s.append(get_divider_line(max_column_width, '='))
+            text.append(get_divider_line(max_column_width, '='))
         else:
             # do not repeat program name if it is in the line above
             skip_first = (table[i][0] == table[i-1][0])
-            s.append(get_divider_line(max_column_width, '-', skip_first))
-        s3 = ['|']
-        for j, w in enumerate(line):
+            text.append(get_divider_line(max_column_width, '-', skip_first))
+        text2 = ['|']
+        for j, word in enumerate(line):
             if j == 0 and skip_first:
-                z = ' '
+                word2 = ' '
             else:
-                z = w
-            s3.append(' %s%s ' % (z, repeat_to_length(' ', max_column_width[j] - len(z))))
-            s3.append('|')
-        s.append(''.join(s3))
-    s.append(get_divider_line(max_column_width, '-'))
+                word2 = word
+            text2.append(' %s%s ' % (word2, repeat_char(' ', max_column_width[j] - len(word2))))
+            text2.append('|')
+        text.append(''.join(text2))
+    text.append(get_divider_line(max_column_width, '-'))
 
-    return '\n'.join(s)
+    return '\n'.join(text)
 
-#-------------------------------------------------------------------------------
+def test_get_sphinx_table():
+    """
+    Tests get_sphinx_table.
+    """
+    table = get_sphinx_table([['foo', 'bar'], ['1', '2'], ['hey', 'ho']])
 
-def generate_table(table, programs, version_d, systems, section, only_program=''):
+    reference = []
+    reference.append('+-----+-----+')
+    reference.append('| foo | bar |')
+    reference.append('+=====+=====+')
+    reference.append('| 1   | 2   |')
+    reference.append('+-----+-----+')
+    reference.append('| hey | ho  |')
+    reference.append('+-----+-----+')
 
-    if only_program != '':
-        programs_local = [only_program]
-    else:
-        programs_local = programs[:]
-
-    for program in programs_local:
-        for version in version_d[program]:
-            doc_exists = []
-            for system in systems:
-                doc_exists.append(os.path.isfile(os.path.join('software', program, system.lower(), version, '%s.rst' % section)))
-            if any(doc_exists):
-                line = []
-                if only_program == '':
-                    line.append(":doc:`%s <software/%s/general>`" % (program, program))
-                line.append(version)
-                for i, system in enumerate(systems):
-                    if doc_exists[i]:
-                        if only_program == '':
-                            line.append(":doc:`x <software/%s/%s/%s/%s>`" % (program, system.lower(), version, section))
-                        else:
-                            line.append(":doc:`x <%s/%s/%s>`" % (system.lower(), version, section))
-                    else:
-                        line.append('')
-                table.append(line)
-
-    return table
+    assert table == '\n'.join(reference)
 
 #-------------------------------------------------------------------------------
 
-software_path = os.path.join(os.getcwd(), 'software')
+def generate_table(title_line, programs, version_d, systems, section):
+    """
+    Build table with hyperlinks.
+    Function checks whether corresponding files exist and only
+    includes the version where documentation is present.
+    """
+    import os
 
-# get list of all installed programs
-programs = []
-version_d = {}
-for root, dirnames, filenames in os.walk(software_path):
-    for f in filenames:
-        if f == 'general.rst':
-            program = root.split('/')[-1]
-            programs.append(program)
-            version_d[program] = []
-
-# get list of all installed versions
-for root, dirnames, filenames in os.walk(software_path):
-    for f in filenames:
-        if f == 'running.rst' or f == 'building.rst':
-            version = root.split('/')[-1]
-            program = root.split('/')[-3]
-            if version not in version_d[program]:
-                version_d[program].append(version)
-
-# sort programs
-programs = sorted(programs, key=lambda s: s.lower())
-
-# sort versions
-for program in programs:
-    version_d[program].sort(reverse=True)
-
-top_line = []
-top_line.append('Software')
-top_line.append('Version')
-for system in SYSTEMS:
-    top_line.append(system)
-
-top_line_program = []
-top_line_program.append('Version')
-for system in SYSTEMS:
-    top_line_program.append(system)
-
-with open('include.inc', 'w') as f:
-
-    f.write('\n\nSoftware at PDC\n')
-    f.write('===============\n')
-
-    f.write('\n\nRunning software\n')
-    f.write('----------------\n')
-
-    table = []
-    table.append(top_line)
-    table = generate_table(table, programs, version_d, SYSTEMS, 'running')
-    f.write(get_sphinx_table(table))
-
-    f.write('\n\n\nBuilding software\n')
-    f.write('-----------------\n\n')
-
-    table = []
-    table.append(top_line)
-    table = generate_table(table, programs, version_d, SYSTEMS, 'building')
-    f.write(get_sphinx_table(table))
-
-    # this generates a version overview for each program separately
+    table_body = []
     for program in programs:
-        with open(os.path.join('software', program, 'include.inc'), 'w') as f_program:
-            s = 'Running %s at PDC' % program
-            f_program.write('%s\n' % s)
-            f_program.write('%s\n' % repeat_to_length('=', len(s)))
-            table = []
-            table.append(top_line_program)
-            table = generate_table(table, programs, version_d, SYSTEMS, 'running', only_program=program)
-            f_program.write(get_sphinx_table(table))
+        for system in systems:
+            line = []
+            for version in version_d[program]:
+                if os.path.isfile(os.path.join('software', program, system.lower(), version, '%s.rst' % section)):
+                    if len(programs) > 1:
+                        line.append(":doc:`%s <software/%s/%s/%s/%s>`" % (version, program, system.lower(), version, section))
+                    else:
+                        line.append(":doc:`%s <%s/%s/%s>`" % (version, system.lower(), version, section))
+            if len(line) > 0:
+                if len(programs) > 1:
+                    table_body.append([':doc:`%s <software/%s/general>`' % (program, program), system, ', '.join(line)])
+                else:
+                    table_body.append([system, ', '.join(line)])
+
+    if table_body:
+        table = []
+        table.append(title_line)
+        for line in table_body:
+            table.append(line)
+        return table
+
+    return []
+
+#-------------------------------------------------------------------------------
+
+def main():
+    """
+    Main function.
+    """
+    import os
+
+    # sorting of version numbers
+    from distutils.version import LooseVersion
+
+    systems = ['Beskow', 'Ellen', 'Lindgren', 'Povel', 'Zorn']
+
+    software_path = os.path.join(os.getcwd(), 'software')
+
+    # get list of all installed programs
+    programs = []
+    version_d = {}
+    for root, _, filenames in os.walk(software_path):
+        for name in filenames:
+            if name == 'general.rst':
+                program = root.split('/')[-1]
+                programs.append(program)
+                version_d[program] = []
+
+    # get list of all installed versions
+    for root, _, filenames in os.walk(software_path):
+        for name in filenames:
+            if name == 'running.rst' or name == 'building.rst':
+                version = root.split('/')[-1]
+                program = root.split('/')[-3]
+                if version not in version_d[program]:
+                    version_d[program].append(version)
+
+    # sort programs
+    programs = sorted(programs, key=lambda s: s.lower())
+
+    # sort versions
+    for program in programs:
+        version_d[program].sort(reverse=True, key=LooseVersion)
 
     # build include files which contain title and version
     for program in programs:
         for version in version_d[program]:
-            for system in SYSTEMS:
+            for system in systems:
                 for section in ['Running', 'Building']:
                     if os.path.isfile(os.path.join('software', program, system.lower(), version, '%s.rst' % section.lower())):
                         with open(os.path.join('software', program, system.lower(), version, '%s.inc' % section.lower()), 'w') as f_include:
-                            s = '%s %s %s on %s' % (section, program, version, system)
-                            f_include.write('%s\n' % s)
-                            f_include.write('%s\n' % repeat_to_length('=', len(s)))
+
+                            # add navigation
+                            f_include.write(":doc:`../../../../index` - :doc:`../../general` - :doc:`%s`\n\n" % section.lower())
+
+                            text = '%s %s %s on %s' % (section, program, version, system)
+                            f_include.write('%s\n' % underline_text(text, '='))
+
+    # here we remove Lindgren
+    # we need it for the above until we also remove the files from the repo
+    systems.remove('Lindgren')
+
+    # this generates a version overview for each program separately
+    for program in programs:
+        with open(os.path.join('software', program, 'include.inc'), 'w') as f_program:
+
+            # add navigation
+            f_program.write(":doc:`../../index` - :doc:`general`\n\n")
+
+            f_program.write("%s\n\n" % underline_text("General information about %s" % program, '='))
+            for section in ['Running', 'Building']:
+                title_line = ['System', '%s instructions' % section]
+                table = generate_table(title_line, [program], version_d, systems, '%s' % section.lower())
+                if table:
+                    f_program.write('\n\n')
+                    f_program.write(get_sphinx_table(table))
+
+    # generate main index file
+    title_line = ['Program', 'System', 'Available versions']
+    with open('include.inc', 'w') as include_file:
+        include_file.write('\n\n%s\n' % underline_text('Software at PDC', '='))
+        for section in ['Running', 'Building']:
+            include_file.write('\n\n%s\n' % underline_text('%s software' % section, '-'))
+            table = generate_table(title_line, programs, version_d, systems, '%s' % section.lower())
+            include_file.write(get_sphinx_table(table))
+
+#-------------------------------------------------------------------------------
+
+if __name__ == '__main__':
+    main()

@@ -15,9 +15,6 @@
 import sys
 import os
 
-sys.path.append(os.path.dirname(__file__))
-import sphinx_rtd_theme
-
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -33,7 +30,7 @@ import sphinx_rtd_theme
 # ones.
 extensions = [
     'sphinx.ext.todo',
-    'sphinx.ext.mathjax',
+#   'sphinx.ext.mathjax', # Radovan: if we want this to work it has to be loaded via https
     'sphinx.ext.ifconfig',
 ]
 
@@ -50,7 +47,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'PDC'
+project = u'PDC software'
 copyright = u'2014, PDC'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -109,17 +106,33 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-# html_theme = 'default'
-# radovan: for the moment use rtd theme
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'default_pdc'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
+html_theme_options = {
+    'collapsiblesidebar': True,
+    'footerbgcolor' : '#65656C',
+    'footertextcolor' : '#FFFFFF',
+    'sidebarbgcolor' : '#FFFFFF',
+    'sidebarbtncolor' : '#F7F7F7',
+    'sidebartextcolor' : '#444444',
+    'relbarbgcolor': '#1954A6',
+    'relbartextcolor' : '#FFFFFF',
+    'relbarlinkcolor' : '#FFFFFF',
+    'bgcolor' : '#FFFFFF',
+    'textcolor' : '#111111',
+    'headbgcolor' : '#FFFFFF',
+    'codebgcolor' : "#CCFFFF",
+    'codetextcolor' : "#000000",
+    'bodyfont' : 'Verdana, Arial, Helvetica, sans-serif',
+    'headfont' : 'Verdana, Arial, Helvetica, sans-serif'
+
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+html_theme_path = ['./themes']
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
