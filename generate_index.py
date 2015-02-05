@@ -186,7 +186,7 @@ def main():
     # get list of all installed versions
     for root, _, filenames in os.walk(software_path):
         for name in filenames:
-            if name == 'running.rst' or name == 'building.rst':
+            if name == 'using.rst' or name == 'building.rst':
                 version = root.split('/')[-1]
                 program = root.split('/')[-3]
                 if version not in version_d[program]:
@@ -203,7 +203,7 @@ def main():
     for program in programs:
         for version in version_d[program]:
             for system in systems:
-                for section in ['Running', 'Building']:
+                for section in ['Using', 'Building']:
                     if os.path.isfile(os.path.join('software', program, system.lower(), version, '%s.rst' % section.lower())):
                         with open(os.path.join('software', program, system.lower(), version, '%s.inc' % section.lower()), 'w') as f_include:
 
@@ -225,7 +225,7 @@ def main():
             f_program.write(":doc:`../../index` - :doc:`general`\n\n")
 
             f_program.write("%s\n\n" % underline_text("General information about %s" % program, '='))
-            for section in ['Running', 'Building']:
+            for section in ['Using', 'Building']:
                 title_line = ['System', '%s instructions' % section]
                 table = generate_table(title_line, [program], version_d, systems, '%s' % section.lower())
                 if table:
@@ -236,7 +236,7 @@ def main():
     title_line = ['Program', 'System', 'Available versions']
     with open('include.inc', 'w') as include_file:
         include_file.write('\n\n%s\n' % underline_text('Software at PDC', '='))
-        for section in ['Running', 'Building']:
+        for section in ['Using', 'Building']:
             include_file.write('\n\n%s\n' % underline_text('%s software' % section, '-'))
             table = generate_table(title_line, programs, version_d, systems, '%s' % section.lower())
             include_file.write(get_sphinx_table(table))
