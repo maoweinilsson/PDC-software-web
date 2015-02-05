@@ -171,13 +171,14 @@ def main():
     from distutils.version import LooseVersion
 
     systems = ['Beskow', 'Ellen', 'Lindgren', 'Povel', 'Zorn']
+    section = 'software'
 
-    software_path = os.path.join(os.getcwd(), 'software')
+    path_to_search = os.path.join(os.getcwd(), section)
 
     # get list of all installed programs
     programs = []
     version_d = {}
-    for root, _, filenames in os.walk(software_path):
+    for root, _, filenames in os.walk(path_to_search):
         for name in filenames:
             if name == 'general.rst':
                 program = root.split('/')[-1]
@@ -185,7 +186,7 @@ def main():
                 version_d[program] = []
 
     # get list of all installed versions
-    for root, _, filenames in os.walk(software_path):
+    for root, _, filenames in os.walk(path_to_search):
         for name in filenames:
             if name == 'using.rst' or name == 'building.rst':
                 version = root.split('/')[-1]
@@ -205,8 +206,8 @@ def main():
         for version in version_d[program]:
             for system in systems:
                 for subsection in ['Using', 'Building']:
-                    if os.path.isfile(os.path.join('software', program, system.lower(), version, '%s.rst' % subsection.lower())):
-                        with open(os.path.join('software', program, system.lower(), version, '%s.inc' % subsection.lower()), 'w') as f_include:
+                    if os.path.isfile(os.path.join(section, program, system.lower(), version, '%s.rst' % subsection.lower())):
+                        with open(os.path.join(section, program, system.lower(), version, '%s.inc' % subsection.lower()), 'w') as f_include:
 
                             # add navigation
                             f_include.write(":doc:`../../../../index` - :doc:`../../general` - :doc:`%s`\n\n" % subsection.lower())
@@ -220,7 +221,7 @@ def main():
 
     # this generates a version overview for each program separately
     for program in programs:
-        with open(os.path.join('software', program, 'include.inc'), 'w') as f_program:
+        with open(os.path.join(section, program, 'include.inc'), 'w') as f_program:
 
             # add navigation
             f_program.write(":doc:`../../index` - :doc:`general`\n\n")
@@ -228,7 +229,7 @@ def main():
             f_program.write("%s\n\n" % underline_text("General information about %s" % program, '='))
             for subsection in ['Using', 'Building']:
                 title_line = ['System', '%s instructions' % subsection]
-                table = generate_table(title_line, [program], version_d, systems, 'software', '%s' % subsection.lower())
+                table = generate_table(title_line, [program], version_d, systems, section, '%s' % subsection.lower())
                 if table:
                     f_program.write('\n\n')
                     f_program.write(get_sphinx_table(table))
@@ -236,10 +237,10 @@ def main():
     # generate main index file
     title_line = ['Program', 'System', 'Available versions']
     with open('include.inc', 'w') as include_file:
-        include_file.write('\n\n%s\n' % underline_text('Software', '='))
+        include_file.write('\n\n%s\n' % underline_text(section.title(), '='))
         for subsection in ['Using', 'Building']:
-            include_file.write('\n\n%s\n' % underline_text('%s software' % subsection, '-'))
-            table = generate_table(title_line, programs, version_d, systems, 'software', '%s' % subsection.lower())
+            include_file.write('\n\n%s\n' % underline_text('%s %s' % (subsection, section), '-'))
+            table = generate_table(title_line, programs, version_d, systems, section, '%s' % subsection.lower())
             include_file.write(get_sphinx_table(table))
 
 #-------------------------------------------------------------------------------
