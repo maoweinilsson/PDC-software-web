@@ -26,6 +26,8 @@ GNU
 
 Intel
 -----
+
+.. code-block:: bash
  
   export CC=icc
   export FC=ifort
