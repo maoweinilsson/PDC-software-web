@@ -126,7 +126,7 @@ def test_get_sphinx_table():
 
 #-------------------------------------------------------------------------------
 
-def generate_table(title_line, programs, version_d, systems, subsection):
+def generate_table(title_line, programs, version_d, systems, section, subsection):
     """
     Build table with hyperlinks.
     Function checks whether corresponding files exist and only
@@ -139,14 +139,14 @@ def generate_table(title_line, programs, version_d, systems, subsection):
         for system in systems:
             line = []
             for version in version_d[program]:
-                if os.path.isfile(os.path.join('software', program, system.lower(), version, '%s.rst' % subsection)):
+                if os.path.isfile(os.path.join(section, program, system.lower(), version, '%s.rst' % subsection)):
                     if len(programs) > 1:
-                        line.append(":doc:`%s <software/%s/%s/%s/%s>`" % (version, program, system.lower(), version, subsection))
+                        line.append(":doc:`%s <%s/%s/%s/%s/%s>`" % (version, section, program, system.lower(), version, subsection))
                     else:
                         line.append(":doc:`%s <%s/%s/%s>`" % (version, system.lower(), version, subsection))
             if len(line) > 0:
                 if len(programs) > 1:
-                    table_body.append([':doc:`%s <software/%s/general>`' % (program, program), system, ', '.join(line)])
+                    table_body.append([':doc:`%s <%s/%s/general>`' % (program, section, program), system, ', '.join(line)])
                 else:
                     table_body.append([system, ', '.join(line)])
 
@@ -228,7 +228,7 @@ def main():
             f_program.write("%s\n\n" % underline_text("General information about %s" % program, '='))
             for subsection in ['Using', 'Building']:
                 title_line = ['System', '%s instructions' % subsection]
-                table = generate_table(title_line, [program], version_d, systems, '%s' % subsection.lower())
+                table = generate_table(title_line, [program], version_d, systems, 'software', '%s' % subsection.lower())
                 if table:
                     f_program.write('\n\n')
                     f_program.write(get_sphinx_table(table))
@@ -239,7 +239,7 @@ def main():
         include_file.write('\n\n%s\n' % underline_text('Software', '='))
         for subsection in ['Using', 'Building']:
             include_file.write('\n\n%s\n' % underline_text('%s software' % subsection, '-'))
-            table = generate_table(title_line, programs, version_d, systems, '%s' % subsection.lower())
+            table = generate_table(title_line, programs, version_d, systems, 'software', '%s' % subsection.lower())
             include_file.write(get_sphinx_table(table))
 
 #-------------------------------------------------------------------------------
