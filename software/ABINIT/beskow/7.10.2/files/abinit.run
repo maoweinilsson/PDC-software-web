@@ -14,7 +14,7 @@
 #SBATCH -e stderr.txt
 #SBATCH --export=NONE
 
-module load abinit/7.6.1
+module load abinit/7.10.2
 
 cd $SLURM_SUBMIT_DIR
 
