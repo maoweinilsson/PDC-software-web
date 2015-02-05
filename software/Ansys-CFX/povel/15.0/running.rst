@@ -3,10 +3,11 @@
 .. include:: running.inc
 
 Submitting a CFX job on Povel
---------------------------------
+-----------------------------
 
 Single node job
 ---------------
+
 If you want to run Ansys CFX on one node on Ferlin/Povel you can do so by creating a simple script (e.g. *cfx_run.sh*) which includes:
 
 .. literalinclude:: files/cfx_run.sh
@@ -22,7 +23,8 @@ Make sure the script *cfx_run.sh* is executable and submit it from Povel's login
 Note the above *Your_CFX_Definition.def* should be replaced by your definition file and *Your_Partition_Count* by the partition count. If the *Your_Partition_Count* is NOT specified, a partition file (.par) is assumed to be created in the same directory.  
 
 Multi node job
--------------
+--------------
+
 If you want to run Ansys CFX with 2 to 4 nodes on Povel, you can do  by creating a simple script which includes:
 
 .. literalinclude:: files/cfx_run2.sh
