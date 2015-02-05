@@ -161,17 +161,12 @@ def generate_table(title_line, programs, version_d, systems, section, subsection
 
 #-------------------------------------------------------------------------------
 
-def main():
-    """
-    Main function.
-    """
+def build_doc_section(systems, section):
+
     import os
 
     # sorting of version numbers
     from distutils.version import LooseVersion
-
-    systems = ['Beskow', 'Ellen', 'Povel', 'Zorn']
-    section = 'software'
 
     path_to_search = os.path.join(os.getcwd(), section)
 
@@ -184,6 +179,11 @@ def main():
                 program = root.split('/')[-1]
                 programs.append(program)
                 version_d[program] = []
+
+    # if there are no programs under section/
+    # then no need to continue
+    if len(programs) == 0:
+        return
 
     # get list of all installed versions
     for root, _, filenames in os.walk(path_to_search):
@@ -231,13 +231,32 @@ def main():
                     f_program.write(get_sphinx_table(table))
 
     # generate main index file
+    # we need to append here since there may be several sections
     title_line = ['Program', 'System', 'Available versions']
-    with open('include.inc', 'w') as include_file:
-        include_file.write('\n\n%s\n' % underline_text(section.title(), '='))
+    with open('include.inc', 'a') as include_file:
+        include_file.write('\n\n%s\n' % underline_text(section.title(), '-'))
         for subsection in ['Using', 'Building']:
-            include_file.write('\n\n%s\n' % underline_text('%s %s' % (subsection, section), '-'))
+            include_file.write('\n\n%s\n' % underline_text('%s %s' % (subsection, section), '^'))
             table = generate_table(title_line, programs, version_d, systems, section, '%s' % subsection.lower())
             include_file.write(get_sphinx_table(table))
+
+#-------------------------------------------------------------------------------
+
+def main():
+    """
+    Main function.
+    """
+
+    # list of systems, if you remove systems, also ignore them
+    # in conf.py (search there for "lindgren")
+    systems = ['Beskow', 'Ellen', 'Povel', 'Zorn']
+
+    # we create an empty file where we will append to
+    with open('include.inc', 'w') as include_file:
+        include_file.write('%s\n' % underline_text('Overview', '='))
+
+    for section in ['software', 'tools', 'compilers', 'libraries']:
+        build_doc_section(systems, section)
 
 #-------------------------------------------------------------------------------
 
