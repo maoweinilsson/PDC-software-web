@@ -8,13 +8,23 @@ Configuring and compiling
 ABINIT is freely available under the GPL license.
 http://www.abinit.org/downloads
 
+The code is linked against the Libxc library, and was built on the compute nodes to avoid cross compiling
+
 .. code-block:: bash
 
   module swap PrgEnv-cray PrgEnv-intel
-  ./configure --enable-mpi --with-linalg-flavor=mkl FC=ftn CC=cc CXX=CC \
+  module load fftw/3.3.4.0
+  aprun -n 1 -b ./configure --enable-mpi --with-linalg-flavor=mkl FC=ftn CC=cc CXX=CC \
               FCFLAGS_EXTRA="-module /pdc/vol/abinit/7.10.2/src/abinit-7.10.2/src/mods" \
               MPI_RUNNER=aprun --prefix=/pdc/vol/abinit/7.10.2 \
-              --host=x86_64-unknown-linux-gnu
+              --with-dft-flavor=libxc \
+              --with-libxc-incs="-I/pdc/vol/libxc/2.0.1/INTEL/140/include" \
+              --with-libxc-libs="-L/pdc/vol/libxc/2.0.1/INTEL/140/lib -lxc" \
+              --with-tardir=/pdc/vol/abinit/7.10.2/src/tarfiles \
+              --with-fft-flavor=fftw3 2>&1 | tee config_log
+  
+  aprun -n 1 -cc none make multi multi_nprocs=32
+ 
 
 Testing the code
 ----------------
