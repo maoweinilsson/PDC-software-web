@@ -1,7 +1,8 @@
 
 """
-This script crawls through subdirectories of software/
-and generates include files
+This script crawls through subdirectories of software/, tools/, libraries/,
+and compilers/ and generates Sphinx include files for navigation
+and overview tables.
 """
 
 #-------------------------------------------------------------------------------
@@ -235,7 +236,7 @@ def main():
     # generate main index file
     title_line = ['Program', 'System', 'Available versions']
     with open('include.inc', 'w') as include_file:
-        include_file.write('\n\n%s\n' % underline_text('Software at PDC', '='))
+        include_file.write('\n\n%s\n' % underline_text('Software', '='))
         for section in ['Using', 'Building']:
             include_file.write('\n\n%s\n' % underline_text('%s software' % section, '-'))
             table = generate_table(title_line, programs, version_d, systems, '%s' % section.lower())
