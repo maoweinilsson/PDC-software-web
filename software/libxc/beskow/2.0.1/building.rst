@@ -29,6 +29,7 @@ Intel
 
 .. code-block:: bash
  
+  module swap PrgEnv-cray PrgEnv-intel
   export CC=icc
   export FC=ifort
   export CFLAGS="-fPIC -O3"
