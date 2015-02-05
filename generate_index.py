@@ -170,7 +170,7 @@ def main():
     # sorting of version numbers
     from distutils.version import LooseVersion
 
-    systems = ['Beskow', 'Ellen', 'Lindgren', 'Povel', 'Zorn']
+    systems = ['Beskow', 'Ellen', 'Povel', 'Zorn']
     section = 'software'
 
     path_to_search = os.path.join(os.getcwd(), section)
@@ -214,10 +214,6 @@ def main():
 
                             text = '%s %s %s on %s' % (subsection, program, version, system)
                             f_include.write('%s\n' % underline_text(text, '='))
-
-    # here we remove Lindgren
-    # we need it for the above until we also remove the files from the repo
-    systems.remove('Lindgren')
 
     # this generates a version overview for each program separately
     for program in programs:
