@@ -24,12 +24,12 @@ Note: if you want to use GROMACS with PLUMED support load instead::
   $ module swap PrgEnv-cray PrgEnv-gnu
   $ module add gromacs/4.6.7-plumed
 
-Module _gromacs/4.6.7_ (as well as gromacs/4.6.7-plumed) provides three versions of the GROMACS suite:
+Module _gromacs/4.6.7 (as well as gromacs/4.6.7-plumed) provides three versions of the GROMACS suite:
 
- * _mdrun_mpi_ : The MD engine binary with MPI and AVX2 support. This is the one that 
+ * _mdrun_mpi : The MD engine binary with MPI and AVX2 support. This is the one that 
 researchers would use most of the time.
- * _mdrin_mpi_d_ : Same as above but in double precision. This one is much slower than the single precision _mdrun_mpi_ and is used only in special cases, such as Normal Mode analysis.
- * _mdrun_ : This binary is compiled without parallel support (no MPI, no OpenMP, no thread-MPI), and no AVX2 instructions support. I.e. it runs only as a single process, but you're able to run it also on the login node, e.g. for quick tests. It must NOT be used for production runs!!
+ * _mdrin_mpi_d : Same as above but in double precision. This one is much slower than the single precision _mdrun_mpi_ and is used only in special cases, such as Normal Mode analysis.
+ * _mdrun : This binary is compiled without parallel support (no MPI, no OpenMP, no thread-MPI), and no AVX2 instructions support. I.e. it runs only as a single process, but you're able to run it also on the login node, e.g. for quick tests. It must NOT be used for production runs!!
 
 All tools from the GROMACS suite are available in the above three versions, e.g. you'll find grompp, grompp_mpi, and grompp_mpi_d. In most cases there is no difference between them (almost no tool supports MPI even though the library is linked). If you want to do a quick pre-processing on the login node, you'll be able to use only the non-suffixed versions. On the compute nodes you can use all three versions.
 
