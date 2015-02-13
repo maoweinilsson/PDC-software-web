@@ -7,6 +7,7 @@ for simplicity not cross compiling and using gcc
 Interestingly 
 
 .. code-block:: bash
+
   export CRAYPE_LINK_TYPE=dynamic
 
 breaks the configure script (likely only static versions of the libraries available), so using static linking.
