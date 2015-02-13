@@ -30,7 +30,7 @@ This run generates two files::
 
 You can open the html file in a browser or the txt file directly in the terminal.
 
-The html file will look like this:
+The html file will look similar to this one:
 
 .. image:: files/apr-example-summary.png
     :width: 500pt
