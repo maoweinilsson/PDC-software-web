@@ -13,8 +13,7 @@ for simplicity not cross compiling, using gcc and building dynamically
   
   export CC=cc
   export CXX=CC
-  ./configure --with-netcdf=yes --with-hdf5=yes --with-fftw3 --prefix=/pdc/vol/cdo
-  /1.6.7
+  ./configure --with-netcdf=yes --with-hdf5=yes --with-fftw3 --prefix=/pdc/vol/cdo/1.6.7
   
   export CRAYPE_LINK_TYPE=dynamic
   
