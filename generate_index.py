@@ -140,10 +140,10 @@ def generate_table(title_line, programs, version_d, systems, section, subsection
             line = []
             for version in version_d[program]:
                 if os.path.isfile(os.path.join(section, program, system.lower(), version, '%s.rst' % subsection)):
-                    if len(programs) > 1:
-                        line.append(":doc:`%s <%s/%s/%s/%s/%s>`" % (version, section, program, system.lower(), version, subsection))
-                    else:
+                    if single_program:
                         line.append(":doc:`%s <%s/%s/%s>`" % (version, system.lower(), version, subsection))
+                    else:
+                        line.append(":doc:`%s <%s/%s/%s/%s/%s>`" % (version, section, program, system.lower(), version, subsection))
             if len(line) > 0:
                 if single_program:
                     table_body.append([system, ', '.join(line)])
