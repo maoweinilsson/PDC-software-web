@@ -32,5 +32,6 @@ if {[info exists ::env(PKGCONFIG_ENABLED)]} {
         puts stderr "PrgEnv not recognized in module $name/$version"
     } else {
         prepend-path PKG_CONFIG_PATH /pdc/vol/allinea-reports/5.0-40810/prof-libs/$compiler
+        prepend-path LD_LIBRARY_PATH /pdc/vol/allinea-reports/5.0-40810/prof-libs/$compiler
     }
 }
