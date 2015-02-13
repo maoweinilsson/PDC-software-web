@@ -10,7 +10,7 @@ we need to compile it with the module allinea-reports/5.0-40810 loaded::
 
 We compile an example code::
 
-  $ $SNIC_TMP
+  $ cd $SNIC_TMP
   $ mkdir apr-test
   $ cd apr-test
   $ cp /pdc/vol/allinea-reports/5.0-40810/examples/wave.c .
