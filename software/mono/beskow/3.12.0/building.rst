@@ -20,6 +20,7 @@ Switched compilers to gnu, although not sure if needed. Do remeber to do a *make
    ./configure --prefix=/pdc/vol/mono/3.12.0/
    ./autogen.sh --prefix=/pdc/vol/mono/3.12.0/
    make get-monolite-latest
+   make EXTERNAL_MCS=${PWD}/mcs/class/lib/monolite/gmcs.exe
    make check
    make install
 
