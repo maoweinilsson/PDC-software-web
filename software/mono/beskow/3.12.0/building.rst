@@ -12,7 +12,7 @@ For example, the downloaded and installed version on Beskow is 3.12.0, so after 
    tar -xf mono-3.12.0.tar.bz2
 
 
-Switched compilers to intel, although not sure if needed. Do remeber to do a *make check* before the *make install* so that you have checked the installation with the distributed tests. 
+Switched compilers to gnu, although not sure if needed. Do remeber to do a *make check* before the *make install* so that you have checked the installation with the distributed tests. 
 
 .. code-block:: bash
 
