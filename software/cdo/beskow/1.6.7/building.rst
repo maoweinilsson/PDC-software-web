@@ -2,20 +2,28 @@
 
 .. include:: building.inc
 
-For simplicity not cross compiling, using gcc and building dynamically
+for simplicity not cross compiling and using gcc
 
-module swap PrgEnv-cray PrgEnv-gnu
+Interestingly 
 
-module load cray-netcdf-hdf5parallel/4.3.2
-module load fftw/3.3.4.1
+.. code-block:: bash
 
-export CC=cc
-export CXX=CC
-./configure --with-netcdf=yes --with-hdf5=yes --with-fftw3 --prefix=/pdc/vol/cdo
-/1.6.7
+  export CRAYPE_LINK_TYPE=dynamic
 
-export CRAYPE_LINK_TYPE=dynamic
+breaks the configure script (likely only static versions of the libraries available), so using static linking.
 
-make -j 4
+.. code-block:: bash
 
-make install
+  module swap PrgEnv-cray PrgEnv-gnu
+  
+  module load cray-netcdf-hdf5parallel/4.3.2
+  module load fftw/3.3.4.1
+  
+  export CC=cc
+  export CXX=CC
+  ./configure --with-netcdf=yes --with-hdf5=yes --with-fftw3 --prefix=/pdc/vol/cdo/1.6.7
+  
+  make -j 4
+  
+  make install
+
