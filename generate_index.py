@@ -126,7 +126,7 @@ def test_get_sphinx_table():
 
 #-------------------------------------------------------------------------------
 
-def generate_table(title_line, programs, version_d, systems, section, subsection):
+def generate_table(title_line, programs, version_d, systems, section, subsection, single_program=False):
     """
     Build table with hyperlinks.
     Function checks whether corresponding files exist and only
@@ -140,15 +140,15 @@ def generate_table(title_line, programs, version_d, systems, section, subsection
             line = []
             for version in version_d[program]:
                 if os.path.isfile(os.path.join(section, program, system.lower(), version, '%s.rst' % subsection)):
-                    if len(programs) > 1:
-                        line.append(":doc:`%s <%s/%s/%s/%s/%s>`" % (version, section, program, system.lower(), version, subsection))
-                    else:
+                    if single_program:
                         line.append(":doc:`%s <%s/%s/%s>`" % (version, system.lower(), version, subsection))
+                    else:
+                        line.append(":doc:`%s <%s/%s/%s/%s/%s>`" % (version, section, program, system.lower(), version, subsection))
             if len(line) > 0:
-                if len(programs) > 1:
-                    table_body.append([':doc:`%s <%s/%s/general>`' % (program, section, program), system, ', '.join(line)])
-                else:
+                if single_program:
                     table_body.append([system, ', '.join(line)])
+                else:
+                    table_body.append([':doc:`%s <%s/%s/general>`' % (program, section, program), system, ', '.join(line)])
 
     if table_body:
         table = []
@@ -225,7 +225,7 @@ def build_doc_section(systems, section):
             f_program.write("%s\n\n" % underline_text("General information about %s" % program, '='))
             for subsection in ['Using', 'Building']:
                 title_line = ['System', '%s instructions' % subsection]
-                table = generate_table(title_line, [program], version_d, systems, section, '%s' % subsection.lower())
+                table = generate_table(title_line, [program], version_d, systems, section, '%s' % subsection.lower(), single_program=True)
                 if table:
                     f_program.write('\n\n')
                     f_program.write(get_sphinx_table(table))
@@ -246,7 +246,6 @@ def main():
     """
     Main function.
     """
-
     # list of systems, if you remove systems, also ignore them
     # in conf.py (search there for "lindgren")
     systems = ['Beskow', 'Ellen', 'Povel', 'Zorn']
