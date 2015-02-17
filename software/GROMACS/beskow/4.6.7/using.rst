@@ -3,9 +3,6 @@
 .. include:: using.inc
 
 
-GROMACS
--------
-
 GROMACS is highly tuned for quite efficient use of HPC resources.
 Special assembly kernels make its core compute engine one of the fastest MD
 simulation programs.
