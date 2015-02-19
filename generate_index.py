@@ -161,7 +161,12 @@ def generate_table(title_line, programs, version_d, systems, section, subsection
 
 #-------------------------------------------------------------------------------
 
-def build_doc_section(systems, section):
+def get_list_of_programs(section):
+    """
+    This routine goes through the subdirectories under section/
+    and gathers and returns all programs and versions
+    under section/.
+    """
 
     import os
 
@@ -180,11 +185,6 @@ def build_doc_section(systems, section):
                 programs.append(program)
                 version_d[program] = []
 
-    # if there are no programs under section/
-    # then no need to continue
-    if len(programs) == 0:
-        return
-
     # get list of all installed versions
     for root, _, filenames in os.walk(path_to_search):
         for name in filenames:
@@ -200,6 +200,19 @@ def build_doc_section(systems, section):
     # sort versions
     for program in programs:
         version_d[program].sort(reverse=True, key=LooseVersion)
+
+    return programs, version_d
+
+#-------------------------------------------------------------------------------
+
+def build_doc_section(systems, section, programs, version_d):
+
+    import os
+
+    # if there are no programs under section/
+    # then no need to continue
+    if len(programs) == 0:
+        return
 
     # build include files which contain title and version
     for program in programs:
@@ -255,7 +268,8 @@ def main():
         include_file.write('%s\n' % underline_text('Overview', '='))
 
     for section in ['software', 'tools', 'compilers', 'libraries']:
-        build_doc_section(systems, section)
+        programs, version_d = get_list_of_programs(section)
+        build_doc_section(systems, section, programs, version_d)
 
 #-------------------------------------------------------------------------------
 
