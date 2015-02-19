@@ -204,7 +204,7 @@ def get_list_of_programs(section):
 
 #-------------------------------------------------------------------------------
 
-def build_include_files(systems, section, programs, version_d):
+def generate_include_files(systems, section, programs, version_d):
     """
     Build include files which contain title and version.
     """
@@ -225,8 +225,10 @@ def build_include_files(systems, section, programs, version_d):
 
 #-------------------------------------------------------------------------------
 
-def build_doc_section(systems, section, programs, version_d):
-
+def generate_one_program_overview(systems, section, programs, version_d):
+    """
+    Build include files which contain title and version.
+    """
     import os
 
     # this generates a version overview for each program separately
@@ -243,6 +245,10 @@ def build_doc_section(systems, section, programs, version_d):
                 if table:
                     f_program.write('\n\n')
                     f_program.write(get_sphinx_table(table))
+
+#-------------------------------------------------------------------------------
+
+def build_doc_section(systems, section, programs, version_d):
 
     # if there are no programs under section/
     # then no need to continue
@@ -275,7 +281,8 @@ def main():
 
     for section in ['software', 'tools', 'compilers', 'libraries']:
         programs, version_d = get_list_of_programs(section)
-        build_include_files(systems, section, programs, version_d)
+        generate_include_files(systems, section, programs, version_d)
+        generate_one_program_overview(systems, section, programs, version_d)
         build_doc_section(systems, section, programs, version_d)
 
 #-------------------------------------------------------------------------------
