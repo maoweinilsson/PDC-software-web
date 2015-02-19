@@ -167,7 +167,6 @@ def get_list_of_programs(section):
     and gathers and returns all programs and versions
     under section/.
     """
-
     import os
 
     # sorting of version numbers
@@ -205,16 +204,12 @@ def get_list_of_programs(section):
 
 #-------------------------------------------------------------------------------
 
-def build_doc_section(systems, section, programs, version_d):
-
+def build_include_files(systems, section, programs, version_d):
+    """
+    Build include files which contain title and version.
+    """
     import os
 
-    # if there are no programs under section/
-    # then no need to continue
-    if len(programs) == 0:
-        return
-
-    # build include files which contain title and version
     for program in programs:
         for version in version_d[program]:
             for system in systems:
@@ -227,6 +222,12 @@ def build_doc_section(systems, section, programs, version_d):
 
                             text = '%s %s %s on %s' % (subsection, program, version, system)
                             f_include.write('%s\n' % underline_text(text, '='))
+
+#-------------------------------------------------------------------------------
+
+def build_doc_section(systems, section, programs, version_d):
+
+    import os
 
     # this generates a version overview for each program separately
     for program in programs:
@@ -242,6 +243,11 @@ def build_doc_section(systems, section, programs, version_d):
                 if table:
                     f_program.write('\n\n')
                     f_program.write(get_sphinx_table(table))
+
+    # if there are no programs under section/
+    # then no need to continue
+    if len(programs) == 0:
+        return
 
     # generate main index file
     # we need to append here since there may be several sections
@@ -269,6 +275,7 @@ def main():
 
     for section in ['software', 'tools', 'compilers', 'libraries']:
         programs, version_d = get_list_of_programs(section)
+        build_include_files(systems, section, programs, version_d)
         build_doc_section(systems, section, programs, version_d)
 
 #-------------------------------------------------------------------------------
