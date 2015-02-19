@@ -248,22 +248,12 @@ def generate_one_program_overview(systems, section, programs, version_d):
 
 #-------------------------------------------------------------------------------
 
-def build_doc_section(systems, section, programs, version_d):
+def build_doc_section(systems, section, subsection, programs, version_d):
 
-    # if there are no programs under section/
-    # then no need to continue
-    if len(programs) == 0:
-        return
-
-    # generate main index file
-    # we need to append here since there may be several sections
     title_line = ['Program', 'System', 'Available versions']
-    with open('include.inc', 'a') as include_file:
-        include_file.write('\n\n%s\n' % underline_text(section.title(), '-'))
-        for subsection in ['Using', 'Building']:
-            include_file.write('\n\n%s\n' % underline_text('%s %s' % (subsection, section), '^'))
-            table = generate_table(title_line, programs, version_d, systems, section, '%s' % subsection.lower())
-            include_file.write(get_sphinx_table(table))
+    with open('overview_%s_%s.inc' % (section, subsection), 'w') as include_file:
+        table = generate_table(title_line, programs, version_d, systems, section, '%s' % subsection)
+        include_file.write(get_sphinx_table(table))
 
 #-------------------------------------------------------------------------------
 
@@ -275,15 +265,21 @@ def main():
     # in conf.py (search there for "lindgren")
     systems = ['Beskow', 'Ellen', 'Povel', 'Zorn']
 
-    # we create an empty file where we will append to
-    with open('include.inc', 'w') as include_file:
-        include_file.write('%s\n' % underline_text('Overview', '='))
+    # we will append to these files so reset them
+    for subsection in ['using', 'building']:
+        with open('overview_%s.inc' % subsection, 'w') as include_file:
+            include_file.write('\n')
 
     for section in ['software', 'tools', 'compilers', 'libraries']:
         programs, version_d = get_list_of_programs(section)
         generate_include_files(systems, section, programs, version_d)
         generate_one_program_overview(systems, section, programs, version_d)
-        build_doc_section(systems, section, programs, version_d)
+        if len(programs) > 0:
+            for subsection in ['using', 'building']:
+                with open('overview_%s.inc' % subsection, 'a') as include_file:
+                    include_file.write('\n\n%s\n' % underline_text(section.title(), '-'))
+                    include_file.write('.. include:: overview_%s_%s.inc\n' % (section, subsection.lower()))
+                    build_doc_section(systems, section, subsection, programs, version_d)
 
 #-------------------------------------------------------------------------------
 
