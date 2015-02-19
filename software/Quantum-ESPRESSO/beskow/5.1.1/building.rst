@@ -65,7 +65,7 @@ Build::
 For testing modify file ``environment_variables``::
 
   #TMP_DIR=$PREFIX/tempdir
-  TMP_DIR=/cfs/rydqvist/nobackup/b/bast/scratch
+  TMP_DIR=/cfs/klemming/nobackup/b/bast/scratch
 
   #PARA_PREFIX="mpirun -np 2"
   #PARA_PREFIX=" "
