@@ -3,3 +3,9 @@ _build/*
 
 # .inc files are generated on the web server
 *.inc
+
+# these are also generated
+index_using_beskow.rst
+index_using_ellen.rst
+index_using_povel.rst
+index_using_zorn.rst
