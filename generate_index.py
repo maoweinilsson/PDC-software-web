@@ -1,6 +1,6 @@
 
 """
-This script crawls through subdirectories of software/, tools/, libraries/,
+This script crawls through subdirectories of applications/, tools/, libraries/,
 and compilers/ and generates Sphinx include files for navigation
 and overview tables.
 """
@@ -306,7 +306,7 @@ def main():
         with open('index_using_%s.rst' % system, 'w') as f:
             f.write(s.replace('overview_using.inc', 'overview_using_%s.inc' % system))
 
-    for section in ['software', 'tools', 'compilers', 'libraries']:
+    for section in ['applications', 'tools', 'compilers', 'libraries']:
         programs, version_d = get_list_of_programs(section)
         generate_include_files(systems, section, programs, version_d)
         generate_one_program_overview(systems, section, programs, version_d)
