@@ -2,15 +2,6 @@
 
 .. include:: using.inc
 
-The specific installations of VASP are found below under::
-
-  /pdc/vol/vasp/version/buildtag/vasp-*
-
-If you want to run the latest recommended installation of VASP, run like this::
-
-  aprun ... /pdc/vol/vasp/5.3.5-31Mar14/default/vasp
-
-
 General observations
 --------------------
 
@@ -60,3 +51,32 @@ To choose a good number of cores, you can use this checklist:
 - For a wide calculation with less than 4 bands per core, try decreasing the
   number of cores/node to 24/c node, or even 16c/node. You may also have to do
   this get memory available for each MPI rank.
+
+Vasp Filenames
+--------------
+
+- vasp: this is normal regular VASP version for calculations using >1 k-point.
+- vasp-gamma: gamma-point only version of VASP. Use this one if you only have the gamma point. It is much faster and uses less memory.
+- vasp-noncollinear: VASP for noncollinear and spin-orbit coupling calculations.
+
+- vasp-tbdyn-*: same as above, but compiled with the -Dtbdyn option for special molecular dynamics subroutines.
+
+Running Vasp
+------------
+
+To see which versions of vasp are available use::
+
+  module avail vasp
+
+Example Jobscript
+-----------------
+
+.. literalinclude:: files/vasp.run
+    :language: bash
+
+
+Assuming the script is named vasp.run, it can be submitted using:
+
+.. code-block:: bash
+
+  sbatch vasp.run

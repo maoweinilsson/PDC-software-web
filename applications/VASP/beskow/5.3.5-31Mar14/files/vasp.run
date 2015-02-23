@@ -1,0 +1,16 @@
+#!/bin/bash -l
+# The -l above is required to get the full environment with modules
+
+#SBATCH -J VASP
+
+#SBATCH -t 24:00:00
+
+# number of nodes
+#SBATCH --nodes=2
+
+#SBATCH -o stdout.txt
+#SBATCH -e stderr.txt
+
+module load vasp/5.3.5-31Mar14
+
+aprun -n 64 vasp
