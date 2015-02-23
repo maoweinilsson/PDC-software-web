@@ -79,4 +79,4 @@ Assuming the script is named vasp.run, it can be submitted using:
 
 .. code-block:: bash
 
-  sbatch vasp.run
+  sbatch ./vasp.run

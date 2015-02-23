@@ -1,20 +1,16 @@
-#!/bin/bash
+#!/bin/bash -l
+# The -l above is required to get the full environment with modules
 
 #SBATCH -J cp2k
 
 #SBATCH -t 00:10:00
 
 # number of nodes
-#SBATCH -N 2
-
-# number of MPI processes
-#SBATCH -n 64
+#SBATCH --nodes=2
 
 #SBATCH -o stdout.txt
 #SBATCH -e stderr.txt
 
 module load cp2k/2.5.1
 
-cd $SLURM_SUBMIT_DIR
-
-aprun -n 64 -d 1 cp2k.popt test.inp
+aprun -n 64  cp2k.popt test.inp
