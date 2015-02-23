@@ -9,6 +9,9 @@
 # Total number of MPI tasks
 #SBATCH -n 64
 
+# Total number of nodes
+#SBATCH -N 2
+
 # Test run for 5 minutes
 #SBATCH -t 00:05:00
 
@@ -18,8 +21,8 @@
 export OMP_NUM_THREADS=1
 APRUN_OPTIONS="-n 64 -d 1 -cc none"
 module swap PrgEnv-cray PrgEnv-gnu
-module add gromacs/4.6.7
+module add gromacs/5.0.4
 # or if using PLUMED:
-# module add gromacs/4.6.7-plumed
+# module add gromacs/5.0.4-plumed
 
-aprun $APRUN_OPTIONS mdrun_mpi -s topol.tpr -deffnm gmx_md 
+aprun $APRUN_OPTIONS gmx_mpi mdrun -s topol.tpr -deffnm gmx_md 

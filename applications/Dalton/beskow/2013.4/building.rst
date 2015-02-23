@@ -2,10 +2,11 @@
 
 .. include:: building.inc
 
-First load the Intel environment and CMake::
+First load the Intel environment and CMake and set CRAYPE_LINK_TYPE to dynamic::
 
   $ module swap PrgEnv-cray PrgEnv-intel
-  $ module add cmake
+  $ module add cmake/3.0.2
+  $ export CRAYPE_LINK_TYPE=dynamic
 
 Modules loaded at configure time::
 

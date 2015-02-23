@@ -13,6 +13,8 @@
 #SBATCH -o stdout.txt
 #SBATCH -e stderr.txt
 
+module swap PrgEnv-cray PrgEnv-intel
+
 module add espresso/5.1.1
 
 cd $SLURM_SUBMIT_DIR

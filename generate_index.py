@@ -1,6 +1,6 @@
 
 """
-This script crawls through subdirectories of software/, tools/, libraries/,
+This script crawls through subdirectories of applications/, tools/, libraries/,
 and compilers/ and generates Sphinx include files for navigation
 and overview tables.
 """
@@ -126,11 +126,14 @@ def test_get_sphinx_table():
 
 #-------------------------------------------------------------------------------
 
-def generate_table(title_line, programs, version_d, systems, section, subsection, single_program=False):
+def generate_table(title_line, programs, version_d, systems, section, subsection, single_program=False, single_system=False):
     """
     Build table with hyperlinks.
     Function checks whether corresponding files exist and only
     includes the version where documentation is present.
+
+    single_program=True generates overview table for a single code overview.
+    single_system=True generates overview table for a single system.
     """
     import os
 
@@ -139,16 +142,19 @@ def generate_table(title_line, programs, version_d, systems, section, subsection
         for system in systems:
             line = []
             for version in version_d[program]:
-                if os.path.isfile(os.path.join(section, program, system.lower(), version, '%s.rst' % subsection)):
+                if os.path.isfile(os.path.join(section, program, system, version, '%s.rst' % subsection)):
                     if single_program:
-                        line.append(":doc:`%s <%s/%s/%s>`" % (version, system.lower(), version, subsection))
+                        line.append(":doc:`%s <%s/%s/%s>`" % (version, system, version, subsection))
                     else:
-                        line.append(":doc:`%s <%s/%s/%s/%s/%s>`" % (version, section, program, system.lower(), version, subsection))
+                        line.append(":doc:`%s <%s/%s/%s/%s/%s>`" % (version, section, program, system, version, subsection))
             if len(line) > 0:
                 if single_program:
-                    table_body.append([system, ', '.join(line)])
+                    table_body.append([system.title(), ', '.join(line)])
                 else:
-                    table_body.append([':doc:`%s <%s/%s/general>`' % (program, section, program), system, ', '.join(line)])
+                    if single_system:
+                        table_body.append([':doc:`%s <%s/%s/general>`' % (program, section, program), ', '.join(line)])
+                    else:
+                        table_body.append([':doc:`%s <%s/%s/general>`' % (program, section, program), system.title(), ', '.join(line)])
 
     if table_body:
         table = []
@@ -161,8 +167,12 @@ def generate_table(title_line, programs, version_d, systems, section, subsection
 
 #-------------------------------------------------------------------------------
 
-def build_doc_section(systems, section):
-
+def get_list_of_programs(section):
+    """
+    This routine goes through the subdirectories under section/
+    and gathers and returns all programs and versions
+    under section/.
+    """
     import os
 
     # sorting of version numbers
@@ -180,11 +190,6 @@ def build_doc_section(systems, section):
                 programs.append(program)
                 version_d[program] = []
 
-    # if there are no programs under section/
-    # then no need to continue
-    if len(programs) == 0:
-        return
-
     # get list of all installed versions
     for root, _, filenames in os.walk(path_to_search):
         for name in filenames:
@@ -201,19 +206,36 @@ def build_doc_section(systems, section):
     for program in programs:
         version_d[program].sort(reverse=True, key=LooseVersion)
 
-    # build include files which contain title and version
+    return programs, version_d
+
+#-------------------------------------------------------------------------------
+
+def generate_include_files(systems, section, programs, version_d):
+    """
+    Build include files which contain title and version.
+    """
+    import os
+
     for program in programs:
         for version in version_d[program]:
             for system in systems:
-                for subsection in ['Using', 'Building']:
-                    if os.path.isfile(os.path.join(section, program, system.lower(), version, '%s.rst' % subsection.lower())):
-                        with open(os.path.join(section, program, system.lower(), version, '%s.inc' % subsection.lower()), 'w') as f_include:
+                for subsection in ['using', 'building']:
+                    if os.path.isfile(os.path.join(section, program, system, version, '%s.rst' % subsection)):
+                        with open(os.path.join(section, program, system, version, '%s.inc' % subsection), 'w') as f_include:
 
                             # add navigation
-                            f_include.write(":doc:`../../../../index` - :doc:`../../general` - :doc:`%s`\n\n" % subsection.lower())
+                            f_include.write(":doc:`../../../../index` - :doc:`../../general` - :doc:`%s`\n\n" % subsection)
 
-                            text = '%s %s %s on %s' % (subsection, program, version, system)
+                            text = '%s %s %s on %s' % (subsection.title(), program, version, system.title())
                             f_include.write('%s\n' % underline_text(text, '='))
+
+#-------------------------------------------------------------------------------
+
+def generate_one_program_overview(systems, section, programs, version_d):
+    """
+    Build include files which contain title and version.
+    """
+    import os
 
     # this generates a version overview for each program separately
     for program in programs:
@@ -223,21 +245,30 @@ def build_doc_section(systems, section):
             f_program.write(":doc:`../../index` - :doc:`general`\n\n")
 
             f_program.write("%s\n\n" % underline_text("General information about %s" % program, '='))
-            for subsection in ['Using', 'Building']:
-                title_line = ['System', '%s instructions' % subsection]
-                table = generate_table(title_line, [program], version_d, systems, section, '%s' % subsection.lower(), single_program=True)
+            for subsection in ['using', 'building']:
+                title_line = ['System', '%s instructions' % subsection.title()]
+                table = generate_table(title_line, [program], version_d, systems, section, '%s' % subsection, single_program=True)
                 if table:
                     f_program.write('\n\n')
                     f_program.write(get_sphinx_table(table))
 
-    # generate main index file
-    # we need to append here since there may be several sections
+#-------------------------------------------------------------------------------
+
+def build_doc_section(systems, section, subsection, programs, version_d):
+
     title_line = ['Program', 'System', 'Available versions']
-    with open('include.inc', 'a') as include_file:
-        include_file.write('\n\n%s\n' % underline_text(section.title(), '-'))
-        for subsection in ['Using', 'Building']:
-            include_file.write('\n\n%s\n' % underline_text('%s %s' % (subsection, section), '^'))
-            table = generate_table(title_line, programs, version_d, systems, section, '%s' % subsection.lower())
+    with open('overview_%s_%s.inc' % (section, subsection), 'w') as include_file:
+        table = generate_table(title_line, programs, version_d, systems, section, '%s' % subsection)
+        include_file.write(get_sphinx_table(table))
+
+#-------------------------------------------------------------------------------
+
+def build_doc_section_single_system(system, section, subsection, programs, version_d):
+
+    title_line = ['Program', 'Available versions']
+    with open('overview_%s_%s_%s.inc' % (section, subsection, system), 'w') as include_file:
+        table = generate_table(title_line, programs, version_d, [system], section, '%s' % subsection, single_system=True)
+        if len(table) > 0:
             include_file.write(get_sphinx_table(table))
 
 #-------------------------------------------------------------------------------
@@ -248,14 +279,49 @@ def main():
     """
     # list of systems, if you remove systems, also ignore them
     # in conf.py (search there for "lindgren")
-    systems = ['Beskow', 'Ellen', 'Povel', 'Zorn']
+    systems = ['beskow', 'ellen', 'povel', 'zorn']
 
-    # we create an empty file where we will append to
-    with open('include.inc', 'w') as include_file:
-        include_file.write('%s\n' % underline_text('Overview', '='))
+    list_of_files = []
+    for subsection in ['using', 'building']:
+        list_of_files.append('overview_%s.inc' % subsection)
+        for system in systems:
+            list_of_files.append('overview_%s_%s.inc' % (subsection, system))
 
-    for section in ['software', 'tools', 'compilers', 'libraries']:
-        build_doc_section(systems, section)
+    # write machine-specific navigation
+    line = []
+    line.append(':doc:`All <index>`')
+    for system in systems:
+        line.append(':doc:`%s <index_using_%s>`' % (system.title(), system))
+    for f in list_of_files:
+        with open('%s' % f, 'w') as include_file:
+            if 'using' in f:
+                include_file.write('\nSystems: ' + ', '.join(line))
+            else:
+                include_file.write('\n')
+
+    # copy index.rst to machine specific index files
+    with open('index.rst', 'r') as f:
+        s = f.read()
+    for system in systems:
+        with open('index_using_%s.rst' % system, 'w') as f:
+            f.write(s.replace('overview_using.inc', 'overview_using_%s.inc' % system))
+
+    for section in ['applications', 'tools', 'compilers', 'libraries']:
+        programs, version_d = get_list_of_programs(section)
+        generate_include_files(systems, section, programs, version_d)
+        generate_one_program_overview(systems, section, programs, version_d)
+        if len(programs) > 0:
+            for subsection in ['using', 'building']:
+                with open('overview_%s.inc' % subsection, 'a') as include_file:
+                    include_file.write('\n\n%s\n' % underline_text(section.title(), '-'))
+                    include_file.write('.. include:: overview_%s_%s.inc\n' % (section, subsection))
+                    build_doc_section(systems, section, subsection, programs, version_d)
+            for system in systems:
+                subsection = 'using'
+                with open('overview_%s_%s.inc' % (subsection, system), 'a') as include_file:
+                    include_file.write('\n\n%s\n' % underline_text(section.title(), '-'))
+                    include_file.write('.. include:: overview_%s_%s_%s.inc\n' % (section, subsection, system))
+                    build_doc_section_single_system(system, section, subsection, programs, version_d)
 
 #-------------------------------------------------------------------------------
 
