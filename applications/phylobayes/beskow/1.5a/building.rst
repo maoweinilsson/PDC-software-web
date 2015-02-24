@@ -2,19 +2,19 @@
 
 .. include:: building.inc
 
+According to the online manual the software should be
+compiled with GNU CC, but compilation/running works
+with the intel compiler as well
 
-decided to use the gnu compiler for simplicity
+$ module swap PrgEnv-cray PrgEnv-intel
+$ cd sources
 
-module swap PrgEnv-cray PrgEnv-gnu
+change the Makefile so that CC=CC
 
-cd sources
-change the makefile so that CC=CC
+$ make
 
-then just make -j 6 and it makes
+binaries are created in the data directory.
+A bin directory was created and executable files in the data
+directory where symbolically linked from the bin directory.
 
-What to do with all the files is tricky, but hopefully just
-moving the 
-data directory (which is also where the binaries are built) works.
-
-i.e. mv data ../../
 
