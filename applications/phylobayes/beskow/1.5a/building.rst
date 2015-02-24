@@ -4,17 +4,23 @@
 
 According to the online manual the software should be
 compiled with GNU CC, but compilation/running works
-with the intel compiler as well
+with the intel compiler as well.
 
-$ module swap PrgEnv-cray PrgEnv-intel
-$ cd sources
+First...
 
-change the Makefile so that CC=CC
+  $ module swap PrgEnv-cray PrgEnv-intel
+  $ cd sources
 
-$ make
+change the Makefile so that ``CC=CC``
+
+  $ make
 
 binaries are created in the data directory.
-A bin directory was created and executable files in the data
-directory where symbolically linked from the bin directory.
+A bin directory was created...
 
+  $ cd ..
+  $ mkdir bin
+  $ cd bin
+
+symlinks were created for all executable files in the data directory.
 
