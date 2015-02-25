@@ -5,6 +5,8 @@ and compilers/ and generates Sphinx include files for navigation
 and overview tables.
 """
 
+import collections
+
 #-------------------------------------------------------------------------------
 
 def repeat_char(char, length):
@@ -283,7 +285,7 @@ def main():
     systems = ['beskow', 'ellen', 'povel', 'zorn']
 
     # dictionary of sections mapping directory -> name on the screen
-    sections = {}
+    sections = collections.OrderedDict()
     sections['applications'] = 'Applications'
     sections['tools'] = 'Tools'
     sections['compilers'] = 'Compilers and Languages'
