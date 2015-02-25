@@ -3,7 +3,7 @@
 .. include:: include.inc
 
 Using FFTW at PDC
-=================
+-----------------
 
 `FFTW <http://www.fftw.org/>`_ is a freely available library for
 performing `Fast Fourier Transforms <http://en.wikipedia.org/wiki/Fast_Fourier_transform>`_. It is available as source code and
