@@ -259,7 +259,8 @@ def build_doc_section(systems, section, subsection, programs, version_d):
     title_line = ['Program', 'System', 'Available versions']
     with open('overview_%s_%s.inc' % (section, subsection), 'w') as include_file:
         table = generate_table(title_line, programs, version_d, systems, section, '%s' % subsection)
-        include_file.write(get_sphinx_table(table))
+        if len(table) > 0:
+            include_file.write(get_sphinx_table(table))
 
 #-------------------------------------------------------------------------------
 
