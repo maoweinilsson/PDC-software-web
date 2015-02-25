@@ -14,6 +14,7 @@
 #SBATCH -e stderr.txt
 
 module load dalton/2013.4
+module swap PrgEnv-cray PrgEnv-intel
 
 export DALTON_TMPDIR=$SNIC_TMP/dalton_scratch/$SLURM_JOB_ID
 export OMP_NUM_THREADS=1
