@@ -20,7 +20,7 @@ Available python packages
 
 Python has a very large number of optional packages that can be
 installed. These are accessed using the site-python module. If the
-specific package you need is not installed then contact support.
+specific package you need is not installed then `contact support <https://www.pdc.kth.se/about/contact/support-requests>`_.
 
 You can see which versions of python have site python components using::
 
