@@ -283,11 +283,13 @@ def main():
     systems = ['beskow', 'ellen', 'povel', 'zorn']
 
     # dictionary of sections mapping directory -> name on the screen
-    sections = {}
-    sections['applications'] = 'Applications'
-    sections['tools'] = 'Tools'
-    sections['compilers'] = 'Compilers and Languages'
-    sections['libraries'] = 'Libraries'
+    # we should use ordereddict here but web server has too old python for that
+    sections = ['applications', 'tools', 'compilers', 'libraries']
+    sections_dict = {}
+    sections_dict['applications'] = 'Applications'
+    sections_dict['tools'] = 'Tools'
+    sections_dict['compilers'] = 'Compilers and Languages'
+    sections_dict['libraries'] = 'Libraries'
 
     list_of_files = []
     for subsection in ['using', 'building']:
@@ -321,13 +323,13 @@ def main():
         if len(programs) > 0:
             for subsection in ['using', 'building']:
                 with open('overview_%s.inc' % subsection, 'a') as include_file:
-                    include_file.write('\n\n%s\n' % underline_text(sections[section], '-'))
+                    include_file.write('\n\n%s\n' % underline_text(sections_dict[section], '-'))
                     include_file.write('.. include:: overview_%s_%s.inc\n' % (section, subsection))
                     build_doc_section(systems, section, subsection, programs, version_d)
             for system in systems:
                 subsection = 'using'
                 with open('overview_%s_%s.inc' % (subsection, system), 'a') as include_file:
-                    include_file.write('\n\n%s\n' % underline_text(sections[section], '-'))
+                    include_file.write('\n\n%s\n' % underline_text(sections_dict[section], '-'))
                     include_file.write('.. include:: overview_%s_%s_%s.inc\n' % (section, subsection, system))
                     build_doc_section_single_system(system, section, subsection, programs, version_d)
 
