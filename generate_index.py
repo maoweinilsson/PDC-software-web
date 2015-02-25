@@ -282,6 +282,13 @@ def main():
     # in conf.py (search there for "lindgren")
     systems = ['beskow', 'ellen', 'povel', 'zorn']
 
+    # dictionary of sections mapping directory -> name on the screen
+    sections = {}
+    sections['applications'] = 'Applications'
+    sections['tools'] = 'Tools'
+    sections['compilers'] = 'Compilers and Languages'
+    sections['libraries'] = 'Libraries'
+
     list_of_files = []
     for subsection in ['using', 'building']:
         list_of_files.append('overview_%s.inc' % subsection)
@@ -307,20 +314,20 @@ def main():
         with open('index_using_%s.rst' % system, 'w') as f:
             f.write(s.replace('overview_using.inc', 'overview_using_%s.inc' % system))
 
-    for section in ['applications', 'tools', 'compilers', 'libraries']:
+    for section in sections:
         programs, version_d = get_list_of_programs(section)
         generate_include_files(systems, section, programs, version_d)
         generate_one_program_overview(systems, section, programs, version_d)
         if len(programs) > 0:
             for subsection in ['using', 'building']:
                 with open('overview_%s.inc' % subsection, 'a') as include_file:
-                    include_file.write('\n\n%s\n' % underline_text(section.title(), '-'))
+                    include_file.write('\n\n%s\n' % underline_text(sections[section], '-'))
                     include_file.write('.. include:: overview_%s_%s.inc\n' % (section, subsection))
                     build_doc_section(systems, section, subsection, programs, version_d)
             for system in systems:
                 subsection = 'using'
                 with open('overview_%s_%s.inc' % (subsection, system), 'a') as include_file:
-                    include_file.write('\n\n%s\n' % underline_text(section.title(), '-'))
+                    include_file.write('\n\n%s\n' % underline_text(sections[section], '-'))
                     include_file.write('.. include:: overview_%s_%s_%s.inc\n' % (section, subsection, system))
                     build_doc_section_single_system(system, section, subsection, programs, version_d)
 
