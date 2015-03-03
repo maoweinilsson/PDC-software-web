@@ -1,6 +1,5 @@
 :orphan:
 
-
 .. include:: using.inc
 
 Compiling your program using Intel MPI
@@ -13,7 +12,11 @@ Using Intel compiler
 --------------------
 
 To use the intel compiler with Intel MPI you must have one of the
-i-compiler modules loaded, then you can use::
+i-compiler modules and the intel mpi moudule loaded::
+
+  module load i-compilers/15.0.2 intelmpi/5.0.3
+
+Then you can use::
 
   mpiifort
   mpiicc
@@ -50,10 +53,10 @@ volume. You can create there a configuration file that will be used
 for authentication within the MPI library. This is an optinal step for
 Intel MPI. However, because it can be used for MPICH and MVAPICH too,
 it is recommended to create this file. That makes it more convenient
-to change between different MPI libraries later.
+to change between different MPI libraries later.::
 
-echo "secretword=<arbitrary-word>" >~/.mpd.conf
-chmod 600 ~/.mpd.conf
+  echo "secretword=<arbitrary-word>" >~/.mpd.conf
+  chmod 600 ~/.mpd.conf
 
 N.B. Do not use a word that you use somewhere else as password.
 
@@ -90,10 +93,8 @@ The same commands can also be used in interactive jobs. But, before
 issuing the commands listed above, please do the following
 preparation.
 
- #. Determine the nodes that belong to your job. You will get an e-mail that lists the assigned compute nodes or you can use the command spusage for that.
-
+#. Determine the nodes that belong to your job. You will get an e-mail that lists the assigned compute nodes or you can use the command spusage for that.
 #. Login to the first node in the list.
-        
 #. Make the environment definitions of the batch job available to your terminal session::
 
             $ module load easy
