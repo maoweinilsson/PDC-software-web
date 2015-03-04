@@ -12,7 +12,7 @@ then load the openmpi module you want to use e.g.::
   module add i-compilers/12.1.5
   module add openmpi/1.5.4-intel-12
 
-you can then use the following commands to compile C, C++, and Fortran programs respectively::
+You can then use the following commands to compile C, C++, and Fortran programs respectively::
 
   mpicc
   mpiCC
@@ -27,7 +27,7 @@ Sample job script (jobscript.sh):
 .. code:: bash
 
   #!/bin/bash
-  module add openmpi/1.4.4-gcc-4.6
+  module add openmpi/1.5.4-intel-12
   processes_per_node=8
   total_processes=`expr $processes_per_node \* $SP_PROCS`
   PRG="$1"
