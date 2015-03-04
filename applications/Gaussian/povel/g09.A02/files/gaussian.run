@@ -16,4 +16,4 @@ test -d $GAUSS_SCRDIR || mkdir -p $GAUSS_SCRDIR
 time g09 < $INPUT > $OUTPUT
 
 # clear scratch
-rm -rv $GAUSS_SCRDIR
+rm -rf $GAUSS_SCRDIR
