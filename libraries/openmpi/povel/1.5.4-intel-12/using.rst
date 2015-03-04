@@ -4,7 +4,7 @@
 
 
 Compiling your program using OpenMPI
-====================================
+------------------------------------
 
 To compile a program using OpenMPI you should first load the compiler module
 then load the openmpi module you want to use e.g.::
@@ -20,7 +20,7 @@ you can then use the following commands to compile C, C++, and Fortran programs 
 
 
 Running OpenMPI-built programs using EASY
-=========================================
+-----------------------------------------
 
 Sample job script (jobscript.sh):
 
