@@ -1,0 +1,19 @@
+# this script expects one argument: the input file with suffix .com
+INPUT=$1
+OUTPUT=${INPUT%com}log
+
+# load module
+module add gaussian/g09.A02
+
+# set up standard environment
+. $g09root/g09/bsd/g09.profile
+
+# define scratch
+export GAUSS_SCRDIR=/scratch/$USER/${SP_JID-$$}
+test -d $GAUSS_SCRDIR || mkdir -p $GAUSS_SCRDIR
+
+# run the calculation
+time g09 < $INPUT > $OUTPUT
+
+# clear scratch
+rm -rv $GAUSS_SCRDIR
