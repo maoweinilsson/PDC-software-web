@@ -1,0 +1,18 @@
+#/bin/bash
+
+# we load the modules that we need
+module add vasp/5.2
+
+# start the mpd daemons: one on every compute node
+NR_NODES=$(cat ${SP_HOSTFILE} | wc -l)
+mpdboot -n ${NR_NODES} -f ${SP_HOSTFILE}
+
+PROCS_PER_NODE=8
+MPI_PROCS=$[NR_NODES*$PROCS_PER_NODE]
+
+# now start the mpi application
+# alternatively use vasp-gamma or vasp-noncollinear
+mpiexec -n $MPI_PROCS vasp
+
+# finally shutdown the mpd daemons
+mpdallexit
