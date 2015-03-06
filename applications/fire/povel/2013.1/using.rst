@@ -13,7 +13,7 @@ To run in batch mode::
 will submit a job on 2 nodes (48 cores on Povel and 16 cores on Ferlin) with a
 duration of 60 minutes.
 
-Sample job file::
+Sample job file:
 
 .. literalinclude:: files/run_script.sh
     :language: bash
