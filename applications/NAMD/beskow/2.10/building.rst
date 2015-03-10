@@ -10,7 +10,6 @@ Some instructions for Archer at for version 2.9
   module swap PrgEnv-cray PrgEnv-intel
   module load rca
 
-**************************************************
 Start with tcl 8.4::
 
   cd unix
@@ -29,7 +28,6 @@ To build::
   aprun -n 1 -cc none make install
 
 8.4 failed, so try 8.5
-**************************************************
 
 Unpack Unpack source which comes with NAMD::
 
@@ -40,7 +38,6 @@ Build::
   ./build charm++ mpi-crayxc -O -DCMK_OPTIMIZE=1
   source which comes with NAMD
 
-**************************************************
 ::
   cd arch
 
@@ -74,8 +71,6 @@ then make a tar file::
   cd /pdc/vol/namd/2.10
   tar xf src/NAMD_2.10_Source/CRAY-XC-intel/NAMD_2.10_CRAY-XC-MPI.tar.gz
   mv NAMD_2.10_CRAY-XC-MPI/ bin
-
-**************************************************
 
 ok try again, need to build with workaround for the all-to-all
 
