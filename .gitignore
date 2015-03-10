@@ -5,7 +5,4 @@ _build/*
 *.inc
 
 # these are also generated
-index_using_beskow.rst
-index_using_ellen.rst
-index_using_povel.rst
-index_using_zorn.rst
+index_using_*.rst

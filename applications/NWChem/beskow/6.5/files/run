@@ -1,0 +1,25 @@
+#!/bin/bash --login
+
+#SBATCH -J nwchem
+
+#SBATCH -t 00:10:00
+
+# number of nodes
+#SBATCH -N 2
+
+# number of MPI processes
+#SBATCH -n 64
+
+#SBATCH -o stdout.txt
+#SBATCH -e stderr.txt
+
+# load NWChem module
+module add nwchem/6.5
+
+# set scratch directory
+NWCHEM_SCRATCH_DIR=$SNIC_TMP/scratch_nwchem/$SLURM_JOB_ID
+mkdir -p $NWCHEM_SCRATCH_DIR
+sed "s:<<++SCRDIR++>>:$NWCHEM_SCRATCH_DIR:" input_template > input
+
+# start the job
+aprun -n 64 nwchem input > output
