@@ -1,7 +1,3 @@
-:orphan:
-
-.. include:: building.inc
-
 On Tegner we recommend compiling GROMACS with the GNU compilers::
 
   $ module add gcc/4.9.2

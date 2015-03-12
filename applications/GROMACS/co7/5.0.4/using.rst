@@ -1,8 +1,3 @@
-:orphan:
-
-.. include:: using.inc
-
-
 GROMACS is highly tuned for quite efficient use of HPC resources.
 Special assembly kernels make its core compute engine one of the fastest MD
 simulation programs.
@@ -50,4 +45,3 @@ Do not run calculations on the login node for anything other than small short te
 Now we are ready to submit the calculation::
 
   $ sbatch gromacs.run
-
