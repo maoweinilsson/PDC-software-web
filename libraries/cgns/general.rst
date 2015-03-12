@@ -27,6 +27,6 @@ alter it and redistribute it freely, subject to the following restrictions:
    If you use this software in a product, an acknowledgment in the product documentation would be appreciated but is not required.
 2. Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
 3. This notice may not be removed or altered from any source distribution.
+
 This license is borrowed from the zlib/libpng License, and supercedes the GNU Lesser General Public License (LGPL) 
 which previously governed the use and distribution of the software.
-
