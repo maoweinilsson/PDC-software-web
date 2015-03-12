@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: using.inc
 
 
 There is a module for LAMMPS, which is loaded like any other module:

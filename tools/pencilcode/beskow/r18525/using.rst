@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 Since 21 September 2008 the Pencil Code is available under
 <http://code.google.com/p/pencil-code/>

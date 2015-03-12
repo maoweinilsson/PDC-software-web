@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 On Lindgren to use Fire then cluster compatability mode (CCM) must be used. Note your account must be specially enabled to use CCM on Lindgren. Contact support@pdc.kth.se if you need your account to be able to use CCM.
 

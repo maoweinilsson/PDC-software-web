@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: include.inc
 
 `Intel Math Kernel Library (MKL) <https://software.intel.com/en-us/intel-mkl>`_
 is a math library

@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 Building the GNU Scientific Library::
 

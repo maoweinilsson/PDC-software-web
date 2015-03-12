@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 Download and extract the tarball::
 

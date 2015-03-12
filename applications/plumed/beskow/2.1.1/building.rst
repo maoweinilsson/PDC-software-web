@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 First fetch and build plumed::
 

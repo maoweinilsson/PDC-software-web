@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: include.inc
 
 Sponsored by Xamarin, Mono is an open source implementation of Microsoft's .NET 
 Framework based on the ECMA standards for C# and the Common Language Runtime. 
@@ -19,4 +17,3 @@ Mono's C# compiler and tools are released under the GNU General Public License (
 [77] the runtime libraries under the GNU Lesser General Public License (LGPLv2 only) and the class libraries under the MIT License. 
 These are all free software and open-source licenses and hence Mono is free and open-source software.e.
 
-.. include:: ../../disclaimer.rst

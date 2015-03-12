@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 gcc 4.1.2 is the default compiler for Ferlin/Povel and can be used
 without loading any modules.

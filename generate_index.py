@@ -126,7 +126,7 @@ def test_get_sphinx_table():
 
 #-------------------------------------------------------------------------------
 
-def generate_table(title_line, programs, version_d, systems, systems_dict, section, subsection, single_program=False, single_system=False):
+def generate_table(title_line, programs, version_d, systems, systems_dict, section, single_program=False, single_system=False):
     """
     Build table with hyperlinks.
     Function checks whether corresponding files exist and only
@@ -142,19 +142,19 @@ def generate_table(title_line, programs, version_d, systems, systems_dict, secti
         for system in systems:
             line = []
             for version in version_d[program]:
-                if os.path.isfile(os.path.join(section, program, system, version, '%s.rst' % subsection)):
+                if os.path.isfile(os.path.join(section, program, system, version, 'index.rst')):
                     if single_program:
-                        line.append(":doc:`%s <%s/%s/%s>`" % (version, system, version, subsection))
+                        line.append(":doc:`%s <%s/%s/index>`" % (version, system, version))
                     else:
-                        line.append(":doc:`%s <%s/%s/%s/%s/%s>`" % (version, section, program, system, version, subsection))
+                        line.append(":doc:`%s <%s/%s/%s/%s/index>`" % (version, section, program, system, version))
             if len(line) > 0:
                 if single_program:
                     table_body.append([systems_dict[system], ', '.join(line)])
                 else:
                     if single_system:
-                        table_body.append([':doc:`%s <%s/%s/general>`' % (program, section, program), ', '.join(line)])
+                        table_body.append([':doc:`%s <%s/%s/index>`' % (program, section, program), ', '.join(line)])
                     else:
-                        table_body.append([':doc:`%s <%s/%s/general>`' % (program, section, program), systems_dict[system], ', '.join(line)])
+                        table_body.append([':doc:`%s <%s/%s/index>`' % (program, section, program), systems_dict[system], ', '.join(line)])
 
     if table_body:
         table = []
@@ -210,67 +210,71 @@ def get_list_of_programs(section):
 
 #-------------------------------------------------------------------------------
 
-def generate_include_files(systems, systems_dict, section, programs, version_d):
+def generate_version_index(systems, systems_dict, section, programs, version_d):
     """
-    Build include files which contain title and version.
+    For each documented program/version
+    generate combined index.rst from using.rst and building.rst
+    basically doing a "cat using.rst building.rst > index.rst" with some annotations
+    and navigation elements.
     """
     import os
 
     for program in programs:
         for version in version_d[program]:
             for system in systems:
-                for subsection in ['using', 'building']:
-                    if os.path.isfile(os.path.join(section, program, system, version, '%s.rst' % subsection)):
-                        with open(os.path.join(section, program, system, version, '%s.inc' % subsection), 'w') as f_include:
+                if os.path.exists(os.path.join(section, program, system, version)):
+                    with open(os.path.join(section, program, system, version, 'index.rst'), 'w') as f_combined:
 
-                            # add navigation
-                            f_include.write(":doc:`../../../../index` - :doc:`../../general` - :doc:`%s`\n\n" % subsection)
+                        # this is because the generated page is not included in any toctree
+                        f_combined.write(":orphan:\n\n")
 
-                            text = '%s %s %s on %s' % (subsection.title(), program, version, systems_dict[system])
-                            f_include.write('%s\n' % underline_text(text, '='))
+                        # add navigation
+                        f_combined.write(":doc:`../../../../index` - :doc:`../../index` - :doc:`index`\n\n")
+
+                        for subsection in ['using', 'building']:
+                            file_name = os.path.join(section, program, system, version, '%s.rst' % subsection)
+                            if os.path.isfile(file_name):
+
+                                # generate subtitle
+                                text = '%s %s %s on %s' % (subsection.title(), program, version, systems_dict[system])
+                                f_combined.write('\n%s\n\n' % underline_text(text, '='))
+
+                                with open(file_name, 'r') as f:
+                                     f_combined.write(f.read())
 
 #-------------------------------------------------------------------------------
 
 def generate_one_program_overview(systems, systems_dict, section, programs, version_d):
     """
-    Build include files which contain title and version.
+    Build index.rst from general.rst and augment it with navigation.
     """
     import os
 
     # this generates a version overview for each program separately
     for program in programs:
-        with open(os.path.join(section, program, 'include.inc'), 'w') as f_program:
+        with open(os.path.join(section, program, 'index.rst'), 'w') as f_generated:
+
+            # this is because the generated page is not included in any toctree
+            f_generated.write(":orphan:\n\n")
 
             # add navigation
-            f_program.write(":doc:`../../index` - :doc:`general`\n\n")
+            f_generated.write(":doc:`../../index` - :doc:`index`\n\n")
 
-            f_program.write("%s\n\n" % underline_text("General information about %s" % program, '='))
-            for subsection in ['using', 'building']:
-                title_line = ['System', '%s instructions' % subsection.title()]
-                table = generate_table(title_line, [program], version_d, systems, systems_dict, section, '%s' % subsection, single_program=True)
-                if table:
-                    f_program.write('\n\n')
-                    f_program.write(get_sphinx_table(table))
+            f_generated.write("%s\n\n" % underline_text("General information about %s" % program, '='))
 
-#-------------------------------------------------------------------------------
+            title_line = ['System', 'Available versions']
+            table = generate_table(title_line, [program], version_d, systems, systems_dict, section, single_program=True)
+            if table:
+                f_generated.write('\n\n')
+                f_generated.write(get_sphinx_table(table))
+                f_generated.write('\n')
 
-def build_doc_section(systems, systems_dict, section, subsection, programs, version_d):
+            with open(os.path.join(section, program, 'general.rst'), 'r') as f:
+                f_generated.write('\n')
+                f_generated.write(f.read())
+                f_generated.write('\n')
 
-    title_line = ['Program', 'System', 'Available versions']
-    with open('overview_%s_%s.inc' % (section, subsection), 'w') as include_file:
-        table = generate_table(title_line, programs, version_d, systems, systems_dict, section, '%s' % subsection)
-        if len(table) > 0:
-            include_file.write(get_sphinx_table(table))
-
-#-------------------------------------------------------------------------------
-
-def build_doc_section_single_system(system, systems_dict, section, subsection, programs, version_d):
-
-    title_line = ['Program', 'Available versions']
-    with open('overview_%s_%s_%s.inc' % (section, subsection, system), 'w') as include_file:
-        table = generate_table(title_line, programs, version_d, [system], systems_dict, section, '%s' % subsection, single_system=True)
-        if len(table) > 0:
-            include_file.write(get_sphinx_table(table))
+            f_generated.write(".. include:: ../../disclaimer.inc\n")
 
 #-------------------------------------------------------------------------------
 
@@ -298,47 +302,56 @@ def main():
     sections_dict['compilers'] = 'Compilers and Languages'
     sections_dict['libraries'] = 'Libraries'
 
-    list_of_files = []
-    for subsection in ['using', 'building']:
-        list_of_files.append('overview_%s.inc' % subsection)
-        for system in systems:
-            list_of_files.append('overview_%s_%s.inc' % (subsection, system))
-
     # write machine-specific navigation
     line = []
     line.append(':doc:`All <index>`')
     for system in systems:
-        line.append(':doc:`%s <index_using_%s>`' % (systems_dict[system], system))
+        line.append(':doc:`%s <index_%s>`' % (systems_dict[system], system))
+
+    list_of_files = []
+    list_of_files.append('overview_all.inc')
+    for system in systems:
+        list_of_files.append('overview_%s.inc' % system)
     for f in list_of_files:
         with open('%s' % f, 'w') as include_file:
-            if 'using' in f:
-                include_file.write('\nSystems: ' + ', '.join(line))
-            else:
-                include_file.write('\n')
+            include_file.write('\nSystems: ' + ', '.join(line))
 
     # copy index.rst to machine specific index files
     with open('index.rst', 'r') as f:
         s = f.read()
     for system in systems:
-        with open('index_using_%s.rst' % system, 'w') as f:
-            f.write(s.replace('overview_using.inc', 'overview_using_%s.inc' % system))
+        with open('index_%s.rst' % system, 'w') as f:
+            f.write(':orphan:\n\n')
+            f.write(s.replace('overview_all.inc', 'overview_%s.inc' % system))
 
     for section in sections:
         programs, version_d = get_list_of_programs(section)
-        generate_include_files(systems, systems_dict, section, programs, version_d)
+
+        generate_version_index(systems, systems_dict, section, programs, version_d)
         generate_one_program_overview(systems, systems_dict, section, programs, version_d)
+
         if len(programs) > 0:
-            for subsection in ['using', 'building']:
-                with open('overview_%s.inc' % subsection, 'a') as include_file:
-                    include_file.write('\n\n%s\n' % underline_text(sections_dict[section], '-'))
-                    include_file.write('.. include:: overview_%s_%s.inc\n' % (section, subsection))
-                    build_doc_section(systems, systems_dict, section, subsection, programs, version_d)
+
+            # here we build the big overview table for all systems
+            with open('overview_all.inc', 'a') as include_file:
+                include_file.write('\n\n%s\n' % underline_text(sections_dict[section], '-'))
+                include_file.write('.. include:: overview_all_%s.inc\n' % section)
+                title_line = ['Program', 'System', 'Available versions']
+                with open('overview_all_%s.inc' % section, 'w') as include_file:
+                    table = generate_table(title_line, programs, version_d, systems, systems_dict, section)
+                    if len(table) > 0:
+                        include_file.write(get_sphinx_table(table))
+
+            # and here for each system separately
             for system in systems:
-                subsection = 'using'
-                with open('overview_%s_%s.inc' % (subsection, system), 'a') as include_file:
+                with open('overview_%s.inc' % system, 'a') as include_file:
                     include_file.write('\n\n%s\n' % underline_text(sections_dict[section], '-'))
-                    include_file.write('.. include:: overview_%s_%s_%s.inc\n' % (section, subsection, system))
-                    build_doc_section_single_system(system, systems_dict, section, subsection, programs, version_d)
+                    include_file.write('.. include:: overview_%s_%s.inc\n' % (system, section))
+                    title_line = ['Program', 'Available versions']
+                    with open('overview_%s_%s.inc' % (system, section), 'w') as include_file:
+                        table = generate_table(title_line, programs, version_d, [system], systems_dict, section, single_system=True)
+                        if len(table) > 0:
+                            include_file.write(get_sphinx_table(table))
 
 #-------------------------------------------------------------------------------
 

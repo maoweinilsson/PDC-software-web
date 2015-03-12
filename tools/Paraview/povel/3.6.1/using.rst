@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 To start the Paraview server first load the required modules to access paraview.
 

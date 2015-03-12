@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: include.inc
 
 Paraview uses a client/server model to do parallel visualisation, and has a
 flexible way to connect the client (which normally runs on  your local computer

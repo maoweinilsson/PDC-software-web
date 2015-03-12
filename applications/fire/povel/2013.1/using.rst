@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 Running using jobs that have been reserved with spattach is also possible, but
 more complicated and not convered here.

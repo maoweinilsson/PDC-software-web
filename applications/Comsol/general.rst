@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: include.inc
 
 
 How to use Comsol on PDC machines
@@ -16,5 +14,4 @@ To see which versions of comsol are installed on any of the machines at PDC log 
 
 http://www.comsol.com
 
-.. include:: ../../disclaimer.rst
 

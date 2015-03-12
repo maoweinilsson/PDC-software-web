@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 Load the module with::
 

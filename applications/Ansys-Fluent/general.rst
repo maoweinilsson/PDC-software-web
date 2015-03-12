@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: include.inc
 
 Ansys/Fluent is a computational fluid dynamics (CFD) software. Fluent is a general-purpose CFD code based on the finite volume method on a collocated grid.   As of 2012 KTH have made a joint purchase of ANSYS (in which Fluent is one component).  
 
@@ -27,4 +25,3 @@ For more details, look at Ansys web page:
 
 http://www.ansys.com/
 
-.. include:: ../../disclaimer.rst

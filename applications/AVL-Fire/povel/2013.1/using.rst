@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 Getting access to AVL FIRE at PDC
 ---------------------------------

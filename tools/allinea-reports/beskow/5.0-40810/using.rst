@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 To profile a binary with Allinea Performance Reports
 we need to compile it with the module allinea-reports/5.0-40810 loaded::

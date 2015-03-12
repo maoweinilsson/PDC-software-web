@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 On Beskow we recommend compiling GROMACS with the GNU compilers::
 

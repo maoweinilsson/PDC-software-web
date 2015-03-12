@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 Ferlin is an older machine, but also has vasp installed::
 

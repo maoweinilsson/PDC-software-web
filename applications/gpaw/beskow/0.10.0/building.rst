@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 
 decided to use the gnu compiler for simplicity

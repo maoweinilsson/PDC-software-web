@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 * Requested SPAdes V3.5.0 from http://bioinf.spbau.ru/spades
 * Followed installation instructions from http://spades.bioinf.spbau.ru/release3.5.0/manual.html#sec2

@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 Make sure that you do not run DDT on the login node
 but rather on an interactive node.

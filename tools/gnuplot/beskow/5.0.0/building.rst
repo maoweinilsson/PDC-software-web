@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 * fetch the tool from <http://sourceforge.net/projects/gnuplot/files/gnuplot/5.0.0/>
 * Unpack

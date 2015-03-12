@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: using.inc
 
 cray-libsci on Beskow is supplied by Cray and is integrated into the
 CC/cc/ftn script environment so to link programs against cray-libsc it is

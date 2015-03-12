@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 Make sure that your codes are stored in file system /cfs/klemming and DDT is
 also launched from the file system /cfs/kemming. If you want to quickly debug

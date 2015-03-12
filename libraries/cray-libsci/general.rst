@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: include.inc
 
 Using cray-Libsci at PDC
 ------------------------

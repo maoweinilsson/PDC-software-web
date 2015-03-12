@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 
 1. The library has been compiled with GCC and the intel compiler

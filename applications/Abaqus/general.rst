@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: include.inc
 
 Abaqus is a commercial software package for finite element analysis. The Abaqus product suite consists of three core products: Abaqus/Standard, Abaqus/Explicit and Abaqus/CAE. Abaqus/Standard is a general-purpose solver using a traditional implicit integration scheme to solve finite element analyses. Abaqus/Explicit uses an explicit integration scheme to solve highly nonlinear transient dynamic and quasi-static analyses. Abaqus/CAE provides an integrated modelling (preprocessing) and visualization (postprocessing) environment for the analysis products.
 
@@ -10,4 +8,3 @@ Abaqus was initially designed to address non-linear physical behavior; as a resu
 
 http://www.simulia.com/
 
-.. include:: ../../disclaimer.rst

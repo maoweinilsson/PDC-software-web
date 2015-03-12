@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: include.inc
 
 Allinea Performance Reports (APR) is a convenient tool to characterize and
 understand the performance of HPC application runs.  It generates a clear

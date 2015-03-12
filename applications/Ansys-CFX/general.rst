@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: include.inc
 
 Ansys/CFX is a computational fluid dynamics (CFD) software. As of 2012 KTH have made a joint purchase of ANSYS (in which CFX is one component).  
 
@@ -27,4 +25,3 @@ For more details, look at Ansys web page:
 
 http://www.ansys.com/
 
-.. include:: ../../disclaimer.rst

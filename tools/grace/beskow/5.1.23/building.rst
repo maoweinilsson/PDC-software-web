@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 using gcc to to build dynamically and avoid complications with wrapper scripts etc.
 

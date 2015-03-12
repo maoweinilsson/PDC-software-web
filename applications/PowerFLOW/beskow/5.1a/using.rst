@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 Running on the Batch system
 ---------------------------

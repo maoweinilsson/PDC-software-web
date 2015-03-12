@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 Submitting a Fluent job on Povel
 --------------------------------

@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 The flags for a typical situation, using the intel compiler and 32 bit integers are as follows::
 

@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: include.inc
 
 CFD General Notation System (CGNS)
 ----------------------------------
@@ -32,4 +30,3 @@ alter it and redistribute it freely, subject to the following restrictions:
 This license is borrowed from the zlib/libpng License, and supercedes the GNU Lesser General Public License (LGPL) 
 which previously governed the use and distribution of the software.
 
-.. include:: ../../disclaimer.rst

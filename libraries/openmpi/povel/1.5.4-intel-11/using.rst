@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 
 Compiling your program using OpenMPI

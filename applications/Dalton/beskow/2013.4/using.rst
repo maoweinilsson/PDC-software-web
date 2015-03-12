@@ -1,6 +1,3 @@
-:orphan:
-
-.. include:: using.inc
 
 
 Dalton

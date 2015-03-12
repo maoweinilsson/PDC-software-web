@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 Some instructions for Archer at for version 2.9
 

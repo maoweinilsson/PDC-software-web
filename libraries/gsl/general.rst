@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: include.inc
 
 The GNU Scientific Library (GSL) is a numerical library for C and C++ programmers. 
 The library provides a wide range of mathematical routines such as random number generators, 
@@ -13,4 +11,3 @@ Licensing
 
 The library is free software under the GNU General Public License.
 
-.. include:: ../../disclaimer.rst

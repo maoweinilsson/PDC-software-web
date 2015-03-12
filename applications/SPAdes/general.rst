@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: include.inc
 
 http://bioinf.spbau.ru/spades
 
@@ -13,4 +11,3 @@ Any opinions, findings and conclusions or recommendations expressed in this mate
 the author(s) and do not necessarily reflect the views of the organizations 
 or agencies that provided support for the project.
 
-.. include:: ../../disclaimer.rst

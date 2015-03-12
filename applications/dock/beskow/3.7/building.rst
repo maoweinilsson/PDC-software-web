@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 * Requested dock 3.7 from http://dock.compbio.ucsf.edu/DOCK3.7/
 * Obtained license information from http://dock.compbio.ucsf.edu/Online_Licensing/dock_license_application.html

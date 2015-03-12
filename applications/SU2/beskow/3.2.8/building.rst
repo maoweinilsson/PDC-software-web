@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 First load the GNU environment and CGNS::
 

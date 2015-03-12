@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: include.inc
 
 The Pencil Code is a high-order finite-difference code for compressible hydrodynamic
 flows with magnetic fields. It is highly modular and can easily be adapted to different
@@ -10,4 +8,3 @@ distributed-memory computers.
 
 More information is avialable at <http://pencil-code.nordita.org/>
 
-.. include:: ../../disclaimer.rst

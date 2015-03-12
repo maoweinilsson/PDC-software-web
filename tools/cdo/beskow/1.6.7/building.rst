@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 CDO is normally just used on the login nodes.
 

@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 To use version 4.8.1 of the gcc compiler, use the command ::
 

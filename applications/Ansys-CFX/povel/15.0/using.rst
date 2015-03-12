@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 Submitting a CFX job on Povel
 -----------------------------

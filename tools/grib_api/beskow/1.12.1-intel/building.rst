@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 Download from <https://software.ecmwf.int/wiki/display/GRIB/Releases>::
 

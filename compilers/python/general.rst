@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: include.inc
 
 How to use Python on PDC machines
 ===================================
@@ -82,4 +80,3 @@ It is also available at all PDC systems, but (but only for python
   Type "help", "copyright", "credits" or "license" for more information. 
   >>>
 
-.. include:: ../../disclaimer.rst

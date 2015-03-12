@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: include.inc
 
 Atomic Simulation Environment
 -----------------------------
@@ -16,4 +14,3 @@ Licensing
 
 The code is freely available under the GNU LGPL license.
 
-.. include:: ../../disclaimer.rst

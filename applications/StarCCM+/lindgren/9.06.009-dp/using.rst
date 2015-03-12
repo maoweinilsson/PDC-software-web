@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 The Star-CCM files can be accessed by loading the appropriate modules. To see which versions of Star-CCM+ are available use the command
 

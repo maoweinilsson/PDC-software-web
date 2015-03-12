@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 The tool was installed using::
 

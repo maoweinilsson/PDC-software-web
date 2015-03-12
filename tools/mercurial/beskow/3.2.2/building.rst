@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 Compilation was performed with the standard gnu compiler.
 The tool was installed using::

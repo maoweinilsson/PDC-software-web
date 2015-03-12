@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 Fetch the tarball from the mono project webpage:
 http://download.mono-project.com/sources/mono/

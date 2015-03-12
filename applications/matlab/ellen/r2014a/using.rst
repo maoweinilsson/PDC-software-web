@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 
 Since Ellen is one big shared machine you need to take care not to overuse its resources. Therefore, the resource limits are set lower than the hard limits. If you need to increase your default share of RAM for a certain job you need to do the following (assuming you're using bash):

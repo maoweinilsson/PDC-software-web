@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 When compiling on Milner the cc/CC/ftn wrappers should always be
 used. Which compiler is used is determined by which PrgEnv module is

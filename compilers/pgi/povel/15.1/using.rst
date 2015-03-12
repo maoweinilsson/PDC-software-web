@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 The Portland Group compiler has 3 components
 

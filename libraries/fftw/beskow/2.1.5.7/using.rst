@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: using.inc
 
 FFTW on Beskow is supplied by Cray and is integrated into the
 CC/cc/ftn script environment so to link programs against fftw it is

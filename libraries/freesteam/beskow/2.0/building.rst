@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 1)::
 

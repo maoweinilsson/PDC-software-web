@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 To see which versions of openfoam are installed on any of the machines at PDC log into the machine and type
 

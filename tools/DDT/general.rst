@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: include.inc
 
 DDT is a debugger developed by
 `Allinea <http://www.allinea.com/products/ddt/>`_.

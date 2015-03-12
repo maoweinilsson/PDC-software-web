@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: include.inc
 
 Grace is a WYSIWYG 2D plotting tool for the X Window System and M*tif.
 Grace runs on practically any version of Unix-like OS. As well, it has been 
@@ -15,4 +13,3 @@ Licensing
 
 The code is freely available under the GNU LGPL license.
 
-.. include:: ../../disclaimer.rst

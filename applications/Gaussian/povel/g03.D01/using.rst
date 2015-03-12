@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 
 Example input: Structure optimization of benzene with B3LYP functional
