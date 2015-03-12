@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 To run DIRAC we need two input files (one file for the job specification
 and one file to specify the molecule). In addition

@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 Here's an example way of running SIESTA on beskow, untested but it should work:
 

@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 * Requested FastUniq 1.1 from http://sourceforge.net/projects/fastuniq/?source=typ_redirect
 * Followed instruction in README

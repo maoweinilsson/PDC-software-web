@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: include.inc
 
 How to use PowerFLOW on PDC machines
 ====================================
@@ -25,4 +23,3 @@ In order to use  at PDC you must provide your own license for the software.
 
 http://www.exa.com
 
-.. include:: ../../disclaimer.rst

@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: include.inc
 
 Using LAPACK at PDC
 -------------------

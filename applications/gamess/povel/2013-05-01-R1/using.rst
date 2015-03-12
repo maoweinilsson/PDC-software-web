@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: using.inc
 
 
 Example job script

@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 To see all available versions use::
 

@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 Below follows an example job script for cp2k.
 

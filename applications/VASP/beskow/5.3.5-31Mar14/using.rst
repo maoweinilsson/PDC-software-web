@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 General observations
 --------------------
@@ -58,8 +56,7 @@ Vasp Filenames
 - vasp: this is normal regular VASP version for calculations using >1 k-point.
 - vasp-gamma: gamma-point only version of VASP. Use this one if you only have the gamma point. It is much faster and uses less memory.
 - vasp-noncollinear: VASP for noncollinear and spin-orbit coupling calculations.
-
-- vasp-tbdyn-*: same as above, but compiled with the -Dtbdyn option for special molecular dynamics subroutines.
+- vasp-tbdyn: same as above, but compiled with the -Dtbdyn option for special molecular dynamics subroutines.
 
 Running Vasp
 ------------

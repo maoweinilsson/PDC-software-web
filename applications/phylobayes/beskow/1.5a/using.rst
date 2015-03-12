@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 Phylobayes is a Bayesian Monte Carlo Markov Chain (MCMC) sample for phylogenetic reconstruction.
 Compared to other phylogenetic MCMC samplers, the main distinguishing feature of PhyloBayes is

@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: using.inc
 
 While running interactively, molden can be loaded using
 

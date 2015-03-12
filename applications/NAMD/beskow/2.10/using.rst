@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 
 To see what versions of NAMD are available on each machine use the command

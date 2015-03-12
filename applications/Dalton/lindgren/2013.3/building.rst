@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: building.inc
 
 First load the Intel environment and CMake::
 

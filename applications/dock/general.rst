@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: include.inc
 
 DOCK is academic software developed over many years by investigators in Tack Kuntz’s lab, and for
 DOCK3.5 derivatives by the Shoichet group. Like any docking program, it has substantial liabilities—it undersamples
@@ -34,4 +32,3 @@ All publications using DOCK should cite at least the following paper::
   year={2013},
   publisher={Public Library of Science}}
 
-.. include:: ../../disclaimer.rst

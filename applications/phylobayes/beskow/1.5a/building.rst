@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 According to the online manual the software should be
 compiled with GNU CC, but compilation/running works

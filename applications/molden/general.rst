@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: include.inc
 
 Molden is a package for displaying Molecular Density.
 

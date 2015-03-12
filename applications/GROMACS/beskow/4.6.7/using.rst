@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 
 GROMACS is highly tuned for quite efficient use of HPC resources.

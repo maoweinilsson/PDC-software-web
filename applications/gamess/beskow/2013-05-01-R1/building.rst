@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 GAMESS has a slightly complicated build system that gets confused by
 the way things are done on a cray system. Building using the intel compiler.

@@ -1,8 +1,10 @@
 _build/*
 *.pyc
 
-# .inc files are generated on the web server
-*.inc
+# generated index files
+*/*/*/*/index.rst
+*/*/index.rst
+index_*.rst
 
-# these are also generated
-index_using_*.rst
+# generated include files
+*.inc

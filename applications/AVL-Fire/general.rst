@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: include.inc
 
 
 How to use AVL/Fire on PDC machines
@@ -16,5 +14,4 @@ Should be set to point to the license server.
 
 http://www.avl.com
 
-.. include:: ../../disclaimer.rst
 

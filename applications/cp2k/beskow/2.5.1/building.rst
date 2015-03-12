@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 CP2K is freely available under the GPL license.
 http://www.cp2k.org/download

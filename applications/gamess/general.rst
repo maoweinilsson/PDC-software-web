@@ -1,7 +1,5 @@
-:orphan:
 
 
-.. include:: include.inc
 
 The General Atomic and Molecular Electronic Structure System (GAMESS)
 is a general ab initio quantum chemistry package.
@@ -41,4 +39,3 @@ The default value of DIRSCF=.FALSE. causes integrals to be written to disk for
 later use and considerably (negatively) affects the performance of the file
 system and of your calculation.
 
-.. include:: ../../disclaimer.rst

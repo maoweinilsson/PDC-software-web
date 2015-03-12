@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 
 A simple bash script for submitting Matlab jobs on Ferlin can look like this:

@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 A script for running Abaqus on Povel called abaqusPovel.sh is shown below.
 

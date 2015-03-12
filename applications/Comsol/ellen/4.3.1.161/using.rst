@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 We recommend using Comsol on Ellen in a server fashion. You first log in to the shared memory machine (i.e. Ellen), and then you start the comsol server. After that, you connect with the comsol client from your laptop or desktop computer. Alternatively you may log in to `Povel <http://www.pdc.kth.se/resources/computers/povel>`_ and start the client there; this may be needed if you do not have the correct version of comsol on your laptop.
 

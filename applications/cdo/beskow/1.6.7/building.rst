@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: building.inc
 
 for simplicity not cross compiling and using gcc
 

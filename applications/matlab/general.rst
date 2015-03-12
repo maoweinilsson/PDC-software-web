@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: include.inc
 
 **Matlab is installed on several of PDC's machines. In order to use Matlab you need a licenses.**
 
@@ -42,6 +40,5 @@ External links
 `Matlab information at the SNIC knowledge base <http://docs.snic.se/wiki/Matlab>`_
 
 
-.. include:: ../../disclaimer.rst
 
 

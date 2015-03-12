@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 Running on single node job in the Batch system
 ----------------------------------------------

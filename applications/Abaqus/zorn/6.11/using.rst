@@ -1,6 +1,4 @@
-:orphan:
 
-.. include:: using.inc
 
 A script for running Abaqus on Zorn called abaqusZorn.sh is shown below.
 
