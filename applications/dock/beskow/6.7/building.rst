@@ -20,10 +20,15 @@
 * Changed intel file::
 
   CC = cc
+  
   CXX = CC
+  
   ...
+  
   FC = ftn
+  
   ...
+  
   LOAD = CC
   
 * Compiled::
