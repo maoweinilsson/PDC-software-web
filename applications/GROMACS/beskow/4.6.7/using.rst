@@ -23,9 +23,9 @@ Module *gromacs/4.6.7* (as well as *gromacs/4.6.7-plumed*) provides three versio
 
  * *mdrun_mpi* : The MD engine binary with MPI and AVX2 support. This is the one that researchers would use most of the time.
  * *mdrin_mpi_d* : Same as above but in double precision. This one is much slower than the single precisio  *mdrun_mpi* and is used only in special cases, such as Normal Mode analysis.
- * *mdrun* : This binary is compiled without parallel support (no MPI, no OpenMP, no thread-MPI), and no AVX2 instructions support. I.e. it runs only as a single process, but you're able to run it also on the login node, e.g. for quick tests. It must NOT be used for production runs!!
+ * *mdrun_seq* : This binary is compiled without parallel support (no MPI, no OpenMP, no thread-MPI), and no AVX2 instructions support. I.e. it runs only as a single process, but you're able to run it also on the login node, e.g. for quick tests. It must NOT be used for production runs!!
 
-All tools from the GROMACS suite are available in the above three versions, e.g. you'll find *grompp*, *grompp_mpi*, and *grompp_mpi_d*. In most cases there is no difference between them (almost no tool supports MPI even though the library is linked). If you want to do a quick pre-processing on the login node, you'll be able to use only the non-suffixed versions. On the compute nodes you can use all three versions.
+All tools from the GROMACS suite are available in the above three versions, e.g. you'll find *grompp_seq*, *grompp_mpi*, and *grompp_mpi_d*. In most cases there is no difference between them (almost no tool supports MPI even though the library is linked). If you want to do a quick pre-processing on the login node, you'll be able to use only the "_seq"-suffixed versions. On the compute nodes you should use the "_mpi" versions (or "_mpi_d" for double precision).
 
 Here is an example script:
 
