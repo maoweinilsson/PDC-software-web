@@ -11,34 +11,29 @@
 * Unpacked dock into same directory
 * Switched to intel compiler::
 
-  $ module swap PrgEnv-cray PrgEnv-intel
+    $ module swap PrgEnv-cray PrgEnv-intel
   
 * Switched to install directory::
 
-  $ cd dock6/install
+    $ cd dock6/install
   
 * Changed intel file::
 
-  CC = cc
-  
-  CXX = CC
-  
-  ...
-  
-  FC = ftn
-  
-  ...
-  
-  LOAD = CC
+    CC = cc
+    CXX = CC
+    ...
+    FC = ftn
+    ...
+    LOAD = CC
   
 * Compiled::
 
-  $ make dock
+    $ make dock
   
 * The software was tested via::
 
-  $ cd test
-  $ salloc -t 60 aprun -n 1 make test
+    $ cd test
+    $ salloc -t 60 aprun -n 1 make test
   
 * Added Module file according to instruction
   https://wiki.pdc.kth.se/index.php/Create_module
