@@ -28,7 +28,8 @@ The --prefix flag doesn't seem to work in the ./configure step, so continue with
 .. code-block:: bash
 
    salloc
-   aprun -n 1 -d 32 ../Src/configure  --enable-mpi        
+   sh ../Src/obj_setup.sh
+   aprun -n 1 -d 32 bash ../Src/configure  --enable-mpi        
    aprun -n 1 -d 32 make
    cd ../Pseudo/atom
    aprun -n 1 -d 32 make
@@ -50,7 +51,7 @@ To test the installation you can create a work directory in /nobackup and do the
    cp path-to-siesta/Examples/Vps/H.psf path-to-working-dir/h2o/H.psf
    aprun -n 1 -d 32 ./siesta < h2o.fdf | tee h2o.out
 
-This should generate a series of files described shortly below (extracted from the manual):
+This should generate a series of files described shortly below (descriptions copied from the manual):
 
 * fdf.log (contains all the data used, explicit or chosen by default)
 * O.ion and H.ion (complete information about the basis and KB projectors)
@@ -61,3 +62,5 @@ This should generate a series of files described shortly below (extracted from t
 * h2o.FA (contains the forces on the atoms)
 * h2o.EIG (contains the eigenvalues of the Kohn-Sham Hamiltonian)
 * h2o.xml (XML marked-up output)
+
+(Note: some other files may be created as a part of the run that wasn't described in the manual. So any files that aren't described is not an indication that the installation failed.)
