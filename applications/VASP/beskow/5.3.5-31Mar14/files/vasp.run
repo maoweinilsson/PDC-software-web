@@ -13,4 +13,14 @@
 
 module load vasp/5.3.5-31Mar14
 
+# employ hugepages and DMAPP collectives
+export HUGETLB_VERBOSE=0
+export HUGETLB_DEFAULT_PAGE_SIZE=32M
+export HUGETLB_MORECORE_HEAPBASE=10000000000
+export HUGETLB_MORECORE=yes
+export HUGETLB_ELFMAP=W
+export HUGETLB_FORCE_ELFMAP=yes
+export MPICH_USE_DMAPP_COLL=1
+export MPICH_GNI_MAX_EAGER_MSG_SIZE=131072
+
 aprun -n 64 vasp
