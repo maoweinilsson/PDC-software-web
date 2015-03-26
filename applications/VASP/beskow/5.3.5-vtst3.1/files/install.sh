@@ -3,7 +3,7 @@
   # installation is following https://www.nsc.liu.se/~pla/blog/2015/01/07/vasp-cray-xc40/
   # as well as                http://theory.cm.utexas.edu/vtsttools/installation.html
 
-  WITH_VTST_PATCH=0
+  WITH_VTST_PATCH=1
 
   module swap PrgEnv-cray PrgEnv-intel/5.2.40
   module unload cray-libsci
