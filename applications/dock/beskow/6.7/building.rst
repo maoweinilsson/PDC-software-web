@@ -26,6 +26,7 @@
 
 .. literalinclude:: files/intel.parallel
     :language: bash
+    :emphasize-lines: 13-16,18,20
 
 * Compiled
 
