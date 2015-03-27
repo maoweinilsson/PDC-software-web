@@ -1,0 +1,31 @@
+# DOCK configuration file for Intel compilers.
+
+# CC is the C compiler
+# CXX is the C++ compiler
+# CFLAGS is the flags for the C and C++ compilers
+# FC is the Fortran compiler
+# FFLAGS is the flags for the Fortran compiler
+# LIBS is the flags for the linker
+# LINK_WITHOUT_FORTRAN_MAIN is the flag for linking without Fortran's main
+# LOAD is the command to invoke the linker
+# DOCK_SUFFIX is the suffix for the dock executable
+
+CC=          cc
+CXX=         CC
+CFLAGS=      -O2 -DBUILD_DOCK_WITH_MPI
+FC=          ftn
+FFLAGS=      -O2
+LIBS=        -lm
+LINK_WITHOUT_FORTRAN_MAIN= -nofor_main
+LOAD=        CC
+DOCK_SUFFIX=
+
+# Macro definitions for NAB
+# AR is the library archiver
+# LEX is the lexical analyzer generator
+# OCFLAGS is the flags for the C compilers with high optimization
+# RANLIB is the library index generator
+AR=          ar rv
+LEX=         flex
+OCFLAGS=     -O3 -D_ANSI_SOURCE
+RANLIB=      ranlib
