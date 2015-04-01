@@ -4,16 +4,6 @@ For the current install was used the tarball provided on the website::
   $ tar xvfz almost-2.1.0.tar.gz
   $ cd almost-2.1.0
 
-Note that you can get latest sources also from from svn::
-
-  $ svn ls svn://svn.code.sf.net/p/almost/code/branches
-  almost-2.0/
-  almost-2.1/
-  almost-2.2/
-
-  $ svn checkout svn://svn.code.sf.net/p/almost/code/branches/almost-2.2
-  $ cd amlmost-2.2
-
 Before compilation we need to patch the configure script. The script requires to link to liblapack while the optimized Cray the library is named libsci_gnu_49 (in the case of the GNU programming environment). To force linking with the correct one we need to change lines around 5359 from::
 
   if test "$with_lapack" = "yes"; then
