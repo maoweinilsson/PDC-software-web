@@ -37,6 +37,10 @@ the package was installed there as well using::
   $ salloc -t 60 aprun -n 1 ./R CMD INSTALL /pdc/vol/R/3.1.2/downloaded_packages/[package name].tar.gz
   
 Installed packages
+
 * snow_0.3-13           For MPI support
+
 * RColorBrewer_1.1-2
+
 * signal_0.7.4
+
