@@ -50,6 +50,13 @@ ifeq (\$(NWCHEM_TARGET),LINUX)
 endif
 ifeq (\$(NWCHEM_TARGET),LINUX64)
   ifeq (\$(FC),gfortran)
+=======
+ifeq ($(NWCHEM_TARGET),LINUX)
+   FFLAGS = -fno-second-underscore
+endif
+ifeq ($(NWCHEM_TARGET),LINUX64)
+  ifeq ($(FC),gfortran)
+>>>>>>> 027d2e04ddda1f3eaa901fa54a5c841e0a24810a
    FFLAGS = -fdefault-integer-8
   else
 #   FFLAGS = -i8
@@ -84,6 +91,19 @@ ifeq (\$(USE_MPI),y)
 endif
 COMM_LIBS=  \$(shell grep ARMCI_NETWORK_LIBS\ = \${NWCHEM_TOP}/src/tools/build/Makefile | cut -b 22-)
 LDFLAGS += \$(COMM_LIBS)
+=======
+ifeq ($(USE_MPI),y)
+  LDFLAGS += -L../../lib/${NWCHEM_TARGET} -lnwcutil
+  ifneq ($(MPI_LIB),)
+    LDFLAGS += $(patsubst -L-L%,-L%,-L${MPI_LIB})
+  endif
+  ifneq ($(LIBMPI),)
+    LDFLAGS += ${LIBMPI}
+  endif
+endif
+COMM_LIBS=  $(shell grep ARMCI_NETWORK_LIBS\ = ${NWCHEM_TOP}/src/tools/build/Makefile | cut -b 22-)
+LDFLAGS += $(COMM_LIBS)
+>>>>>>> 027d2e04ddda1f3eaa901fa54a5c841e0a24810a
 
 all:    mov2asc asc2mov
 
