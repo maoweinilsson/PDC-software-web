@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#PBS -l walltime=4:00:00
+#PBS -l nodes=1
+
+export AMBERHOME=/cfs/zorn/nobackup/b/bast/software/amber/14/amber14
+export LD_LIBRARY_PATH=$AMBERHOME/lib:$LD_LIBRARY_PATH
+
+export LD_LIBRARY_PATH=/usr/local/cuda-5.5/lib:/usr/local/cuda-5.5/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/pdc/vol/gcc/4.8.1/lib64:$LD_LIBRARY_PATH
+
+export DO_PARALLEL=" "
+
+cd $AMBERHOME
+make test
