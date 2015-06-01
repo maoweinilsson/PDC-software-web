@@ -9,7 +9,7 @@
 #SBATCH -t 1:59:00
 
 # Number of nodes to be allocated is (NPROCS/32)+1
-#SBATCH -N 2
+#SBATCH --nodes 2
 
 # Number of MPI processes per node (default 32)
 #SBATCH --ntasks-per-node=32

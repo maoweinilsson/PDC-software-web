@@ -4,7 +4,7 @@
 #SBATCH --error=AMBER_%J.err
 #SBATCH --output=AMBER_%J.out
 #SBATCH --time=00:20:00
-#SBATCH -N 1
+#SBATCH --nodes 1
 #SBATCH -n 2
 
 module add amber/12

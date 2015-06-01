@@ -2,7 +2,7 @@
 
 #SBATCH -J build-amber
 #SBATCH -t 00:59:00
-#SBATCH -N 1
+#SBATCH --nodes 1
 #SBATCH -o stdout.txt
 #SBATCH -e stderr.txt
 

@@ -2,7 +2,7 @@
 
 #SBATCH -J apr-test
 #SBATCH -t 0:10:00
-#SBATCH -N 1
+#SBATCH --nodes 1
 #SBATCH -n 32
 
 #SBATCH -e stderr.txt

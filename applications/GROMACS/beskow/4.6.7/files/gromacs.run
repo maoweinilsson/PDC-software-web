@@ -10,7 +10,7 @@
 #SBATCH -n 64
 
 # Total number of nodes
-#SBATCH -N 2
+#SBATCH --nodes 2
 
 # Test run for 5 minutes
 #SBATCH -t 00:05:00
