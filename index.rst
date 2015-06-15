@@ -1,8 +1,4 @@
 
-This documentation will gradually replace the previous PDC software
-documentation located at
-https://www.pdc.kth.se/resources/software/installed-software.
-
 **Requesting new software**
 
 If you want to use software that is not currently installed, then you
