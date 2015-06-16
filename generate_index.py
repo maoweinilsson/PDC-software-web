@@ -282,7 +282,7 @@ def main():
     """
     Main function.
     """
-    # list of systems, if you remove systems, also ignore them
+    # list of systems/OS, if you remove OS, also ignore them
     # in conf.py (search there for "lindgren")
     # we should use ordereddict here but web server has too old python for that
     systems = ['beskow', 'centos6', 'milner', 'centos5']
