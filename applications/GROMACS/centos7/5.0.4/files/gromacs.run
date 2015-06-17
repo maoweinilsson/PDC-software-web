@@ -1,0 +1,27 @@
+#!/bin/bash -l
+
+# Include your allocation number
+#SBATCH -A XXXX-XX-XX
+
+# Name your job
+#SBATCH -J gmx_md
+
+# Total number of MPI tasks
+#SBATCH --ntasks=64
+
+# Total number of nodes
+#SBATCH --nodes=2
+
+# Test run for 5 minutes
+#SBATCH -t 00:05:00
+
+#SBATCH -e error.log
+#SBATCH -o output.log
+
+export OMP_NUM_THREADS=1
+MPIRUN_OPTIONS="-n 1"
+module add gromacs/5.0.4-avx2
+# or if using PLUMED:
+# module add gromacs/5.0.4-avx2-plumed
+
+mpirun $MPIRUN_OPTIONS gmx_mpi mdrun -s topol.tpr -deffnm gmx_md 
