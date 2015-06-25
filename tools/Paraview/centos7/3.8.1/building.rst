@@ -7,21 +7,17 @@ module add hdf5/1.8.12-intel-15.0
 Bugs
 ----
 
-1. missing proper headers:
+1. Missing proper headers:
 
 Add to ParaView-3.8.1/Utilities/Xdmf2/vtk/Testing/Cxx/XdmfTestVTKIO.cxx::
 
    #include <unistd.h>
 
-2.
-
-Change line 71 in ParaView-3.8.1/Qt/Core/pqServerManagerSelectionModel.h to::
+2. Change line 71 in ParaView-3.8.1/Qt/Core/pqServerManagerSelectionModel.h to::
 
    ClearAndSelect = static_cast<int>(Clear) | static_cast<int>(Select)
 
-3.
-
-Change in ParaView-3.8.1/Applications/ParaView/CMakeLists.txt::
+3. Change in ParaView-3.8.1/Applications/ParaView/CMakeLists.txt::
 
    INCLUDE_DIRECTORIES(
      ${CMAKE_CURRENT_BINARY_DIR}
