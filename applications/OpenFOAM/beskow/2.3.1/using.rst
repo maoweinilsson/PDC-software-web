@@ -17,7 +17,7 @@ To control this behavior you need to modify the corresponding parameters in
  
  controlDict
 
-Moreover you can adapt your simulation to Lindgren by tweaking the following parameters:
+Moreover you can adapt your simulation to Beskow by tweaking the following parameters:
 
 .. code-block:: bash
 
