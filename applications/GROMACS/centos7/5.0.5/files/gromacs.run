@@ -6,9 +6,6 @@
 # Name your job
 #SBATCH -J gmx_md
 
-# Total number of MPI tasks
-#SBATCH --ntasks=64
-
 # Total number of nodes
 #SBATCH --nodes=2
 
@@ -18,10 +15,13 @@
 #SBATCH -e error.log
 #SBATCH -o output.log
 
-export OMP_NUM_THREADS=1
-MPIRUN_OPTIONS="-n 1"
-module add gromacs/5.0.4-avx2
-# or if using PLUMED:
-# module add gromacs/5.0.4-avx2-plumed
+# If you want to run on the Haswell nodes:
+#SBATCH --gres=gpu:K80:1
+
+# If you want to run on the Ivy Bridge nodes then
+# remove the above --gres line and load gromacs/ 5.0.5-avx instead
+
+MPIRUN_OPTIONS="-np 2"
+module add gromacs/5.0.5-avx2
 
 mpirun $MPIRUN_OPTIONS gmx_mpi mdrun -s topol.tpr -deffnm gmx_md 
