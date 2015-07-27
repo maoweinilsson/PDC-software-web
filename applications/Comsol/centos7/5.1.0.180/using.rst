@@ -13,7 +13,7 @@ Start the Comsol server on Tegner
 
 .. code-block:: bash
 
-   heval$  module add comsol/5.1
+   heval$  module add comsol/5.1.0.180
 
 4. Book an interactive node, 
 
