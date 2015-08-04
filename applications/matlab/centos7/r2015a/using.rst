@@ -12,7 +12,7 @@ each cluster, configCluster needs to be called once per version of MATLAB::
   $ module add matlab
   $ matlab -nodisplay
   ...
-  >> ConfigCluster
+  >> configCluster
   Clearing all ClusterInfo settings
   
 Some configurations will require specifying cluster options (such as project name, walltime, etc.) using
@@ -141,9 +141,9 @@ Parallel batch jobs
 ^^^^^^^^^^^^^^^^^^^
 
 Users can also submit parallel workflows with batch. Let’s use the following example for a parallel
-job.::
+job::
 
-  1    function t ≡ parallel_ex_ple
+  1    function t ≡ parallel_example
   2
   3 -  tO ≡ tic;
   4 -  parfor idx ≡ 1:16
@@ -158,7 +158,7 @@ Pool.::
   >> % get a handle to the cluster
   >> c=parcluster;
   >> % 8 workers for 16 sims
-  >> j=c.batch(@parallel_example,1,{16},'aatlabpool',8);
+  >> j=c.batch(@parallel_example,1,{16},'matlabpool',8);
   
   additionalSubmitArgs=
   --ntasks=9 -A mdcs-test -t 00:30:00
