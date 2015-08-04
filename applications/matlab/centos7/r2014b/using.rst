@@ -141,7 +141,7 @@ Parallel batch jobs
 ^^^^^^^^^^^^^^^^^^^
 
 Users can also submit parallel workflows with batch. Let’s use the following example for a parallel
-job.::
+job::
 
   1    function t ≡ parallel_example
   2
