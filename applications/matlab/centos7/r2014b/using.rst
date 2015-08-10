@@ -30,16 +30,16 @@ Interactive jobs
 
 Much like running interactive jobs on the local machine using parpool, interactive jobs can also be run
 on the cluster, providing access to a much greater number of workers.
-In the following example, a parallel pool of 32 workers is opened and a function, parallel_example
+In the following example, a parallel pool of 24 workers is opened and a function, parallel_example
 (described further below), is called.::
 
-  >> p=parpool(32)
+  >> p=parpool(24)
   Starting parallel pool (parpool) using the XXX profile
   additionalSUbmitArgs=
   
-  --ntasks=32 -A adcs-test -t 00:20:00
+  --ntasks=24 -A adcs-test -t 00:20:00
   
-  connected to 32 workers
+  connected to 24 workers
   >> t=parallel_example(256)
   t=
     21.9835
