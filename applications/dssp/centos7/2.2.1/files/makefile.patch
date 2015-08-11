@@ -1,0 +1,12 @@
+18,20c18,20
+< DEST_DIR			= /pdc/vol/dssp/2.2.1
+< LIB_DIR				= $(BOOST_HOME)/lib
+< INC_DIR				= $(BOOST_HOME)/include
+---
+> DEST_DIR			?= /usr/local
+> LIB_DIR				= $(BOOST_LIB_DIR)
+> INC_DIR				= $(BOOST_INC_DIR)
+28c28
+< CXX				= g++
+---
+> CXX					= g++
