@@ -7,21 +7,10 @@ Fetch the code::
   $ module swap PrgEnv-cray PrgEnv-gnu
   $ module add boost/1.57.0-gcc-4.9.1
 
-Patch the makefile::
+Patch the makefile with
 
-  $ diff makefile makefile.org
-  18,20c18,20
-  < DEST_DIR                      = /pdc/vol/dssp/2.2.1
-  < LIB_DIR                               = /pdc/vol/boost/1.57.0-gcc-4.9.1/lib
-  < INC_DIR                               = /pdc/vol/boost/1.57.0-gcc-4.9.1/include
-  ---
-  > DEST_DIR                      ?= /usr/local
-  > LIB_DIR                               = $(BOOST_LIB_DIR)
-  > INC_DIR                               = $(BOOST_INC_DIR)
-  28c28
-  < CXX                           = CC
-  ---
-  > CXX                                   = g++
+.. literalinclude:: files/makefile.patch
+       :language: bash
 
 Compile/install::
 
