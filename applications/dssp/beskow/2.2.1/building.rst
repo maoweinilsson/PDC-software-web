@@ -1,5 +1,5 @@
 
-Project homepage: http://swift.cmbi.ru.nl/gv/dssp
+Project homepage is http://swift.cmbi.ru.nl/gv/dssp
 
 Fetch the code::
 
@@ -7,7 +7,7 @@ Fetch the code::
   $ module swap PrgEnv-cray PrgEnv-gnu
   $ module add boost/1.57.0-gcc-4.9.1
 
-Patch the makefile with
+Patch the makefile with:
 
 .. literalinclude:: files/makefile.patch
        :language: bash
