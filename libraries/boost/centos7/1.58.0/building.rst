@@ -11,7 +11,8 @@ Then bootstrap::
   module add openmpi/1.8-gcc-4.8
   ./bootstrap.sh --prefix=/pdc/vol/boost/1.58.0/amd64_co7/gcc-4.8.3
 
-Then edit ``project-config.jam`` and insert the following two lines::
+Then edit ``project-config.jam`` and insert the following two lines 
+(note the space before the semicollons) ::
 
   using mpi ;
   using gcc ;
