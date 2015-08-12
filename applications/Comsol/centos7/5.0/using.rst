@@ -1,6 +1,6 @@
 
 
-We recommend using Comsol on Tegner in a server fashion. First you should have to book an interactive node from the login node (i.e. heval) and then you start to launch the comsol server on the interactive node.  After that, you connect with the comsol client from your laptop or desktop computer. 
+We recommend using Comsol on Tegner in a server fashion. First you should have to book an interactive node from the login node (i.e. tegner) and then you start to launch the comsol server on the interactive node.  After that, you connect with the comsol client from your laptop or desktop computer. 
 
 Start the Comsol server on Tegner
 --------------------------------
@@ -13,13 +13,13 @@ Start the Comsol server on Tegner
 
 .. code-block:: bash
 
-   heval$  module add comsol/5.0
+   tegner$  module add comsol/5.0
 
 4. Book an interactive node, 
 
 .. code-block:: bash
     
-   heval$ salloc -N 1 -t10:00:00  # 10 hours
+   tegner$ salloc -N 1 -t10:00:00  # 10 hours
    salloc: Granted job allocation 2364
    salloc: Waiting for resource configuration
    salloc: Nodes t02n01 are ready for job
