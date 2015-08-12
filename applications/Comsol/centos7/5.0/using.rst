@@ -5,7 +5,7 @@ We recommend using Comsol on Tegner in a server fashion. First you should have t
 Start the Comsol server on Tegner
 --------------------------------
 
-1. Login to Tegner (heval.pdc.kth.se)
+1. Login to Tegner (tegner.pdc.kth.se)
 
 2. Go to your working directory (cd /cfs/klemming/...)
 
