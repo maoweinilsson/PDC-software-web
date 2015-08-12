@@ -1,0 +1,16 @@
+18,20c18,20
+< DEST_DIR			= /pdc/vol/dssp/2.2.1
+< LIB_DIR				= /pdc/vol/boost/1.58.0/amd64_co7/gcc-4.8.3/lib
+< INC_DIR				= /pdc/vol/boost/1.58.0/amd64_co7/gcc-4.8.3/include
+---
+> DEST_DIR			?= /usr/local
+> LIB_DIR				= $(BOOST_LIB_DIR)
+> INC_DIR				= $(BOOST_INC_DIR)
+28c28
+< CXX				= g++
+---
+> CXX					= g++
+53c53
+< 	@ $(CXX) -o $@ $^ $(LDOPTS)
+---
+> 	@ $(CXX) -static -o $@ $^ $(LDOPTS)

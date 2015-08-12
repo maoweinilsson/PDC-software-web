@@ -16,9 +16,9 @@ Modules
 
   # Amber14 doesn't support cuda/7.0
   module load cuda/6.5  
+  module load i-compilers/15.0.2
+  module load intelmpi/5.0.3
   module load fftw/3.3.4-intel-15.0.2-intelmpi-5.0.3-double
-  module load gcc/4.8.4
-  module load openmpi/1.8-gcc-4.8
 
 
 Serial, MPI only, CUDA only, MPI-CUDA builds
@@ -28,19 +28,19 @@ We need to configure, build and clean for each of the different execution binari
 
 ::
 
-  ./configure -noX11 -nomtkpp gnu
+  ./configure -noX11 -nomtkpp intel
   make -j 8 install
   make clean
 
-  ./configure -mpi -noX11 -nomtkpp gnu
+  ./configure -intelmpi -noX11 -nomtkpp intel
   make -j 8 install
   make clean
 
-  ./configure -cuda -noX11 -nomtkpp gnu
+  ./configure -cuda -noX11 -nomtkpp intel
   make -j 8 install
   make clean
 
-  ./configure -mpi -cuda -noX11 -nomtkpp gnu
+  ./configure -intelmpi -cuda -noX11 -nomtkpp intel
   make -j 8 install
 
   make test
@@ -75,8 +75,7 @@ Adapt the code below and run it
 
   #!/bin/bash
 
-  module add gcc/4.8.4 openmpi/1.8-gcc-4.8 amber/14
-  module add fftw/3.3.4-intel-15.0.2-intelmpi-5.0.3-double
+  module add amber/14
 
   export AMBERHOME=/pdc/vol/amber/14/amber14
   export LD_LIBRARY_PATH=${AMBERHOME}/lib:$LD_LIBRARY_PATH
