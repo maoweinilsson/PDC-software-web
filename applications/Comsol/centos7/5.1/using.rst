@@ -1,6 +1,43 @@
 
+Running on single node job in the batch system on Tegner
+--------------------------------------------------------
 
-We recommend using Comsol on Tegner in a server fashion. First you should have to book an interactive node from the login node (i.e. tegner) and then you start to launch the comsol server on the interactive node.  After that, you connect with the comsol client from your laptop or desktop computer. 
+To submit a job on single node, you can do so by creating a simple script (comsol_run.sh) which includes:
+
+.. literalinclude:: files/comsol_run_s.sh
+  :language: bash
+
+and submit the script on the Tenger's login node:
+
+.. code-block:: bash
+   
+   tegner$ sbatch comsol_run.sh
+
+Comsol figures out itself how many processes on the computer node and will use these. If you want to limit the number of processes used you should pass the flag *-np*.
+
+
+Running on multi-node job in the batch system on Tegner
+----------------------------------------------
+
+If you want to run comsol on 2 to 4 nodes on Tegner you can do by creating a simple script which includes:
+
+.. literalinclude:: files/comsol_run_m.sh
+  :language: bash
+
+and submit the script on the Tenger's login node:
+
+.. code-block:: bash
+   
+   tegner$ sbatch comsol_run.sh
+
+with the script, Comsol will run on 2 nodes and on each node run 24 processes. 
+You can pass the flag *-np* to control the number of processes that you want to use.
+
+
+Running Comsol server on Tegnera
+-------------------------------
+
+First you should have to book an interactive node from the login node (i.e. tegner) and then you start to launch the comsol server on the interactive node.  After that, you connect with the comsol client from your laptop or desktop computer. 
 
 Start the Comsol server on Tegner
 --------------------------------
@@ -29,7 +66,7 @@ Start the Comsol server on Tegner
 .. code-block:: bash
 
    bash-4.2$ srun comsol -np 16 server
-   COMSOL 5.1 (Build: 136) Multiphysics Server started listening on port 2036
+   COMSOL 5.1 (Build: 180) Multiphysics Server started listening on port 2036
    Use the console command 'close' to exit the program
 
 The above should then start the comsol server on node *t02n01.pdc.kth.se* as you can see above. The command *srun* will make sure that everything starts on the interactive node.
@@ -57,4 +94,4 @@ For additional information on how to start the server, see:
 
  comsol -h
 
-There is an option to set the number of processors to use, for instance *-np 16*  (see step four of the server procedure on Tegner).
+There is an option to set the number of processes to use, for instance *-np 16*  (see step four of the server procedure on Tegner).

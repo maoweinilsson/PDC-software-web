@@ -8,6 +8,7 @@ To submit a job on single node, you can do so by creating a simple script (comso
   :language: bash
 
 and submit the script on the Tenger's login node:
+
 .. code-block:: bash
    
    tegner$ sbatch comsol_run.sh
@@ -24,6 +25,7 @@ If you want to run comsol on 2 to 4 nodes on Tegner you can do by creating a sim
   :language: bash
 
 and submit the script on the Tenger's login node:
+
 .. code-block:: bash
    
    tegner$ sbatch comsol_run.sh
@@ -32,7 +34,7 @@ with the script, Comsol will run on 2 nodes and on each node run 24 processes.
 You can pass the flag *-np* to control the number of processes that you want to use.
 
 
-Running Comsol server on Tegner
+Running Comsol server on Tegnera
 -------------------------------
 
 First you should have to book an interactive node from the login node (i.e. tegner) and then you start to launch the comsol server on the interactive node.  After that, you connect with the comsol client from your laptop or desktop computer. 
