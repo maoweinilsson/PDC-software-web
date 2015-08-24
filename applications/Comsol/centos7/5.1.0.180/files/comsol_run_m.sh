@@ -15,10 +15,8 @@
 # load comsol module
 module add comsol/5.1.0.180
 
-#srun comsol -nn 2  batch -inputfile  Theim_example_1D_2D_and_3D.mph -outputfile output5.mesh -batchlog batchlog2.txt
-
 # Run comsol on the multi-node
 srun hostname  |  sort |  uniq > nodes.comsol &
-srun comsol -nn 2 -np 24  batch -f ./nodes.comsol -inputfile  input.mph -outputfile output.mesh -batchlog batchlog.txt
+srun comsol -nn 2 -np 24  batch -f ./nodes.comsol -inputfile  input.mph -outputfile output.mph -batchlog batchlog.txt
 
 
