@@ -31,6 +31,6 @@ if [ $SLURM_NNODES -eq 1 ]; then
     fluent 3ddp -g -t $NPROCS -i $JOURNALFILE > fluent.log 
 else
     # Multi-node
-    fluent 3ddp -g -slurm -t $NPROCS -mpi=pcmpi -ssh -i $JOURNALFILE > fluent.log
+    fluent 3ddp -g -slurm -t $NPROCS -mpi=pcmpi  -i $JOURNALFILE > fluent.log
 fi
 
