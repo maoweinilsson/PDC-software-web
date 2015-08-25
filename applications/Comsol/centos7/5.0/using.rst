@@ -34,7 +34,7 @@ with the script, Comsol will run on 2 nodes and on each node run 24 processes.
 You can pass the flag *-np* to control the number of processes that you want to use.
 
 
-Running Comsol server on Tegnera
+Running Comsol server on Tegner
 -------------------------------
 
 First you should have to book an interactive node from the login node (i.e. tegner) and then you start to launch the comsol server on the interactive node.  After that, you connect with the comsol client from your laptop or desktop computer. 
