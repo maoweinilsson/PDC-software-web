@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 # The name of the script is myjob
-#SBATCH -J mytest
+#SBATCH -J myjob
 
 # Only 1 hour wall-clock time will be given to this job
 #SBATCH -t 01:00:00
@@ -12,21 +12,22 @@
 # Number of MPI processes per node 
 ##SBATCH --ntasks-per-node=24
 
-# Number of MPI processes.
-##SBATCH -n 8
-
 #SBATCH -e error_file.e%J
 #SBATCH -o output_file.o%J
 
 # Load the ansys/cfx v15.0 module 
 module add ansys/15.0
 
+# For Intel MPI
+export I_MPI_DAPL_PROVIDER=ofa-v2-mlx5_0-1u
+
 # The Input file
 DEF_FILE=Benchmark.def
 
 # The number of partition
-#NUM_PART=16
-NUM_PART=`expr $SLURM_NNODES \* $SLURM_TASKS_PER_NODE`
+#NUM_PART=24
+NTASKS=`echo $SLURM_TASKS_PER_NODE | cut -c1-2`
+NUM_PART=`expr $SLURM_NNODES \* $NTASKS`
 
 if [ $SLURM_NNODES -eq 1 ]; then
     # Single node with shared memory
