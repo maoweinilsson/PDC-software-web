@@ -18,9 +18,6 @@
 # Load the ansys/cfx v15.0 module 
 module add ansys/16.0
 
-# For Intel MPI
-export I_MPI_DAPL_PROVIDER=ofa-v2-mlx5_0-1u
-
 # The Input file
 DEF_FILE=Benchmark.def
 
@@ -31,9 +28,9 @@ NUM_PART=`expr $SLURM_NNODES \* $NTASKS`
 
 if [ $SLURM_NNODES -eq 1 ]; then
     # Single node with shared memory
-    cfx5solve -def $DEF_FILE -start-method "Intel MPI Local Parallel" -par-local -partition $NUM_PART > cfx5.log 2>&1
+    cfx5solve -def $DEF_FILE -par-local -partition $NUM_PART > cfx5.log 2>&1
 else
     # Multi-node
     NODELIST=`gen_cfx_nodelist.pl`
-    cfx5solve -def $DEF_FILE -start-method "Intel MPI Distributed Parallel" -par-dist $NODELIST -partition $NUM_PART > cfx5.log 2>&1    
+    cfx5solve -def $DEF_FILE -par-dist $NODELIST -partition $NUM_PART > cfx5.log 2>&1    
 fi
