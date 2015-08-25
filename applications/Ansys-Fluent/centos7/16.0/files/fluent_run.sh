@@ -22,9 +22,9 @@ module add fluent/16.0
 JOURNALFILE=mycase.jou
 
 # Total number of Processors
-#NPROCS=16
-NPROCS=`expr $SLURM_NNODES \* $SLURM_TASKS_PER_NODE`
-
+#NPROCS=24
+NTASKS=`echo $SLURM_TASKS_PER_NODE | cut -c1-2`
+NPROCS=`expr $SLURM_NNODES \* $NTASKS`
 
 if [ $SLURM_NNODES -eq 1 ]; then
     # Single node with shared memory
