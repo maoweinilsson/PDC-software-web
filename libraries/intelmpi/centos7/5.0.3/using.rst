@@ -27,9 +27,9 @@ Using gcc
 
 Intel MPI also has wrappers that automatically use gcc::
 
-  mpif90    (FORTRAN)
-  mpigcc    (C)
-  mpicxx    (C++)
+  FORTRAN: mpifc, mpif90, mpif77
+  C:       mpicc
+  C++:     mpicxx
 
 If the compiler is invoked using these commands then the version of
 gcc or gfortran in your $PATH is automatically used to compile Other
@@ -37,7 +37,10 @@ wrappers
 
 As well as the compiler specific wrappers you can also use::
 
-  mpifc  -f90=<compiler>
+  mpifc  -fc=<compiler>
+  mpif90 -fc=<compiler>
+  mpif77 -fc=<compiler>
+  
   mpicc  -cc=<compiler>
   mpicxx -cxx=<compiler>
 
