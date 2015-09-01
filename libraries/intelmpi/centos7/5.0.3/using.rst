@@ -16,8 +16,9 @@ i-compiler modules and the intel mpi moudule loaded::
 
 Then you can use::
 
-  mpiifort
-  mpiicc
+  mpiifort  (FORTRAN)
+  mpiicc    (C)
+  mpiucpc   (C++)
 
 to compile and link your MPI programs.
 
@@ -26,8 +27,9 @@ Using gcc
 
 Intel MPI also has wrappers that automatically use gcc::
 
-  mpigcc
-  mpif90
+  mpif90    (FORTRAN)
+  mpigcc    (C)
+  mpicxx    (C++)
 
 If the compiler is invoked using these commands then the version of
 gcc or gfortran in your $PATH is automatically used to compile Other
@@ -35,8 +37,9 @@ wrappers
 
 As well as the compiler specific wrappers you can also use::
 
-  mpicc -cc=<compiler>
-  mpifc -f90=<compiler>
+  mpifc  -f90=<compiler>
+  mpicc  -cc=<compiler>
+  mpicxx -cxx=<compiler>
 
 Note the PGI compiler is not supported
 
