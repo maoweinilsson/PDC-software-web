@@ -18,10 +18,14 @@
 
 #SBATCH -e error_file.e
 #SBATCH -o output_file.o
- 
-# load the intel mpi modules
-module load intelmpi/5.0.3
+
+# load the compiler module
 module load i-compilers/15.0.2
+    # alternatively the module for the GNU compiler if
+    # it has been used for compilation.
+ 
+# load the intel mpi module
+module load intelmpi/5.0.3
  
 # Run the executable named myexe 
 # and write the output into my_output_file
