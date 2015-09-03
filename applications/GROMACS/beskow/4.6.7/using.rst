@@ -27,7 +27,7 @@ Module *gromacs/4.6.7* (as well as *gromacs/4.6.7-plumed*) provides three versio
 
 All tools from the GROMACS suite are available in the above three versions, e.g. you'll find *grompp_seq*, *grompp_mpi*, and *grompp_mpi_d*. In most cases there is no difference between them (almost no tool supports MPI even though the library is linked). If you want to do a quick pre-processing on the login node, you'll be able to use only the "_seq"-suffixed versions. On the compute nodes you should use the "_mpi" versions (or "_mpi_d" for double precision).
 
-Here is an example script:
+Remember to *always* use in your scripts *aprun* in front of the actual GROMACS command! Here is an example script:
 
 .. literalinclude:: files/gromacs.run
     :language: bash

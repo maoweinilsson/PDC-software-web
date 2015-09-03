@@ -1,4 +1,3 @@
-
 GROMACS is highly tuned for quite efficient use of HPC resources.
 Special assembly kernels make its core compute engine one of the fastest MD
 simulation programs.
@@ -30,9 +29,9 @@ Module *gromacs/5.0.4* (as well as *gromacs/5.0.4-plumed*) provides three versio
  * *gmx_mpi_d mdrun* : Same as above but in double precision. This one is much slower than the single precisio  *mdrun_mpi* and is used only in special cases, such as Normal Mode analysis.
  * *gmx_seq mdrun* : This binary is compiled without parallel support (no MPI, no OpenMP, no thread-MPI), and no AVX2 instructions support. I.e. it runs only as a single process, but you're able to run it also on the login node, e.g. for quick tests. It must NOT be used for production runs!!
 
-All tools from the GROMACS suite can be launched using any of the above three versions, e.g. you'll find *grompp_seq*, *gmx_seq grompp*, *gmx_mpi grompp*, and *gmx_mpi_d grompp* all work. In most cases there is no difference between them (very few tools support MPI even though the library is linked). If you want to do a quick pre-processing on the login node, you'll be able to use only the non-suffixed versions. On the compute nodes you can use all three versions.
+All tools from the GROMACS suite can be launched using any of the above three versions, e.g. you'll find *grompp_seq*, *gmx_seq grompp*, *gmx_mpi grompp*, and *gmx_mpi_d grompp* all work. In most cases there is no difference between them (very few tools support MPI even though the library is linked). If you want to do a quick pre-processing on the login node, you'll be able to use only the "_seq"-suffixed versions. On the compute nodes you can use all three versions.
 
-Here is an example script:
+Remember to *always* use in your scripts *aprun* in front of the actual GROMACS command! Here is an example script:
 
 .. literalinclude:: files/gromacs.run
     :language: bash
