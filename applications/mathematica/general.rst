@@ -18,6 +18,7 @@ License
 KTH has a site license for KTH users, the server is
 
 .. code-block:: bash
+
  mathematica-lic.ug.kth.se
 
 When you run mathematica in the first time it needs to be activated by pointing it at the license server. 
