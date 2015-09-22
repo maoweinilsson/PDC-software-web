@@ -1,0 +1,40 @@
+#!/bin/bash 
+
+# Set the allocation to be charged for this job
+# not required if you have set a default allocation
+
+# The name of the script is myjob
+#SBATCH -J myjob
+
+# Only 1 hour wall-clock time will be given to this job
+#SBATCH -t 1:00:00
+
+# Number of nodes
+#SBATCH --nodes=1
+# Number of MPI processes per node (24 is recommended for most cases)
+# 48 is the default to allow the possibility of hyperthreading
+#SBATCH --ntasks-per-node=24
+# Number of MPI processes.
+
+#SBATCH -e error_file.e
+#SBATCH -o output_file.o
+ 
+# load the module
+module load gaussian/g09.D01
+ 
+# this script expects one argument: the input file with suffix .com
+INPUT=benzene.com
+OUTPUT=${INPUT%com}log
+
+# set up standard environment
+. $g09root/g09/bsd/g09.profile
+
+# define scratch
+export GAUSS_SCRDIR=/cfs/klemming/scratch/${USER:0:1}/${USER}/scratch_gaussian
+test -d $GAUSS_SCRDIR || mkdir -p $GAUSS_SCRDIR
+
+# run the calculation
+time g09 < $INPUT > $OUTPUT
+
+# clear scratch
+rm -rf $GAUSS_SCRDIR
