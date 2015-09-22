@@ -1,5 +1,5 @@
 
-**Mathematica is installed on Tegner. In order to use Mathematica you need a licenses.**
+**Mathematica is installed on Tegner. In order to use Mathematica you need a license.**
 
 General usage
 -------------
