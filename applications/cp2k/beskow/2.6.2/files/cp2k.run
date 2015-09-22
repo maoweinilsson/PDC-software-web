@@ -11,6 +11,6 @@
 #SBATCH -o stdout.txt
 #SBATCH -e stderr.txt
 
-module load cp2k/2.5.2
+module load cp2k/2.6.2
 
 aprun -n 64  cp2k.popt test.inp
