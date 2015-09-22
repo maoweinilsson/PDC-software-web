@@ -52,3 +52,8 @@ and submit the script on the Tenger's login node:
    
    tegner$ sbatch mathematica_run.sh
 
+Some examples on using mathematica on HPC resources can be found here:
+
+https://wiki.zserv.tuwien.ac.at/doku.php?id=doku:mathematica
+http://www.wolfram.com/broadcast/video.php?c=102&v=176
+
