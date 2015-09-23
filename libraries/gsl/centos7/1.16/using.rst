@@ -1,5 +1,5 @@
 
- You can load the module using::
+You can load the module using::
 
   $ module load gsl/1.6
 
