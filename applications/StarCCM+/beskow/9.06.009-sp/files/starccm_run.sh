@@ -1,7 +1,7 @@
 #!/bin/bash -l
 
-# The name of the script is lemans_poly_17m
-#SBATCH -J lemans_poly_17m
+# The name of the script is myjob
+#SBATCH -J myjob
 
 # Recive email notifications with any state change
 #SBATCH --mail-type=ALL
@@ -10,7 +10,7 @@
 #SBATCH -t 1:00:00
 
 # Number of nodes
-#SBATCH --nodes 3
+#SBATCH --nodes=3
 
 # Number of MPI processes per node (the following is actually the default)
 #SBATCH --ntasks-per-node=32
@@ -30,7 +30,7 @@ module load PrgEnv-gnu
 # starccm+ v9.06.009 single precision
 module load starccm+/9.06.009-sp
 
-sim_file="lemans_poly_17m.amg.sim"
+sim_file="input.sim"
 
 STARTMACRO="./benchmark.java"
 LETTER=`echo $USER | cut -c1`
