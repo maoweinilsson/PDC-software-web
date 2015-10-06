@@ -9,12 +9,12 @@ In the case of GROMACS, AVX2 delivers approximately 40% speed-up over the standa
 In order to use GROMACS, first you need to change to the GNU the programming environment::
 
   $ module swap PrgEnv-cray PrgEnv-gnu
-  $ module add gromacs/5.0.4
+  $ module add gromacs/5.0.6
 
 Note: if you want to use GROMACS with PLUMED support load instead::
 
   $ module swap PrgEnv-cray PrgEnv-gnu
-  $ module add gromacs/5.0.4-plumed
+  $ module add gromacs/5.0.6-plumed
 
 Important note about GROMACS binary names: starting with the 5.0.x series, GROMACS provides a single wrapper binary, *gmx*, for launching any of the simulation engines (e.g. mdrun) and the pre-processing (e.g. grompp) and analysis tools (e.g. g_rms). The specific tool is provided as an argument to that wrapper binary. For the 5.0.x the original binaries are provided as symbolic links, and thus for users the change will not affect any existing scripts. For example, the following commands are equivalent::
 
@@ -23,7 +23,7 @@ Important note about GROMACS binary names: starting with the 5.0.x series, GROMA
 
 In the current documentation we will use the new invocation style.
 
-Module *gromacs/5.0.4* (as well as *gromacs/5.0.4-plumed*) provides three versions of the GROMACS suite:
+Module *gromacs/5.0.6* (as well as *gromacs/5.0.6-plumed*) provides three versions of the GROMACS suite:
 
  * *gmx_mpi mdrun* : The MD engine binary with MPI and AVX2 support. This is the one that researchers would use most of the time.
  * *gmx_mpi_d mdrun* : Same as above but in double precision. This one is much slower than the single precisio  *mdrun_mpi* and is used only in special cases, such as Normal Mode analysis.

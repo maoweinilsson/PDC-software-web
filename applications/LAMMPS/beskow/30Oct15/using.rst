@@ -15,7 +15,7 @@ Below is an example batch script for a LAMMPS job:
 .. literalinclude:: files/run.slurm
   :language: bash
 
-This will run LAMMPS (:code:`lmp`) with 320 cores (10 nodes), and will read the input specified in :code:`infile` and write to :code:`outfile` in the directory the job was submitted. Submit the batch script with the :code:`esubmit` command, see also the `Beskow documentation <http://www.pdc.kth.se/resources/computers/beskow/how-to>`_.
+This will run LAMMPS (:code:`lmp`) with 320 cores (10 nodes), and will read the input specified in :code:`infile` and write to :code:`outfile` in the directory the job was submitted. Submit the batch script with the :code:`sbatch` command, see also the `Beskow documentation <http://www.pdc.kth.se/resources/computers/beskow/how-to>`_.
 
 More information
 ----------------

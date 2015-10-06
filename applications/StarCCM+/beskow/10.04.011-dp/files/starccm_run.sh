@@ -27,8 +27,8 @@ module unload PrgEnv-gnu
 module unload PrgEnv-intel
 module load PrgEnv-gnu
 
-# Load starccm+ v9.06.009 double precision
-module load starccm+/9.06.009-dp
+# Load starccm+ v10.02.010 double precision
+module load starccm+/10.04.011-dp
 
 sim_file="input.sim"
 
