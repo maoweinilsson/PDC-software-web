@@ -77,9 +77,9 @@ For testing modify file ``environment_variables``::
 Then test::
 
   $ salloc
-  $ cd /pdc/vol/espresso/5.1.1/src/espresso-5.1.1/PW/tests
+  $ cd /pdc/vol/espresso/5.1.1/src/espresso-5.2.1/PW/tests
   $ ./check-pw.x.j
-  $ cd /pdc/vol/espresso/5.1.1/src/espresso-5.1.1/CPV/tests
+  $ cd /pdc/vol/espresso/5.1.1/src/espresso-5.2.1/CPV/tests
   $ ./check-cp.x.j
 
 If everything is OK then copy the contents of bin to the installation_directory/bin.  Make sure you copy the executables and not just the symlinks as they reference relative paths::
