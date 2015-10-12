@@ -2,5 +2,5 @@ The installation file can be downloaded from `here <https://github.com/sebhtml/R
 
   $ module load gcc/5.1
   $ module load openmpi
-  $ make PREFIX=/afs/<your_preferred_install_directory> MAXKMERLENGTH=64 MPICXX=mpic++
+  $ make PREFIX=/afs/<your_preferred_install_directory> MAXKMERLENGTH=128 MPICXX=mpic++ HAVE_LIBZ=y MPI_IO=y
   $ make install
