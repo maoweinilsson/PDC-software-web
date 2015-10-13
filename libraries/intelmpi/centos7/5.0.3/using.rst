@@ -18,7 +18,7 @@ Then you can use::
 
   mpiifort  (FORTRAN)
   mpiicc    (C)
-  mpiucpc   (C++)
+  mpiicpc   (C++)
 
 to compile and link your MPI programs.
 
