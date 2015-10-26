@@ -285,13 +285,11 @@ def main():
     # list of systems/OS, if you remove OS, also ignore them
     # in conf.py (search there for "lindgren")
     # we should use ordereddict here but web server has too old python for that
-    systems = ['beskow', 'centos7', 'centos6', 'milner', 'centos5']
+    systems = ['beskow', 'centos7', 'milner']
     systems_dict = {}
     systems_dict['beskow'] = 'Beskow'
-    systems_dict['centos6'] = 'Ellen'
     systems_dict['centos7'] = 'Tegner'
     systems_dict['milner'] = 'Milner'
-    systems_dict['centos5'] = 'Ferlin'
 
     # dictionary of sections mapping directory -> name on the screen
     # we should use ordereddict here but web server has too old python for that
