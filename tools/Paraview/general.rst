@@ -24,6 +24,27 @@ Starting the server on the PDC machines
 First log into the PDC machine you want to use and reserve the nodes you want
 to use. Check the documentation of each machine on the best way to do this.
 
+To start the Paraview server first load the required modules to access paraview.
+
+As paraview has several dependancies, there will be multiple modules required::
+
+  $ module add i-compilers/15.0.2 intelmpi/5.0.3
+  $ module add paraview/4.3.1-intel
+    or
+  $ module add paraview/4.3.1-intel-mesa # Mesa support
+
+Once you have loaded the module and reserved the nodes you can start the server
+in parallel using mpirun. Make sure you start the server in the correct place
+(i.e. not on the login nodes, but on the nodes you have reserved)::
+
+  $ mpirun -np <number of processors> -machinefile <machine file> pvserver --use-offscreen-rendering
+
+You should then get some text output showing which port paraview is using::
+
+  Listen on port: 11111
+  Waiting for client...
+
+11111 is the default port, but you an configure pvserver to use a different one.
 
 Connecting the client to the server
 -----------------------------------
