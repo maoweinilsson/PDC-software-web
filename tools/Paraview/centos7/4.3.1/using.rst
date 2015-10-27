@@ -24,8 +24,14 @@ As paraview has several dependancies, there will be multiple modules required::
 
   $ module add i-compilers/15.0.2 intelmpi/5.0.3
   $ module add paraview/4.3.1-intel
-    or
-  $ module add paraview/4.3.1-intel-mesa # Mesa support
+
+If yopu want to use a system for rendering interactive 3D graphics, you
+have to use the Mesa version::
+
+  $ module add paraview/4.3.1-intel-mesa
+
+Although do remember that when booking nodes, you have to use nodes with
+GPUs on Tegner.
 
 Once you have loaded the module and reserved the nodes you can start the server
 in parallel using mpirun. Make sure you start the server in the correct place
