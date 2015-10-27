@@ -37,7 +37,7 @@ Once you have loaded the module and reserved the nodes you can start the server
 in parallel using mpirun. Make sure you start the server in the correct place
 (i.e. not on the login nodes, but on the nodes you have reserved)::
 
-  $ mpirun -np <number of processors> -machinefile <machine file> pvserver --use-offscreen-rendering
+  $ mpirun -np <number of processors> pvserver --use-offscreen-rendering
 
 You should then get some text output showing which port paraview is using::
 
