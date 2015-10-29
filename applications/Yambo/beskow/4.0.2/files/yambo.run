@@ -1,0 +1,23 @@
+#!/bin/bash -l
+
+#SBATCH -J myjob
+
+#SBATCH -t 00:30:00
+
+# number of nodes
+#SBATCH --nodes=1
+
+# number of MPI processes
+##SBATCH -n 32
+
+#SBATCH -o stdout.txt
+#SBATCH -e stderr.txt
+#SBATCH --export=NONE
+
+module load yambo/4.0.2
+
+cd $SLURM_SUBMIT_DIR
+
+# Run Yambo
+aprun -n 8 yambo  -F Inputs/02_QP_PPA_pure-mpi-k -J 02_QP_PPA_pure-mpi-k
+
