@@ -1,6 +1,6 @@
 
 
-**Matlab is installed on several of PDC's machines. In order to use Matlab you need a licenses.**
+**Matlab is installed on several of PDC's machines. The Matlab license from your home institution will be used when you run Matlab at PDC. In addition there is a national license for Matlab Distributed COmpute Server that can be used to run Matlab in Parallel**
 
 General usage
 -------------
@@ -29,14 +29,12 @@ If you are using  MATLAB Compiler or builder products run:
 
 from MATLAB before using these.
 
-Distributed Compute Server
---------------------------
 
-To use the Matlab Distributed Compute Server please see `this page <https://www.pdc.kth.se/resources/software/installed-software/restricted-software/matlab/matlab-dcs/matlab-distributed-compute-server-on-ferlin>`_. Currently DCS is only available on Ferlin.
 
 External links
 --------------
 
+`Information on running parallel matlab from Mathworks <http://se.mathworks.com/programs/resource-portals/mdcs-resources-for-hpc/index.html>`_
 `Matlab information at the SNIC knowledge base <http://docs.snic.se/wiki/Matlab>`_
 
 
