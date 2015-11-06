@@ -7,7 +7,7 @@
 #SBATCH --nodes 1
 #SBATCH -n 2
 
-module add amber/12
+module add amber/14
 
 module load anaconda/py27/2.1
 export CRAY_ROOTFS=DSL
