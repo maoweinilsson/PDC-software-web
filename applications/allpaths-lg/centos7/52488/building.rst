@@ -1,8 +1,8 @@
 
-Allpath-LG is exclusively compiled with GNU CC.
+Allpaths-LG is exclusively compiled with GNU CC.
 Also, new versions crave GCC version > 4.7.
 Although version 5.1 created errors upon compilation, and
-therefore allpath-LG was compiled with the default
+therefore allpaths-LG was compiled with the default
 GNU CC compiler namely 4.8.3
 
 To compile::
@@ -11,4 +11,4 @@ To compile::
   $ make
   $ make install
   
-**NOTE** Allpath-LG is quite a large software, and after installation 11.2 GBytes were used.
+**NOTE** Allpaths-LG is quite a large software, and after installation 11.2 GBytes were used.
