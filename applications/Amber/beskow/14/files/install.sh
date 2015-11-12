@@ -27,6 +27,12 @@ export AMBERHOME=/pdc/vol/amber/14/amber14
 yes | ./update_amber --upgrade
 yes | ./update_amber --upgrade
 
+# need to remove --shared option from fftw build configuration manually
+# the file ambertools14.patch is in the rst documentation files/ folder
+# place a copy in /pdc/vol/amber/14 and apply it:
+
+patch -p1 < ../ambertools14.patch
+
 # we first build the mpi version
 # the code has to be built on a compute node otherwise it does not compile
 # we configure piping yes so that all patches get applied

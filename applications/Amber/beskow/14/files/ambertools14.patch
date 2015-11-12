@@ -1,0 +1,45 @@
+--- temp/amber14/AmberTools/src/configure2	2015-11-12 15:40:14.000000000 +0100
++++ amber14/AmberTools/src/configure2	2015-11-12 15:24:16.000000000 +0100
+@@ -861,13 +861,13 @@
+       echo "CUDA Version $cudaversion detected"
+       echo "Configuring for SM2.0 and SM3.0 - warning does not support Maxwell (GM200/GM204) cards [e.g. GTX970/980]"
+       nvccflags="$sm20flags $sm30flags"
+-    elif [ "$cudaversion" = "6.5" ]; then
++    elif [ "$cudaversion" = "6.5" -o  "$cudaversion" = "7.0" ]; then
+       echo "CUDA Version $cudaversion detected"
+       echo "Configuring for SM2.0, SM3.0 and SM5.0"
+       nvccflags="$sm20flags $sm30flags $sm50flags"
+     else
+       echo "Error: Unsupported CUDA version $cudaversion detected."
+-      echo "       AMBER requires CUDA version == 5.0 .or. 5.5 .or. 6.0 .or. 6.5"
++      echo "       AMBER requires CUDA version == 5.0 .or. 5.5 .or. 6.0 .or. 6.5 .or. 7.0"
+       exit 1
+     fi
+     nvcc="$nvcc $nvccflags"
+@@ -2654,7 +2654,7 @@
+       echo
+       cd fftw-3.3 && \
+       ./configure --prefix=$AMBERHOME --libdir=$AMBERHOME/lib \
+-        --enable-static --enable-shared --host=x86_64-k1om-linux \
++        --enable-static --host=x86_64-k1om-linux \
+       --build=x86_64-unknown-linux \
+        $enable_mpi $mpicc $enable_debug \
+         CC="$cc -mmic" CFLAGS="$cflags $coptflags " \
+@@ -2665,7 +2665,7 @@
+     else
+       cd fftw-3.3 && \
+         ./configure --prefix=$AMBERHOME --libdir=$AMBERHOME/lib \
+-        --enable-static --enable-shared \
++        --enable-static \
+         $enable_mpi $mpicc $enable_debug $enable_sse\
+         CC="$cc" CFLAGS="$cflags $coptflags" \
+         F77="$fc" FFLAGS="$fflags $foptflags" \
+@@ -2703,7 +2703,7 @@
+     fi
+     cd fftw-3.3 && \
+         ./configure --prefix=$AMBERHOME --libdir=$AMBERHOME/lib \
+-        --enable-static --enable-shared --disable-fortran \
++        --enable-static --disable-fortran \
+         $enable_debug $enable_sse\
+         CC="$cc" CFLAGS="$cflags $coptflags" \
+         > ../fftw3_config.log 2>&1
