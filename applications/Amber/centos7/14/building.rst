@@ -22,7 +22,7 @@ Modules
 
 
 Serial, MPI only, CUDA only, MPI-CUDA builds
-------------
+--------------------------------------------
 
 We need to configure, build and clean for each of the different execution binaries
 

@@ -16,7 +16,7 @@ You can then use the following commands to compile C, C++, and Fortran programs 
 
 
 Running OpenMPI-built programs using SLURM
------------------------------------------
+------------------------------------------
 
 Sample job script (jobscript.sh):
 

@@ -17,7 +17,7 @@ Comsol figures out itself how many processes on the computer node and will use t
 
 
 Running on multi-node job in the batch system on Tegner
-----------------------------------------------
+-------------------------------------------------------
 
 If you want to run comsol on 2 to 4 nodes on Tegner you can do by creating a simple script which includes:
 
@@ -40,7 +40,7 @@ Running Comsol server on Tegner
 First you should have to book an interactive node from the login node (i.e. tegner) and then you start to launch the comsol server on the interactive node.  After that, you connect with the comsol client from your laptop or desktop computer. 
 
 Start the Comsol server on Tegner
---------------------------------
+---------------------------------
 
 1. Login to Tegner (tegner.pdc.kth.se)
 

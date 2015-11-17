@@ -1,7 +1,7 @@
 
 
 Submitting a Fluent job on Tegner
---------------------------------
+---------------------------------
 
 Typically, you can read your mesh (generated in ICEM, for example) into Fluent on your local machine and setup all the necessary parameters interactively (directly using the GUI). You can then save this as a case file (*mycase.cas.gz*), transfer it to PDC and then prepare the journal file using a text editor on PDC (vi or emacs for example). A small script must also be written to deal with the parallelization of Fluent on PDC.
 

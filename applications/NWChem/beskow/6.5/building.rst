@@ -7,7 +7,7 @@ The code has been built using the following run script:
 
 
 Building mov2asc for NWChem 6.5 on Beskow
-=============================
+=========================================
 
 The code has been built using the following run script:
 
