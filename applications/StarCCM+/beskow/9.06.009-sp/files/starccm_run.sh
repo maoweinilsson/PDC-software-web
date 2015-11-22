@@ -6,7 +6,7 @@
 # Recive email notifications with any state change
 #SBATCH --mail-type=ALL
 
-# 15 hours wall-clock time will be given to this job
+# 1 hour wall-clock time will be given to this job
 #SBATCH -t 1:00:00
 
 # Number of nodes
@@ -20,12 +20,6 @@
 # Output and error files
 #SBATCH -e error_file.e%J
 #SBATCH -o output_file.o%J
-
-
-module unload PrgEnv-cray 
-module unload PrgEnv-gnu
-module unload PrgEnv-intel
-module load PrgEnv-gnu
 
 # starccm+ v9.06.009 single precision
 module load starccm+/9.06.009-sp
