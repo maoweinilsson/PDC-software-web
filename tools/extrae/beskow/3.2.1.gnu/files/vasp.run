@@ -1,0 +1,18 @@
+#!/bin/bash -l
+#SBATCH -J VASP-test
+#SBATCH -t 3:59:00
+#SBATCH --nodes=2
+
+
+#SBATCH -e error.txt
+#SBATCH -o ouput.txt
+
+cd /cfs/klemming/nobackup/u/user/vasp/example/
+
+./opt/modules/default/etc/modules.sh
+
+module sw cray-mpich/7.0.4 cray-mpich/7.2.2
+module load vasp/5.4.1.patched 
+
+aprun -n 64 vasp 
+
