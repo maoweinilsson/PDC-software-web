@@ -57,10 +57,13 @@ Install libunwind
 Install Extrae
 --------------
 Create an install.sh similar to this one 
+
 .. literalinclude:: files/install.sh
     :language: bash
 
-Untar, run configure, make and make install extrae ::	
+Untar, run configure, make and make install extrae
+::	
+
 	cd into_extrae_install_dir
 	mkdir 3.2.1/beskow/gnu
 	tar -xvf extrae.tar -C into_etrae_install_dir/3.2.1/beskow/src
