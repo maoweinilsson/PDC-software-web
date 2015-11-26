@@ -19,12 +19,18 @@ Unload unnecessary or old modules to avoid conflicts
 ----------------------------------------------------
 
 	- ``module unload PrgEnv-cray``
+	- ``module unload cray-mpich/7.0.4``
 
 
 Load GNU programing environment 
 -------------------------------
 
 	- ``module load PrgEnv-gnu``
+	- ``module load cray-mpich/7.2.5``
+
+Force cray to create dynamic libraries  	
+
+	- ``export CRAYPE_LINK_TYPE=dymanic``
 
 Install binutils
 ----------------
@@ -33,7 +39,7 @@ Install binutils
 	cd into_binutils_install_dir
 	mv binutils-gdb/ src/
 	cd src
-	./configure --prefix=$PWD/..
+	./configure --prefix=$PWD/.. --enable-shared
 	make 
 	make install
 	export BINUTILS_DIR=$PWD
