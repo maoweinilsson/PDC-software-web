@@ -1,6 +1,6 @@
 
 Download and untar the source and dependecies
----------------------------------------------
+=============================================
 
 **extrae**  ::
 	
@@ -47,25 +47,9 @@ Install Extrae
 ==============
 
 	- ``module sw cray-mpich/7.0.4 cray-mpich/7.2.5``
-
-
-Load appropiate programing environment 
---------------------------------------
-
-	- **gnu** ``module load PrgEnv-gnu``
-	- **cray** ``module load PrgEnv-cray``
-	- **intel** ``module load PrgEnv-intel``
-
-
-Force cray to build using dynamic libraries	
-
-	- ``export CRAYPE_LINK_TYPE=dynamic``
-
-Create an copiler dependent install.sh similar to this ones 
------------------------------------------------------------
-	- **gnu** .. literalinclude:: files/install_gnu.sh: language: bash
-	- **cray** .. literalinclude:: files/install_cray.sh: language: bash
-	- **intel** .. literalinclude:: files/install_intel.sh: language: bash
+	- ``module load PrgEnv-gnu``
+	- Force cray to build using dynamic libraries ``export CRAYPE_LINK_TYPE=dynamic``
+	- Create an copiler dependent install.sh similar to ..literalinclude:: files/install_cray.sh: language: bash
 
 Untar, run configure, make and make install extrae
 --------------------------------------------------

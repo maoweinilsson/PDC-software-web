@@ -7,3 +7,6 @@ Extrae is the package developed at BSC devoted to generate Paraver trace-files f
 https://www.bsc.es/computer-sciences/extrae
 
 `Refer to the official documentation here <https://www.bsc.es/computer-sciences/performance-tools/documentation>`__ 
+
+
+Load the appropiate module according to your complier choice (**cray**, **intel**, or  **gnu** ): ``module load extrae/3.2.1.<compiler>``
