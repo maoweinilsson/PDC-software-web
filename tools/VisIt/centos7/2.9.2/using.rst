@@ -55,7 +55,7 @@ You need to change the following parameters :
 
 **Remote host name** : your booked interactive node
 
-**Path to VisIt installation** : /pdc/vol/visit/2.9.2/amd64_co7/mesa/bin
+**Path to VisIt installation** : /pdc/vol/visit/2.9.2/amd64_co7/mesa
 (versions > 2.8.2 needed) 
 
 **Username** : your PDC username
