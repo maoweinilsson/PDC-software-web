@@ -2,10 +2,10 @@
 General observations
 --------------------
 
-- Several bugs were reported for vasp.5.4.1.24Jun.15. The version installed on Beskow has been patched with all bugfixes up to November 15th, 2015. 
-- VASP is not helped by hyper-threading (64 virtual cores per compute node).
+- The version installed on Tegner has been patched with all bugfixes up to November 15th, 2015. 
+- VASP is not helped by hyper-threading (48/96 virtual cores per compute node).
 - No GPU/OpenMP-support.
-- Hybrid calculations (HSE06) seem to run a lot faster and use less memory compared with previous versoins
+- Hybrid calculations (HSE06) seem to run a lot faster and use less memory compared with previous versions
 - The speed of standard DFT calculations seem unchanged.
 
 Vasp Filenames
@@ -20,12 +20,12 @@ Running Vasp
 
 Load the appropriate module
 
-``module load vasp/5.4.1.patched``
+``module load vasp/5.4.1``
 
-Loading **vasp module** module might generate a module conflict for **cray-mpich/7.0.4**. Go ahead and do  ``module sw cray-mpich/7.0.4 cray-mpich/7.2.2`` or ``module unload cray-mpich/7.0.4`` before loading **vasp module** again.
+Loading **vasp module** module might generate module conflicts if other MPI or FFTW library modules are loaded. Unload the conflicting modules and load **vasp module** again.
 
 
-For an interactive run execute:
+For an interactive run execute 
 
 ``srun -n <cores> vasp``
 
