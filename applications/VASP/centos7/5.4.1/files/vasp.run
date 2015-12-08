@@ -1,0 +1,14 @@
+#!/bin/bash -l
+#SBATCH -J VASP-test
+#SBATCH -t 3:59:00
+#SBATCH --nodes=2
+
+#SBATCH -e error.txt
+#SBATCH -o ouput.txt
+
+cd /cfs/klemming/nobackup/u/user/vasp/example/
+
+module load vasp/5.4.1
+
+mpirun -n 48 vasp 
+
