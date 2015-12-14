@@ -1,0 +1,44 @@
+
+To see which versions of openfoam are installed on any of the machines at PDC log into the machine and type
+
+.. code-block:: bash
+
+ module avail openfoam
+
+You should consider questions before running openFOAM such as:
+
+ How often do you save your solution?
+ What trace/history of your iterations do you write to file(s)?
+
+To control this behavior you need to modify the corresponding parameters in
+
+.. code-block:: bash
+ 
+ controlDict
+
+Moreover you can adapt your simulation to Lindgren by tweaking the following parameters:
+
+.. code-block:: bash
+
+ writeCompression                    uncompressed;
+ runTimeModifiable                   no;
+
+Running job in the Batch system on Tegner
+-----------------------------------------
+
+The sample job script is written
+
+.. literalinclude:: files/openfoam_run.sh
+  :language: bash
+
+where we run on 2 nodes with 48 processors in total. 
+
+To submit the job on Tegner using command
+
+.. code-block:: bash
+ 
+   sbatch openfoam_run.sh
+
+
+Formation on how to submit jobs on Tegner, see `Job Submission on Tegner <https://www.pdc.kth.se/resources/computers/tegner/how-to/run>`_ .
+

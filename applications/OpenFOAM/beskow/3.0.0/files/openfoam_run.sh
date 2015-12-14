@@ -19,7 +19,7 @@ NCORES=128
 module swap PrgEnv-cray PrgEnv-gnu
 
 # Load the openfoam module
-module load openfoam/2.3.1
+module load openfoam/3.0.0
 
 # Set the openfoam environment variables
 . $FOAM_BASHRC

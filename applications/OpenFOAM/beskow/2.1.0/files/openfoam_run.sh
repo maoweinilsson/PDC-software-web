@@ -7,13 +7,13 @@
 #SBATCH -t 1:00:00
 
 # Number of nodes
-#SBATCH --nodes=16
+#SBATCH --nodes=4
 
 # Number of MPI processes per node (default 32)
 #SBATCH --ntasks-per-node=32
 
-# Number of cores to be allocated is 512
-NCORES=512
+# Number of cores to be allocated is 128
+NCORES=128
 
 # Swap to PrgEnv-gnu (required for openfoam to work)
 module swap PrgEnv-cray PrgEnv-gnu
