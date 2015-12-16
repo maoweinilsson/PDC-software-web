@@ -7,7 +7,7 @@ The sample job script is written
 .. literalinclude:: files/openfoam_run.sh
   :language: bash
 
-where we run on 2nodes with 48 processors in total. 
+where we run on 2 nodes with 48 processors in total. 
 
 To submit the job on Tegner using command
 
