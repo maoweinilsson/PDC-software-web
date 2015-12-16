@@ -25,5 +25,5 @@ Then build and install::
 
 Then we ran test::
 
-  $ cd /afs/.pdc.kth.se/pdc/vol/boost/1.59.0/libs/mpi/test
+  $ cd /afs/.pdc.kth.se/pdc/vol/boost/1.59.0/src/boost_1_59_0/libs/mpi/test
   $ ../../../b2
