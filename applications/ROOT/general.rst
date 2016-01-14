@@ -1,28 +1,17 @@
+About ROOT
+==========
+ROOT is a framework for data processing, born at CERN, at the heart of the research on high-energy physics. Every day, thousands of physicists use ROOT applications to analyze their data or to perform simulations. With ROOT you can:
 
+1. Save data You can save your data (and any C++ object) in a compressed binary form in a ROOT file. The object format is also saved in the same file: the ROOT files are self-descriptive. Even in the case the source files describing the data model are not available, the information contained in a ROOT file is be always readable. ROOT provides a data structure, the tree, that is extremely powerful for fast access of huge amounts of data - orders of magnitude faster than accessing a normal file.
 
-The Vienna Ab initio Simulation Package (VASP) is a computer program for atomic
-scale materials modelling, e.g. electronic structure calculations and
-quantum-mechanical molecular dynamics, from first principles.
+2. Access data Data saved into one or several ROOT files can be accessed from your PC, from the web and from large-scale file delivery systems used e.g. in the GRID. ROOT trees spread over several files can be chained and accessed as a unique object, allowing for loops over huge amounts of data.
 
-VASP computes an approximate solution to the many-body Schrödinger equation,
-either within density functional theory (DFT), solving the Kohn-Sham equations,
-or within the Hartree-Fock (HF) approximation, solving the Roothaan equations.
-Hybrid functionals that mix the Hartree-Fock approach with density functional
-theory are implemented as well. Furthermore, Green's functions methods (GW
-quasiparticles, and ACFDT-RPA) and many-body perturbation theory (2nd-order
-Møller-Plesset) are available in VASP.
+3. Mine data Powerful mathematical and statistical tools are provided to operate on your data. The full power of a C++ application and of parallel processing is available for any kind of data manipulation. Data can also be generated following any statistical distribution and modeled, making it possible to simulate complex systems.
 
-In VASP, central quantities, like the one-electron orbitals, the electronic
-charge density, and the local potential are expressed in plane wave basis sets.
-The interactions between the electrons and ions are described using
-norm-conserving or ultrasoft pseudopotentials, or the projector-augmented-wave
-method.
+4. Publish results Results can be displayed with histograms, scatter plots, fitting functions. ROOT graphics may be adjusted real-time by few mouse clicks. Publication-quality figures can be saved in PDF or other formats.
 
-To determine the electronic groundstate, VASP makes use of efficient iterative
-matrix diagonalisation techniques, like the residual minimisation method with
-direct inversion of the iterative subspace (RMM-DIIS) or blocked Davidson
-algorithms. These are coupled to highly efficient Broyden and Pulay density
-mixing schemes to speed up the self-consistency cycle.
+5. Run interactively or build your own application You can use the Cling C++ interpreter for your interactive sessions and to write macros, or you can compile your program to run at full speed. In both cases, you can also create a graphical user interface.
 
-For more information see: http://vasp.at
+6. Use ROOT within other languages ROOT provides a set of bindings in order to seamlessly integrate with existing languages such as Python, R and Mathematica.
 
+See https://root.cern.ch for further details
