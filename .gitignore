@@ -8,3 +8,14 @@ index_*.rst
 
 # generated include files
 *.inc
+
+# ignore tmporary files
+*~
+.*.sw?
+\#*\#
+.\#*
+*.un~
+
+# Mac OS pukes out these files all over the place
+.DS_Store
+
