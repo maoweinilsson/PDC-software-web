@@ -1,14 +1,29 @@
-#!/bin/bash -l
-#SBATCH -J VASP-test
-#SBATCH -t 3:59:00
-#SBATCH --nodes=2
+#/bin/bash
 
-#SBATCH -e error.txt
-#SBATCH -o ouput.txt
+# The name of the script is myjob
+#SBATCH -J myjob
 
-cd /cfs/klemming/nobackup/u/user/vasp/example/
+# Only 1 hour wall-clock time will be given to this job
+#SBATCH -t 1:00:00
 
-module load vasp/5.4.1
+# Number of nodes
+#SBATCH --nodes=4
+# Number of MPI processes per node (24 is recommended for most cases)
+# 48 is the default to allow the possibility of hyperthreading
+#SBATCH --ntasks-per-node=24
+# Number of MPI processes.
 
-mpirun -n 48 vasp 
+#SBATCH -e error_file.e
+#SBATCH -o output_file.o
 
+# we load the modules that we need
+# the vasp module loads several other modules
+module add vasp/5.4.1
+
+# Versions of vasp are called
+# vasp
+# vasp-gamma
+# vasp-noncollinear
+
+# start vasp on 96 cores
+mpirun -n 96  vasp
