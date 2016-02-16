@@ -13,7 +13,7 @@ http://sourceforge.net/p/cp2k/code/HEAD/tree/trunk/cp2k/INSTALL
 Instructions for GNU
 ----------------------
 
-The following arch-file can be used (:code:`arch/CRAY-XC40-gfortran-plumed.popt`) for a pure MPI build with gnu. Linking is done to PLUMED 2.1.2 and libxc 2.2.2.
+The following arch-file can be used (:code:`arch/CRAY-XC40-gfortran-plumed-libxc.popt`) for a pure MPI build with gnu. Linking is done to PLUMED 2.1.2 and libxc 2.2.2.
 
 .. code-block:: makefile
 
