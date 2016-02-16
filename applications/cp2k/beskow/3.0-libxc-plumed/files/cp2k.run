@@ -1,0 +1,16 @@
+#!/bin/bash -l
+# The -l above is required to get the full environment with modules
+
+#SBATCH -J cp2k
+
+#SBATCH -t 00:10:00
+
+# number of nodes
+#SBATCH --nodes=2
+
+#SBATCH -o stdout.txt
+#SBATCH -e stderr.txt
+
+module load cp2k/3.0-libxc-plumed
+
+aprun -n 64  cp2k.popt test.inp
