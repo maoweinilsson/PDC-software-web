@@ -7,7 +7,7 @@ You can book a compute node for interactive running mumax3. The command to do th
 
 which will book one Haswell node with Nvidia Tesla K80 GPU accelerator for one hour. And then run mumax3 on the compute node using commands ::
 
- module add mumax3/3.9c
+ module add mumax3/3.9.1c
  srun mumax3 myfile.mx3
 
 Submitting a mumax3 job on Tegner

@@ -17,7 +17,7 @@
 #SBATCH -o output_file.o
 
 # load module mumax3
-module add mumax3/3.9c
+module add mumax3/3.9.1c
 
 # Run mumax3
 mumax3 myfile.mx3
