@@ -11,5 +11,5 @@ To see which versions of elmer are installed on any of the machines at PDC log i
 
 .. code-block:: bash
 
- module avail openfoam
+ module avail elmer
 
