@@ -19,7 +19,7 @@ Installing ROOT
 
 #. Run::
 
-	$ ./configure
+	$ ./configure --all
 	$ ./make
 
 #. Since ROOT has a lot of dependencies for other folders within
