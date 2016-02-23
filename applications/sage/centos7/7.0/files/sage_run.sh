@@ -11,7 +11,7 @@
 
 # set the project to be charged for this
 # should normally be of the format 2015-1 or 2015-16-1 or similar
-#SBATCH -A pdc.staff
+#SBATCH -A 2015-1
 
 # Number of nodes
 #SBATCH --nodes=1
