@@ -3,7 +3,7 @@
 :doc:`../../../../index` - :doc:`../../index` - :doc:`index`
 
 
-Using cp2k 3.0 with libxc and PLUMED on Beskow
+Using cp2k 3.0-libxc-plumed on Beskow
 =====================================
 
 
@@ -19,7 +19,7 @@ Assuming the script is named cp2k.run, it can be submitted using:
 
   sbatch cp2k.run
 
-Building cp2k 3.0 with libxc and PLUMED on Beskow
+Building cp2k 3.0-libxc-plumed on Beskow
 ========================================
 
 
