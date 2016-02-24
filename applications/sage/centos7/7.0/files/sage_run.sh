@@ -19,11 +19,11 @@
 #SBATCH -e error_file.e
 #SBATCH -o output_file.o
  
-# load the intel mpi modules
+# load the sage module
 module add sage/7.0
  
 # Run the executable sage 
 # and write the output into my_output_file
-sage <  generate_initial_data.sage > my_output_file 2>&1
+sage <  test.sage > my_output_file 2>&1
 
 
