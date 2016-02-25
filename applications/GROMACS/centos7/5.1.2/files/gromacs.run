@@ -16,10 +16,10 @@
 #SBATCH -o output.log
 
 # If you want to run on the Haswell nodes:
-#SBATCH --gres=gpu:K80:1
+#SBATCH -C Haswell
 
 # If you want to run on the Ivy Bridge nodes then
-# remove the above --gres line and load gromacs/ 5.1.2-avx instead
+# remove the above "-C Haswell" line and load gromacs/ 5.1.2-avx instead
 
 MPIRUN_OPTIONS="-np 2"
 module add gromacs/5.1.2-avx2
