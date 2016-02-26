@@ -20,27 +20,6 @@ to set to point to the correct license server (not the PoD server 1999@flex.cd-a
 
 where "your_license_key" is the license key.
 
-Running StarCCM+ with GUI on an interactive node
-------------------------------------------------
-
-First book an interactive node from tegner login node (e.g. *tegner.pdc.kth.se*) 
-
-.. code-block:: bash
-    
-   tegner$ salloc -N 1 -t10:00:00  # 10 hours
-   salloc: Granted job allocation 2364
-   salloc: Waiting for resource configuration
-   salloc: Nodes t02n01 are ready for job
-
-After that, from your local computer directly login on the interactive node (*t02n01.pdc.kth.se* in this example) and  then launch the command *starccm+*.
-
-.. code-block:: bash
-
-   local$ ssh -Y username@t02n01.pdc.kth.se
- 
-   t02n01$ module add starccm+/10.06.010-sp
-   t02n01$ starccm+ &
-
 Running on the Batch system
 ---------------------------
 
@@ -53,13 +32,13 @@ Notice that you have to set the number of cores in two places at the top in the
 
 .. code-block:: bash
 
- #SBATCH -n 48
+ #SBATCH -n 96
 
 line and at the bottom when you specify
 
 .. code-block:: bash
 
- -np 48 
+ -np 96
 
-Formation on how to submit jobs on Tegner, see `Job Submission on Tegner <https://www.pdc.kth.se/resources/computers/tegner/how-to/run>`_ .
+Formation on how to submit jobs on Beskow, see `Job Submission on Beskow <https://www.pdc.kth.se/resources/computers/beskow/how-to/run>`_ .
 

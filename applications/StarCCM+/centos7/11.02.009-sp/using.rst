@@ -38,7 +38,7 @@ After that, from your local computer directly login on the interactive node (*t0
 
    local$ ssh -Y username@t02n01.pdc.kth.se
  
-   t02n01$ module add starccm+/10.06.010-sp
+   t02n01$ module add starccm+/11.02.009-sp
    t02n01$ starccm+ &
 
 Running on the Batch system
