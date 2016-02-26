@@ -21,7 +21,7 @@
 # If you want to run on the Ivy Bridge nodes then
 # remove the above "-C Haswell" line and load gromacs/ 5.1.2-avx instead
 
-MPIRUN_OPTIONS="-np 2"
+MPIRUN_OPTIONS="-np 24"
 module add gromacs/5.1.2-avx2
 
 mpirun $MPIRUN_OPTIONS gmx_mpi mdrun -s topol.tpr -deffnm gmx_md 

@@ -25,13 +25,15 @@ Module *gromacs/5.1.2-avx2* (as well as *gromacs/5.1.2-avx*) provides two versio
  * *gmx_mpi mdrun* : The MD engine binary with MPI support. This is the one that researchers would use most of the time.
  * *gmx_mpi_d mdrun* : Same as above but in double precision. This one is much slower than the single precision  *mdrun_mpi*. It is used only in special cases, such as Normal Mode analysis.
 
-Here is an example script:
+Here is an example script where we run on 1 Haswell node (24 processors in total). Do not run calculations on the login node for anything other than small short tests!!
 
 .. literalinclude:: files/gromacs.run
     :language: bash
 
-Here we run on 2 nodes (64 processors in total).
-Do not run calculations on the login node for anything other than small short tests!!
+Another example for running on a Haswell node with a GPU, where we furthermore take advantage of multi-level parallelization with MPI and OpenMP is as follows: 
+
+.. literalinclude:: files/gromacs-gpu.run
+    :language: bash
 
 Now we are ready to submit the calculation::
 

@@ -1,0 +1,29 @@
+#!/bin/bash -l
+
+# Include your allocation number
+#SBATCH -A XXXX-XX-XX
+
+# Name your job
+#SBATCH -J gmx_md
+
+# Total number of nodes
+#SBATCH --nodes=2
+
+# Test run for 5 minutes
+#SBATCH -t 00:05:00
+
+#SBATCH -e error.log
+#SBATCH -o output.log
+
+# If you want to run on the Haswell nodes with GPU:
+#SBATCH --gres=gpu:K80:1
+
+# Gromacs works well with multi-level parallelization
+# here we use 4 MPI tasks and 6 openMP threads
+MPIRUN_OPTIONS="-np 4"
+export OMP_NUM_THREADS=6
+
+module add gromacs/5.1.2-avx2
+
+# note the extra flags to mdrun to specify the GPU and openMP threads
+mpirun $MPIRUN_OPTIONS gmx_mpi mdrun -s topol.tpr -deffnm gmx_md -gpu_id 0000 -ntomp $OMP_NUM_THREADS
