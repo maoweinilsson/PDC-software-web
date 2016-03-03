@@ -1,0 +1,28 @@
+
+1) download go mumax3
+ tar xvfz go.tar.gz mumax3.tar.gz
+
+2)
+module add cuda/7.0
+
+t03n01$ export PATH=$PATH:/pdc/vol/mumax3/3.9c/go/bin
+t03n01$ export GOROOT=/pdc/vol/mumax3/3.9c/go
+t03n01$ export GOPATH=/pdc/vol/mumax3/3.9c/amd64_co7
+
+3)
+
+export CGO_LDFLAGS="-L/pdc/vol/cuda/cuda-7.0/lib64 -lcurand -lcufft"
+export CGO_CPPFLAGS="-isystem /pdc/vol/cuda/cuda-7.0/include"
+
+t03n01$ cd 3-3.9c
+t03n01$ mkdir -p .git/hooks
+t03n01$ go get github.com/barnex/matrix
+t03n01$ go get github.com/mumax/3/util
+t03n01$ go get github.com/barnex/fftw 
+
+3)
+t03n01$ make
+t03n01$ export PATH=$PATH:/pdc/vol/mumax3/3.9c/amd64_co7/bin
+t03n01$ make
+
+

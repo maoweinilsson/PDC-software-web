@@ -8,8 +8,5 @@
 #SBATCH -e stderr.txt
 #SBATCH -o stdout.txt
 
-module load allinea-reports/5.0-40810
-
-export CRAY_ROOTFS=DSL
 
 perf-report aprun -n 32 ./wave.x > output 2>&1
