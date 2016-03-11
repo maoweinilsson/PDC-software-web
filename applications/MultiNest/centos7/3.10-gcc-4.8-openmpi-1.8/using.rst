@@ -1,5 +1,5 @@
 Submitting a multinest job on Tegner
----------------------------------
+------------------------------------
 
 A script for running multinest on Tegner called multinest_run.sh is shown below.
 
