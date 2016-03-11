@@ -13,27 +13,21 @@ Running tests using an existing installation produced by classic configure/make
 Since the ROOTConfig.cmake file is not created when building with ``configure / make``. Also the cmake modules do not get installed. In this case we need to tell cmake where to find these.
 Running the ROOTTEST tests::
 
-$ mkdir <test_here_dir>
-$ cd <test_here_dir>
-$ cmake ../roottest -DCMAKE_MODULE_PATH=${ROOTSYS}/etc/cmake\;<root-sources-dir>/cmake/modules
-$ ctest -j8$ ctest -j8
-
-.. On Tegner the cmake fails with 
-..
-.. literalinclude:: cmake_roottest.log
-    	:language: bash
-	:emphasize-lines: 1,5,8-11
+  $ mkdir <test_here_dir>
+  $ cd <test_here_dir>
+  $ cmake ../roottest -DCMAKE_MODULE_PATH=${ROOTSYS}/etc/cmake\;<root-sources-dir>/cmake/modules
+  $ ctest -j8$ ctest -j8
 
 Running tests from the build directory (CMake)
 ----------------------------------------------
 
 Testing is not enabled by default when configuring the ROOT build. Enabling is done by the option testing and the option roottest to add the ROOTTEST tests to the test suit. The basic instructions are:::
 
-$ mkdir <builddir>
-$ cd <builddir>
-$ cmake -Dtesting=ON -Droottest=ON <root-sources-dir>
-$ cmake --build
-$ ctest -j24
+  $ mkdir <builddir>
+  $ cd <builddir>
+  $ cmake -Dtesting=ON -Droottest=ON <root-sources-dir>
+  $ cmake --build
+  $ ctest -j24
 
 You can select a subset of tests by using the `-R <regexpr>` and see the test output by adding `-V` to the `ctest` command. See the complete set of options of ctest (link is external)
 Running tests using an existing installation produced by CMake

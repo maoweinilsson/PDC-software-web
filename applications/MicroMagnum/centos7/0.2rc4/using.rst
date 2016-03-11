@@ -1,5 +1,5 @@
 Running MicroMagnum on an interactive node on Tegner
------------------------------------------------
+----------------------------------------------------
 
 You can book a compute node for interactive running MicroMagnum. The command to do this is *salloc* e.g. ::
 
@@ -11,7 +11,7 @@ which will book one Haswell node with Nvidia Tesla K80 GPU accelerator for one h
  python sp4.py -g0
 
 Submitting a MicroMagnum job on Tegner
-------------------------------------
+--------------------------------------
 
 A script for running MicroMagnum on Tegner called micromagnum_run.sh is shown below.
 

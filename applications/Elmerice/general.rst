@@ -1,7 +1,7 @@
 
 
 How to use Elmer/Ice on PDC machines
-===================================
+====================================
 
 Elmer/Ice is an open source finite element software for ice Sheet, glaciers and ice flow modelling. Elmer/Ice is an add-on package to Elmer, which is a multi-physics FEM suite mainly developed by CSC-IT Center for Science Ltd.
 
