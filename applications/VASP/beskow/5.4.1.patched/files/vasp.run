@@ -8,8 +8,6 @@
 
 cd /cfs/klemming/nobackup/u/user/vasp/example/
 
-./opt/modules/default/etc/modules.sh
-
 # cray-mpich/7.0.4 is loaded by default;
 # two other possible conflicting modules not loaded by default 
 # are fftw and craype-hugepages*
