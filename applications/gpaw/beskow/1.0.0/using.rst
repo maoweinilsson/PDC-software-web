@@ -26,7 +26,7 @@ You can test that you have gpaw set up properly using
 .. code-block:: bash
 
   module swap PrgEnv-cray PrgEnv-gnu		
-  module add gpaw/0.10.0
+  module add gpaw/1.0.0
   salloc -n 32 -t 1:00:00		
   aprun -n 32 gpaw-python -c "import gpaw.mpi as mpi; print mpi.rank"
 
@@ -35,7 +35,7 @@ Small tests input files can also be run on the interactive nodes
 .. code-block:: bash
 
   module swap PrgEnv-cray PrgEnv-gnu		
-  module add gpaw/0.10.0
+  module add gpaw/1.0.0
   salloc -n 32 -t 1:00:00		
   aprun -n 32 gpaw-python input.py
 
@@ -69,7 +69,7 @@ For large problems you should use the queue system
 
   #load the gpaw module
   module swap PrgEnv-cray PrgEnv-gnu		
-  module add gpaw/0.10.0
+  module add gpaw/1.0.0
 
   # Run and write the output into my_output_file
   aprun -n 128 gpaw-python input.py > my_output_file
