@@ -80,10 +80,10 @@ ok try again, need to build with workaround for the all-to-all
 
 3. Insert the following in the batch job scripts of these codes::
 
-  export HUGETLB_VERBOSE=0
-  export HUGETLB_DEFAULT_PAGE_SIZE=32M
-  export HUGETLB_MORECORE_HEAPBASE=10000000000
-  export HUGETLB_MORECORE=yes
-  export HUGETLB_ELFMAP=W
-  export HUGETLB_FORCE_ELFMAP=yes+
-  export MPICH_USE_DMAPP_COLL=1
+     export HUGETLB_VERBOSE=0
+     export HUGETLB_DEFAULT_PAGE_SIZE=32M
+     export HUGETLB_MORECORE_HEAPBASE=10000000000
+     export HUGETLB_MORECORE=yes
+     export HUGETLB_ELFMAP=W
+     export HUGETLB_FORCE_ELFMAP=yes+
+     export MPICH_USE_DMAPP_COLL=1
