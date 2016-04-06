@@ -28,38 +28,32 @@ Example Job script
 
 .. code-block:: bash
 
-  #PBS -N myjob
-
-  # 23 hour wall-clock time will be given to this job
-  #PBS -l walltime=23:00:00
-
-  # Number of MPI tasks.
-  #PBS -l mppwidth=96
-
-  # Change to the work directory
-  cd $PBS_O_WORKDIR 
-
-  #enable modules within the batch system
-  . /opt/modules/default/etc/modules.sh 
+  #SBATCH -A XXXX-XX-XX
+  #SBATCH -J namdjob
+  #SBATCH -t 00:10:00
+  #SBATCH --nodes=2
+  #SBATCH --ntasks-per-node=32
+  #SBATCH -e error.log
+  #SBATCH -o output.log
 
   #load the NAMD module
   module add namd/2.10
 
   # Run namd
-
-  aprun -n 96 namd2 input.namd > output_file
+  aprun -n 64 namd2 input.namd > output_file
 
 Note the number of MPI tasks must be set in two places. In the
 
 .. code-block:: bash
 
-  #PBS -l mppwidth=96
+  #SBATCH --nodes=2
+  #SBATCH --ntasks-per-node=32
 
 line and in the
 
 .. code-block:: bash
 
-  aprun -n 96 namd2 input.namd > output_file
+  aprun -n 64 namd2 input.namd > output_file
  
 line.
 
