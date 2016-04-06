@@ -19,6 +19,7 @@ Note currently only single node runs (upto 24 cores) are supported.
 Example Job script
 
 .. code-block:: bash
+
   #!/bin/bash 
 
   # The name of the script is myjob
