@@ -42,3 +42,8 @@ Now we are ready to submit the calculation::
 
   $ sbatch gromacs.run
 
+The performance of GROMACS can in some cases be affected by how the compute nodes allocated for a job are distributed on the Beskow hardware, since nodes belonging to the same two-cabinet "group" can communicate faster than nodes on separate groups. If you notice performance losses in your simulations, a possible solution is to constrain the job to run on nodes belonging to only one group, by adding this directive into your submit file::
+
+  $ SBATCH --constraint=group-N
+
+where N is one of 0, 1, 2 or 3 (there is also a group-4 but it has only one cabinet). This will force the job to run on only one group which may speed up the run, but the downside is that it may take somewhat longer for the job to start.
