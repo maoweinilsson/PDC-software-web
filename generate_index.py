@@ -293,10 +293,48 @@ def main():
 
     # dictionary of sections mapping directory -> name on the screen
     # we should use ordereddict here but web server has too old python for that
-    sections = ['applications', 'tools', 'compilers', 'libraries']
+    sections = ['applications','bioinformatic','chemistry','fluid_dynamics','molecular_dynamics',
+      'other_applications','tools', 'visualization','mathematic','other_tools','compilers', 'libraries']
+      
+    section_underline = {}
+    section_underline['applications'] = '-'
+    section_underline['bioinformatic'] = '^'
+    section_underline['chemistry'] = '^'
+    section_underline['fluid_dynamics'] = '^'
+    section_underline['molecular_dynamics'] = '^'
+    section_underline['other_applications'] = '^'    
+    section_underline['tools'] = '-'
+    section_underline['visualization'] = '^'
+    section_underline['mathematic'] = '^'
+    section_underline['other_tools'] = '^'
+    section_underline['compilers'] = '-'
+    section_underline['libraries'] = '-'
+
+    section_folder = {}
+    section_folder['applications'] = False
+    section_folder['bioinformatic'] = True
+    section_folder['chemistry'] = True
+    section_folder['fluid_dynamics'] = True
+    section_folder['molecular_dynamics'] = True
+    section_folder['other_applications'] = True   
+    section_folder['tools'] = False
+    section_folder['visualization'] = True
+    section_folder['mathematic'] = True
+    section_folder['other_tools'] = True
+    section_folder['compilers'] = True
+    section_folder['libraries'] = True
+    
     sections_dict = {}
     sections_dict['applications'] = 'Applications'
+    sections_dict['bioinformatic'] = 'Bioinformatics'
+    sections_dict['chemistry'] = 'Computational chemistry'
+    sections_dict['fluid_dynamics'] = 'Fluid dynamics'
+    sections_dict['molecular_dynamics'] = 'Molecular dynamics'
+    sections_dict['other_applications'] = 'Other applications'
     sections_dict['tools'] = 'Tools'
+    sections_dict['visualization'] = 'Visualization'
+    sections_dict['mathematic'] = 'Mathematic'
+    sections_dict['other_tools'] = 'Other tools'
     sections_dict['compilers'] = 'Compilers and Languages'
     sections_dict['libraries'] = 'Libraries'
 
@@ -324,32 +362,33 @@ def main():
 
     for section in sections:
         programs, version_d = get_list_of_programs(section)
-
         generate_version_index(systems, systems_dict, section, programs, version_d)
         generate_one_program_overview(systems, systems_dict, section, programs, version_d)
 
-        if len(programs) > 0:
+        if section_folder[section] and len(programs)==0:
+          continue
+        # here we build the big overview table for all systems
+        with open('overview_all.inc', 'a') as include_file:
+            include_file.write('\n\n%s\n' % underline_text(sections_dict[section], section_underline[section]))
+            if len(programs) > 0:
+              include_file.write('.. include:: overview_all_%s.inc\n' % section)
+              title_line = ['Program', 'System', 'Available versions']
+              with open('overview_all_%s.inc' % section, 'w') as include_file:
+                  table = generate_table(title_line, programs, version_d, systems, systems_dict, section)
+                  if len(table) > 0:
+                      include_file.write(get_sphinx_table(table))
 
-            # here we build the big overview table for all systems
-            with open('overview_all.inc', 'a') as include_file:
-                include_file.write('\n\n%s\n' % underline_text(sections_dict[section], '-'))
-                include_file.write('.. include:: overview_all_%s.inc\n' % section)
-                title_line = ['Program', 'System', 'Available versions']
-                with open('overview_all_%s.inc' % section, 'w') as include_file:
-                    table = generate_table(title_line, programs, version_d, systems, systems_dict, section)
-                    if len(table) > 0:
-                        include_file.write(get_sphinx_table(table))
-
-            # and here for each system separately
-            for system in systems:
-                with open('overview_%s.inc' % system, 'a') as include_file:
-                    include_file.write('\n\n%s\n' % underline_text(sections_dict[section], '-'))
-                    include_file.write('.. include:: overview_%s_%s.inc\n' % (system, section))
-                    title_line = ['Program', 'Available versions']
-                    with open('overview_%s_%s.inc' % (system, section), 'w') as include_file:
-                        table = generate_table(title_line, programs, version_d, [system], systems_dict, section, single_system=True)
-                        if len(table) > 0:
-                            include_file.write(get_sphinx_table(table))
+        # and here for each system separately
+        for system in systems:
+            with open('overview_%s.inc' % system, 'a') as include_file:
+                include_file.write('\n\n%s\n' % underline_text(sections_dict[section], section_underline[section]))
+                if len(programs) > 0:
+                  include_file.write('.. include:: overview_%s_%s.inc\n' % (system, section))
+                  title_line = ['Program', 'Available versions']
+                  with open('overview_%s_%s.inc' % (system, section), 'w') as include_file:
+                      table = generate_table(title_line, programs, version_d, [system], systems_dict, section, single_system=True)
+                      if len(table) > 0:
+                          include_file.write(get_sphinx_table(table))
 
 #-------------------------------------------------------------------------------
 
