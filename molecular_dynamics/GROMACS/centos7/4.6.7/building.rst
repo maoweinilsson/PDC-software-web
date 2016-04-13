@@ -25,8 +25,8 @@ First patch the GROMACS source by::
 
 And then proceed with building the usual way::
 
-  $ mkdir build
-  $ cd build
+  $ mkdir ../build
+  $ cd ../build
   $ module add gcc/4.8.4
   $ module add intelmpi/5.0.3
   $ module load fftw/3.3.4-gcc-8.4-intelmpi-5.0.3-single
