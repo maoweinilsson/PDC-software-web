@@ -16,5 +16,5 @@
 module add comsol/5.0
 
 # Run the comsol
-srun comsol -clustersimple  batch -inputfile  input.mph -outputfile output.mph -batchlog batchlog.txt
+comsol -clustersimple  batch -inputfile  input.mph -outputfile output.mph -batchlog batchlog.txt
 

@@ -17,6 +17,6 @@ module add comsol/5.1.0.180
 
 # Run comsol on the multi-node
 srun hostname  |  sort |  uniq > nodes.comsol 
-srun comsol -nn 2 -np 24  batch -f ./nodes.comsol -inputfile  input.mph -outputfile output.mph -batchlog batchlog.txt
+comsol -nn 2 -np 24  batch -f ./nodes.comsol -inputfile  input.mph -outputfile output.mph -batchlog batchlog.txt
 
 
