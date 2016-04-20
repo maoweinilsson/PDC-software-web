@@ -40,6 +40,7 @@ Example Job script
   # Number of MPI processes.
 
   module load FDTD/8.15
+  ulimit -s unlimited
   fdtd-run-local.sh -n 24 Example.fsp
 
  
