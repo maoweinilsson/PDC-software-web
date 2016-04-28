@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<categories>
+  <category name="Applications">
+    <name>Abaqus</name>
+    <name>AVL-Fire</name>
+    <name>dock</name>
+    <name>edge</name>
+    <name>Elmerice</name>
+    <name>fastx_toolkit</name>
+    <name>fire</name>
+    <name>gensys</name>
+    <name>latex</name>
+    <name>mumax3</name>
+    <name>papi</name>
+    <name>pigz</name>
+    <name>ROOT</name>
+    <name>StarCD</name>
+    <name>allinea-pr</name>
+    <name>Comsol</name>
+    <name>dssp</name>
+    <name>Elmer</name>
+    <name>FastUniq</name>
+    <name>FDTD</name>
+    <name>geant4</name>
+    <name>gribex</name>
+    <name>MicroMagnum</name>
+    <name>oommf</name>
+    <name>pflotran</name>
+    <name>PowerFLOW</name>
+    <name>StarCCM+</name>
+    <category name="Bioinformatics">
+      <name>allpaths-lg</name>
+      <name>blast</name>
+      <name>bwa</name>
+      <name>canu</name>
+      <name>cdo</name>
+      <name>daligner</name>
+      <name>dazz_db</name>
+      <name>falcon</name>
+      <name>hipmer</name>
+      <name>idba</name>
+      <name>megahit</name>
+      <name>memsat-svm</name>
+      <name>phylobayes</name>
+      <name>ray</name>
+      <name>samtools</name>
+      <name>SPAdes</name>
+      <name>thumbup</name>
+      <name>tophat</name>
+    </category>
+    <category name="Chemistry">
+      <name>ABINIT</name>
+      <name>ase</name>
+      <name>cp2k</name>
+      <name>CPMD</name>
+      <name>Dalton</name>
+      <name>DIRAC</name>
+      <name>gamess</name>
+      <name>Gaussian</name>
+      <name>gpaw</name>
+      <name>libxc</name>
+      <name>NWChem</name>
+      <name>Quantum-ESPRESSO</name>
+      <name>siesta</name>
+      <name>VASP</name>
+      <name>Yambo</name>
+    </category>
+    <category name="Fluid Dynamics">
+      <name>Ansys-CFX</name>
+      <name>Ansys-Fluent</name>
+      <name>nek5000</name>
+      <name>OpenFOAM</name>
+      <name>pencilcode</name>
+      <name>SU2</name>
+    </category>
+    <category name="Molecular Dynamics">
+      <name>almost</name>
+      <name>Amber</name>
+      <name>GROMACS</name>
+      <name>LAMMPS</name>
+      <name>NAMD</name>
+      <name>plumed</name>
+    </category>
+  </category>
+  <category name="Tools">
+     <name>allinea-reports</name>
+     <name>cdo</name>
+     <name>CMake</name>
+     <name>DDT</name>
+     <name>extrae</name>
+     <name>grib_api</name>
+     <name>mercurial</name>
+     <name>molden</name>
+     <name>mono</name>
+     <name>nano</name>
+     <name>scons</name>
+     <name>tcl</name>
+    <category name="Mathematic">
+      <name>gams</name>
+      <name>mathematica</name>
+      <name>matlab</name>
+      <name>MultiNest</name>
+      <name>R</name>
+      <name>sage</name>
+    </category>  
+    <category name="Visualization">
+      <name>blender</name>
+      <name>gnuplot</name>
+      <name>grace</name>
+      <name>molden</name>
+      <name>Paraview</name>
+      <name>VisIt</name>
+      <name>vmd</name>
+    </category>    
+  </category>
+  <category name="Compilers and Languages">
+	  <name>cray</name>
+	  <name>gcc</name>
+	  <name>intel</name>
+	  <name>perl</name>
+	  <name>pgi</name>
+	  <name>python</name>
+	  <name>upcc</name>
+  </category>
+  <category name="Libraries">
+	  <name>boost</name>  
+	  <name>cgns</name>
+	  <name>cray-hdf5</name>
+	  <name>cray-libsci</name>
+	  <name>cray-petsc</name>
+	  <name>fftw</name>
+	  <name>freesteam</name>
+	  <name>GLPK</name>
+	  <name>gmp</name>
+	  <name>gsl</name>
+	  <name>hdf5</name>
+	  <name>intelmpi</name>
+	  <name>lapack</name>
+	  <name>mkl</name>
+	  <name>mpc</name>
+	  <name>mpfr</name>
+	  <name>mvapich2</name>
+	  <name>openmpi</name>
+	  <name>petsc</name>
+	  <name>slepc</name>
+  </category>
+</categories>

@@ -1,3 +1,5 @@
+:orphan:
+
 
 **Requesting new software**
 
@@ -7,5 +9,7 @@ should contact `PDC support <https://www.pdc.kth.se/about/contact/support-reques
 
 Overview
 ========
+
+Sort by: :doc:`Alphabet <index_alpha>`, :doc:`Category <index>`
 
 .. include:: overview_all.inc
