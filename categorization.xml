@@ -3,6 +3,7 @@
   <category name="Applications">
     <name>Abaqus</name>
     <name>AVL-Fire</name>
+    <name>Coffe</name>
     <name>dock</name>
     <name>edge</name>
     <name>Elmerice</name>
@@ -26,8 +27,7 @@
     <name>MicroMagnum</name>
     <name>oommf</name>
     <name>pflotran</name>
-    <name>PowerFLOW</name>
-    <name>StarCCM+</name>
+    <name>pencilcode</name>
     <category name="Bioinformatics">
       <name>allpaths-lg</name>
       <name>blast</name>
@@ -70,7 +70,8 @@
       <name>Ansys-Fluent</name>
       <name>nek5000</name>
       <name>OpenFOAM</name>
-      <name>pencilcode</name>
+      <name>PowerFLOW</name>
+      <name>StarCCM+</name>
       <name>SU2</name>
     </category>
     <category name="Molecular Dynamics">
