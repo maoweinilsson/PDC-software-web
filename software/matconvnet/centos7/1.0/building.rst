@@ -21,5 +21,6 @@ We tested the installation using:
 
         module add cuda/7.0
 	module add matlab/r2015b
+	module add matconvnet/1.0
 	matlab -nodisplay
 	> vl_testnn('gpu', true)
