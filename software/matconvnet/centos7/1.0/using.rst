@@ -12,4 +12,5 @@ Next you can start Matlab or run any script that uses MatConvNet, e.g.
 .. code-block:: bash
 
 	matlab -nodisplay
+	> run vl_setupnn
 	> vl_testnn('gpu', true)
