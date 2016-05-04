@@ -23,4 +23,5 @@ We tested the installation using:
 	module add matlab/r2015b
 	module add matconvnet/1.0
 	matlab -nodisplay
+	> run vl_setupnn
 	> vl_testnn('gpu', true)
