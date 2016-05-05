@@ -12,7 +12,7 @@ A script for running gerris on Tegner called *gerris_run.sh* is shown below.
 .. literalinclude:: files/gerris_run.sh
   :language: bash
 
-Note that this script does not include all the arguments that you can supply to gerris , but you should add/modify the script to suit your needs. You can copy this script to your home directory at PDC and save it as mumax3_run.sh. 
+Note that this script does not include all the arguments that you can supply to gerris , but you should add/modify the script to suit your needs. You can copy this script to your home directory at PDC and submit it using command 
 
 .. code-block:: bash
 
