@@ -4,10 +4,19 @@ Load the module with::
 
   $ module load gerris/20131206
 
-As an example, we can run Gerris on an interactive node like this::
+Submitting a gerris job on Tegner
+---------------------------------
 
-  $ gerris2D test.gfs
-  ...
+A script for running gerris on Tegner called *gerris_run.sh* is shown below.
+
+.. literalinclude:: files/gerris_run.sh
+  :language: bash
+
+Note that this script does not include all the arguments that you can supply to gerris , but you should add/modify the script to suit your needs. You can copy this script to your home directory at PDC and save it as mumax3_run.sh. 
+
+.. code-block:: bash
+
+   sbatch gerris_run.sh
 
 Formation on how to submit jobs on Tegner, see `Job Submission on Tegner <https://www.pdc.kth.se/resources/computers/tegner/how-to/run>`_ .
 
