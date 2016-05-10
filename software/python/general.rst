@@ -63,6 +63,11 @@ To use anaconda just load the module and start the Python interpreter::
   Type "help", "copyright", "credits" or "license" for more information.
   >>>
 
+To make the python executable link to the correct Anaconda libraries, 
+add this command to your interactive session or submit script::
+
+  $ source activate_python
+
 Canopy
 ------
 
