@@ -42,7 +42,7 @@ Here is an example of a job script (*vasp.run*)
 .. literalinclude:: files/vasp.run
     :language: bash
 
-If your job requires a lot of memory it can be necessary to use fewer cores per node than the available 32. Here is an example of how to do this correctly using the -N flag to aprun
+If your job requires a lot of memory it can be necessary to use fewer cores per node than the available 32. Here is an example of how to do this correctly using the -N flag to aprun, where a total of 64 cores distributed over 4 nodes (16 on each) are used
 
 .. literalinclude:: files/vasp_mem.run
     :language: bash
