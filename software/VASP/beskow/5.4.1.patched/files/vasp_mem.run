@@ -1,0 +1,20 @@
+#!/bin/bash -l
+#SBATCH -J VASP-test
+#SBATCH -t 3:59:00
+#SBATCH --nodes=4
+
+#SBATCH -e error.txt
+#SBATCH -o ouput.txt
+
+cd /cfs/klemming/nobackup/u/user/vasp/example/
+
+# cray-mpich/7.0.4 is loaded by default;
+# two other possible conflicting modules not loaded by default 
+# are fftw and craype-hugepages*
+module unload cray-mpich/7.0.4
+
+# load the vasp module
+module load vasp/5.4.1.patched 
+
+aprun -n 64 -N 16 vasp 
+

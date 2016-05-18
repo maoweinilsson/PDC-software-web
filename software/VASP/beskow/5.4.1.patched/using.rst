@@ -7,6 +7,7 @@ General observations
 - No GPU/OpenMP-support.
 - Hybrid calculations (HSE06) seem to run a lot faster and use less memory compared with previous versoins
 - The speed of standard DFT calculations seem unchanged.
+- Running on fewer than 32 cores per node allocates more memory to each MPI task. This can in some cases improve performance and is necessary if your job crashes with an OOM error. See the example submit script below on how to do this correctly.
 
 Vasp Filenames
 --------------
@@ -41,4 +42,7 @@ Here is an example of a job script (*vasp.run*)
 .. literalinclude:: files/vasp.run
     :language: bash
 
+If your job requires a lot of memory it can be necessary to use fewer cores per node than the available 32. Here is an example of how to do this correctly using the -N flag to aprun
 
+.. literalinclude:: files/vasp_mem.run
+    :language: bash
