@@ -226,7 +226,7 @@ def generate_version_index(systems, systems_dict, section, programs, version_d):
                         # add navigation
                         f_combined.write(":doc:`../../../../index` - :doc:`../../index` - :doc:`index`\n\n")
 
-                        for subsection in ['using', 'building']:
+                        for subsection in ['using', 'building', 'plugins']:
                             file_name = os.path.join(section, program, system, version, '%s.rst' % subsection)
                             if os.path.isfile(file_name):
 

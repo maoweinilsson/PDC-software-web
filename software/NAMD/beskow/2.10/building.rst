@@ -87,3 +87,4 @@ ok try again, need to build with workaround for the all-to-all
      export HUGETLB_ELFMAP=W
      export HUGETLB_FORCE_ELFMAP=yes+
      export MPICH_USE_DMAPP_COLL=1
+
