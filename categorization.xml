@@ -28,6 +28,7 @@
     <name>oommf</name>
     <name>pflotran</name>
     <name>pencilcode</name>
+    <name>Torch</name>
     <category name="Bioinformatics">
       <name>allpaths-lg</name>
       <name>blast</name>
