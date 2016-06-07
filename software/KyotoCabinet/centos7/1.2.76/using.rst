@@ -9,6 +9,7 @@ As an example, we can compile and link a code (here ``example.cc``) after loadin
   $ ./example
 
 or:: 
+
   $ g++ -o example example.cc -I/pdc/vol/kyotocabinet/1.2.76/include -L/pdc/vol/kyotocabinet/1.2.76/lib -lkyotocabinet
   $ ./example
 
