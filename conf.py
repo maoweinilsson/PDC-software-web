@@ -75,7 +75,8 @@ release = version
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build', '*/*/*/*/building.rst', '*/*/*/*/using.rst', '*/*/general.rst',
+exclude_patterns = ['_build', '*/*/*/*/building.rst', '*/*/*/*/using.rst', '*/*/general.rst','*/*/*/*/plugin.rst',
+                    '*/*/*/*/package.rst','*/*/*/*/library.rst','*/*/*/*/module.rst',
                     '*/*/lindgren/*','*/*/zorn/*','*/*/centos5/*','*/*/centos6/*',]
 
 # The reST default role (used for this markup: `text`) to use for all

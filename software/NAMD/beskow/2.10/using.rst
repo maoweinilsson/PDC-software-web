@@ -1,6 +1,4 @@
 
-
-
 To see what versions of NAMD are available on each machine use the command
 
 .. code-block:: bash

@@ -73,12 +73,12 @@ then make a tar file::
 
 ok try again, need to build with workaround for the all-to-all
 
-1. Load the module craype-hugepages32M (32 can be a different number, most successful are 8, 16 and 32) before compilation
+#. Load the module craype-hugepages32M (32 can be a different number, most successful are 8, 16 and 32) before compilation
 
-2. Link the libdmapp in - provide  “-Wl,--whole-archive,-ldmapp,--no-whole-archive” for 
+#. Link the libdmapp in - provide  “-Wl,--whole-archive,-ldmapp,--no-whole-archive” for 
   the compilation during the linking stage when building a static binary, for a dynamic binary “-ldmapp” suffices.
 
-3. Insert the following in the batch job scripts of these codes::
+#. Insert the following in the batch job scripts of these codes::
 
      export HUGETLB_VERBOSE=0
      export HUGETLB_DEFAULT_PAGE_SIZE=32M
@@ -87,4 +87,5 @@ ok try again, need to build with workaround for the all-to-all
      export HUGETLB_ELFMAP=W
      export HUGETLB_FORCE_ELFMAP=yes+
      export MPICH_USE_DMAPP_COLL=1
+
 
