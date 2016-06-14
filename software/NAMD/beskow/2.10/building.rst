@@ -76,7 +76,7 @@ ok try again, need to build with workaround for the all-to-all
 #. Load the module craype-hugepages32M (32 can be a different number, most successful are 8, 16 and 32) before compilation
 
 #. Link the libdmapp in - provide  “-Wl,--whole-archive,-ldmapp,--no-whole-archive” for 
-  the compilation during the linking stage when building a static binary, for a dynamic binary “-ldmapp” suffices.
+   the compilation during the linking stage when building a static binary, for a dynamic binary “-ldmapp” suffices.
 
 #. Insert the following in the batch job scripts of these codes::
 
