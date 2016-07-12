@@ -6,7 +6,7 @@ Compiling your program using OpenMPI
 
 To compile a program using OpenMPI you should load the openmpi module you want to use e.g.::
 
-  module add openmpi/1.8-gcc-5.1
+  module add openmpi/1.10-gcc-5.1
 
 You can then use the following commands to compile C, C++, and Fortran programs respectively::
 
@@ -24,7 +24,7 @@ Sample job script (jobscript.sh):
 
   #!/bin/bash
   module add gcc/5.1
-  module add openmpi/1.8-gcc-5.1
+  module openmpi/1.10-gcc-5.1
   total_processes=`echo "24*$SLURM_NNODES" | bc`
   PRG="$1"
   shift
