@@ -1,5 +1,3 @@
-.. include:: ../r2014b/using.rst
-
 Getting Started with Serial and Parallel MATLAB on SNIC
 -------------------------------------------------------
 
