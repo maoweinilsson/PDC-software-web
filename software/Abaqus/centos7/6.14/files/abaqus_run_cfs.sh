@@ -60,6 +60,8 @@ mp_host_list="${mp_host_list}]"
 export mp_host_list
 
 echo "mp_host_list=${mp_host_list}"  >> abaqus_v6.env
+echo "if 'SLURM_PROCID' in os.environ:" >> abaqus_v6.env 
+echo -e "\tdel os.environ['SLURM_PROCID']" >> abaqus_v6.env  
 
 # Run abaqus
 abaqus job=$inputFile cpus=$ntcpus -verbose 3 standard_parallel=all mp_mode=mpi interactive
