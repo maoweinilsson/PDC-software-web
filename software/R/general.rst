@@ -61,6 +61,7 @@ dependency of the library opa.
 #. Edit configure and create a new entry called CRAY_NOLOPA, which is the same as CRAY without **-lopa**
 #. pack into tar.gz
 #. ::
+
      $ MPICH_CRAY=/opt/cray/mpt/7.0.5/gni/mpich2-cray64/83
      $ MAKEFLAGS="CC=cc" R CMD INSTALL Rmpi.tar.gz --configure-args="--with-Rmpi-include=$MPICH_CRAY/include --with-Rmpi-libpath=$MPICH_CRAY/lib --with-Rmpi-type=CRAY_NOLOPA CC=cc" --no-test-load
 
