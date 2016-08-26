@@ -3,5 +3,5 @@ Cray Programming Environment is assumed.
 
 In order to use slepc::
 
-  $ module load cray slepc/3.6.3
+  $ module load slepc[/3.6.3]
 
