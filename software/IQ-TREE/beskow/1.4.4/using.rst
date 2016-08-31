@@ -12,7 +12,7 @@ Note that this script does not include all the arguments that you can supply to 
 
    sbatch iqtree_mpi_run.sh
 
-In this example, we ask two nodes for one hour using the *sbatch* command. When the queuing system has processed our request and allocated the node the script steps into action. 
+In this example, we ask 10 nodes for one hour using the *sbatch* command. When the queuing system has processed our request and allocated the node the script steps into action. 
 
 The sample job script for running hybrid MPI/OpenMP likes
 
