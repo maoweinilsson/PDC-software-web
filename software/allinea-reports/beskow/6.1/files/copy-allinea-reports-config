@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if [ "$#" -ne 1 ]; then
+    echo "Illegal number of parameters"
+    exit 1
+fi
+
+TARGET_DIR=$1/allinea-reports-config
+
+mkdir -p $TARGET_DIR/allinea-reports-config
+sed "s_REPLACEME_${TARGET_DIR}_g" /pdc/vol/allinea-reports/6.1/system.config.template > $TARGET_DIR/system.config

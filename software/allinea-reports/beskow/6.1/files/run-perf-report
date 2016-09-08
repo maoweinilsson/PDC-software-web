@@ -1,0 +1,8 @@
+#!/bin/bash -l
+
+#SBATCH -J apr-test
+#SBATCH -t 0:10:00
+#SBATCH --nodes 2
+#SBATCH -n 64
+
+perf-report aprun -n 64 ./wave.x 
