@@ -1,0 +1,500 @@
+  156  ls License/
+  157  ls ../../License/
+  158  module load allinea-reports/6.1.tmp 
+  159  module liost
+  160  module unload allinea 
+  161  module load allinea-reports/6.1
+  162  ls
+  163  perf-report -v
+  164  perf-report 
+  165  cd ..
+  166  ls
+  167  cd doc/
+  168  ls
+  169  ll
+  170  less APACHE-2.0.txt 
+  171  cd ..
+  172  ls
+  173  ll
+  174  cd help/
+  175  ls
+  176  cd ..
+  177  module unload allinea-reports/6.1 
+  178  module load allinea-reports/6.0
+  179  perf-report -v
+  180  cd ..
+  181  perf-report --hwlp
+  182  perf-report --help
+  183  srun -n 1 perf-report --help
+  184  umask 0002 6.1/
+  185  umask 0002 6.1/ -r
+  186  man umask 
+  187  rm 6.1/ -rf
+  188  newgrp sinstall
+  189  exit
+  190  lsb_release -a
+  191  cd /pdc/vol/allinea-reports/
+  192  ll
+  193  rm 6.1/* -rf
+  194  rm x
+  195  rm x -rf
+  196  cd src/
+  197  ls
+  198  ll
+  199  rm allinea-reports-6.1-Redhat-7.0-x86_64.tar
+  200  rm allinea-reports-6.0-Suse-11-x86_64 -rf
+  201  rm allinea-reports-6.1-Suse-12-x86_64.tar 
+  202  cp ~/Downloads/allinea-reports-6.1-Suse-11-x86_64.tar allinea-reports-6.0-Suse-11-x86_64.tar
+  203  rm ~/Downloads/allinea-reports-6.1-*
+  204  cd ..
+  205  cp ~/Downloads/allinea-reports-6.1-Suse-11-x86_64.tar .
+  206  cp ~/Downloads/allinea-reports-6.1-Suse-11-x86_64.tar src/
+  207  tar -xvf src/allinea-reports-6.1-Suse-11-x86_64.tar .
+  208  tar -xvf src/allinea-reports-6.1-Suse-11-x86_64.tar
+  209  cd allinea-reports-6.1-Suse-11-x86_64/
+  210  ls -trla
+  211  newgrp sinstall
+  212  exit
+  213  umask 0002
+  214  cd CRAY/
+  215  ../../bin/make-profiler-libraries --platform=cray --without-shmem
+  216  module list
+  217  cc --version
+  218  cc 
+  219  exit
+  220  ls -trla ../../../6.0/lib/CRAY/
+  221  ls -trla ../../../6.0/lib/INTEL/
+  222  ls -tral
+  223  touch muie 
+  224  ls -tral
+  225  touch maiuna
+  226  ls -tral
+  227  rm muie maiuna 
+  228  ../../bin/make-profiler-libraries --platform=cray --without-shmem
+  229  cc
+  230  exit
+  231  cd /pdc/vol/allinea-reports/6.1/
+  232  exit
+  233  cd /cfs/klemming/scratch/c/cira/students/
+  234  module list
+  235  moduel sw PrgEnv-{cray,intel}
+  236  module sw PrgEnv-{cray,intel}
+  237  ls
+  238  ll -trl
+  239  ll -trla
+  240  rm wave.x
+  241  rm wave
+  242  mkidr allinea-reports-6.1
+  243  mkdir allinea-reports-6.1
+  244  cd allinea-reports-6.1/
+  245  cp ../wave* .
+  246  mv ../wave* .
+  247  mv ../run.this .
+  248  rm ../std*
+  249  ls
+  250  cc -dynamic -g -O3 wave.c -o wave_intel -lm -lrt
+  251  module lust
+  252  module lost
+  253  module list
+  254  module load allinea-reports/6.1
+  255  cc -dynamic -g -O3 wave.c -o wave_intel -lm -lrt
+  256  aprun -n 2 wave_intel 
+  257  aprun -n 2 ./wave_intel 
+  258  srun -n 16 ./wave_intel 
+  259  squeue -u cira
+  260  less run.this 
+  261  perf-reports --version
+  262  module list
+  263  perf-report --version
+  264  salloc -l -n 1
+  265  vim run.this 
+  266  sbatch run.this 
+  267  watch squeue -u cira
+  268  less slurm-1030039.out 
+  269  module unload allinea-reports/6.1 
+  270  module load allinea-reports/6.1.tmp 
+  271  squeue -u cira
+  272  module list
+  273  whoami
+  274  whoami -a
+  275  whoami --help
+  276  module load allinea-reports/6.1.tmp 
+  277  module unload allinea-reports/6.1.tmp 
+  278  module sw PrgEnv-{intel,cray}
+  279  module load allinea-reports/6.1.tmp 
+  280  module list
+  281  module show allinea-reports/6.1.tmp 
+  282  module unload allinea-reports/6.1.tmp 
+  283  module load allinea-reports/6.1
+  284  module show allinea-reports/6.1
+  285  perf-report --version
+  286  ls
+  287  cat run.this 
+  288  ls
+  289  cc wave.c -O wave_cray
+  290  vim run.this 
+  291  sbatch run.this 
+  292  watch squeue -cura
+  293  watch squeue -u cira
+  294  watch slurm-1030094.out 
+  295  watch tail slurm-1030094.out 
+  296  ll
+  297  cc wave.c -O wave_cray
+  298  cc wave.c -o wave_cray
+  299  ll
+  300  sbatch run.this 
+  301  rm slurm-10300*
+  302  la
+  303  l
+  304  ls
+  305  l
+  306  squeue -u cira
+  307  ls
+  308  watch squeue -u cira
+  309  ll
+  310  module list
+  311  module unload allinea-reports/6.1 
+  312  module sw PrgEnv-{cray,gnu}
+  313  cc wave.c -o wave_gnu
+  314  vim run.this 
+  315  sbatch run.this 
+  316  watch tail slurm-1030130.out 
+  317  module load allinea-reports/6.
+  318  module load allinea-reports/6.1
+  319  rm slurm-1030130.out 
+  320  ll
+  321  sbatch run.this 
+  322  watch tail slurm-1030132.out 
+  323  ll
+  324  module list
+  325  cc wave.c -o wave_gnu 
+  326  module unload allinea-reports/6.1 
+  327  module load allinea-reports/6.1
+  328  module show allinea-reports/6.
+  329  module show allinea-reports/6.q
+  330  module show allinea-reports/6.1
+  331  cc wave.c -o wave_gnu 
+  332  vim run.this 
+  333  sbatch run.this 
+  334  ll
+  335  watch tail slurm-1030280.out 
+  336  ll
+  337  vim run.this 
+  338  module list
+  339  cc wave.c -o wave_gnu
+  340  rm slurm-1030*
+  341  ls
+  342  rm wave_gnu_32p_1n_2016-09-08_14-42.*
+  343  l
+  344  rm wave_cray*
+  345  rm wave_intel 
+  346  cat run.this 
+  347  sbatch run.this 
+  348  watch tail slurm-1030609.out
+  349  ll
+  350  module unload allinea-reports/6.1 
+  351  module sw PrgEnv-{gnu,intel}
+  352  module load allinea-reports/6.1
+  353  cc wave.c -o wave_intel
+  354  vim run.this 
+  355  sbatch run.this 
+  356  watch tail slurm-1030609.out
+  357  watch tail slurm-1030620.out 
+  358  l
+  359  module unload allinea-reports/6.1 
+  360  module sw PrgEnv-{intel,cray}
+  361  module load allinea-reports/6.1
+  362  cc wave.c -o wave_cray
+  363  vim run.this 
+  364  sbatch run.this 
+  365  watch tail slurm-1030625.out 
+  366  ls 
+  367  cp *html ~/Documents/pdc_software_webpage/software/allinea-reports/beskow/6.1/files/
+  368  exit
+  369  cd ~/Documents/pdc_software_webpage/software/allinea-reports/beskow/6.1/files/
+  370  cp /pdc/vol/allinea-reports/6.1/lib/INTEL/allinea-reports.pc 
+  371  cp /pdc/vol/allinea-reports/6.1/lib/INTEL/allinea-reports.pc .
+  372  ll
+  373  less apr-example-summary.png 
+  374  cp /pdc/vol/allinea-reports/6.1/bin/copy-allinea-reports-config .
+  375  cp /pdc/vol/Modules/allinea-reports/6.1 module 
+  376  less run-perf-report 
+  377  vim run-perf-report 
+  378  cd ..
+  379  ls
+  380  l
+  381  vim building.rst 
+  382  vim using.rst 
+  383  ls
+  384  exit
+  385  ssh beskow
+  386  cd ~/Documents/pdc_software_webpage/
+  387  cd software/allinea-reports/
+  388  ls
+  389  cd beskow/
+  390  ls
+  391  cd 6.1/
+  392  ls
+  393  cd files/
+  394  l
+  395  ls
+  396  ll
+  397  ssh beskow
+  398  exit
+  399  cd /pdc/vol/allinea-reports/6.1/lib/CRAY/
+  400  cd ..
+  401  ls -trla
+  402  newgrp sinstall
+  403  ls
+  404  cd CRAY/
+  405  ll
+  406  touch muie
+  407  ls -tral
+  408  newgroup sinstall
+  409  newgrp sinstall
+  410  cc
+  411  ../../bin/make-profiler-libraries --platform=cray --without-shmem
+  412  cd ../INTEL/
+  413  vim ../../bin/copy-allinea-reports-config 
+  414  cp ../../../6.0/system.config.template ../../
+  415  cd ../../
+  416  vim system.config.template 
+  417  ls
+  418  ll
+  419  find ~ -name system 
+  420  find ~ -name system*
+  421  cd lib/INTEL/
+  422  ll -trl
+  423  cd ../CRAY/
+  424  ls -rat
+  425  ls -ratl
+  426  less conftest.err 
+  427  cp ../../../6.0/lib/CRAY/allinea-reports.pc
+  428  cp ../../../6.0/lib/CRAY/allinea-reports.pc .
+  429  vim allinea-reports.pc 
+  430  mv /pdc/vol/Modules/allinea-reports/6.1.tmp  /pdc/vol/Modules/allinea-reports/6.1
+  431  cd ../INTEL/
+  432  ls
+  433  cp ../../../6.0/lib/INTEL/allinea-reports.pc .
+  434  ls
+  435  l
+  436  vim allinea-reports.pc 
+  437  .../../bin/make-profiler-libraries --platform=cray --without-shmem
+  438  module list
+  439  module sw PrgEnv-{cray,intel}
+  440  ../../bin/make-profiler-libraries --platform=cray --without-shmem
+  441  cd ../GNU/
+  442  cp ../../../6.0/lib/GNU/allinea-reports.pc .
+  443  vim allinea-reports.pc
+  444  module sw PrgEnv-{intel,gnu}
+  445  module list
+  446  ../../bin/make-profiler-libraries --platform=cray --without-shmem
+  447  squeue -u cira
+  448  ll
+  449  ll ../INTEL/
+  450  diff allinea-reports.pc ../INTEL/allinea-reports.pc 
+  451  vim allinea-reports.pc 
+  452  squeue -u cira
+  453  watch squeue -u cira
+  454  cd ../INTEL/
+  455  vim allinea-reports.pc 
+  456  cd ../CRAY/
+  457  ll
+  458  vim allinea-reports.pc 
+  459  module list
+  460  module sw PrgEnv-{gnu,cray}
+  461  ../../bin/make-profiler-libraries --platform=cray --without-shmem
+  462  module sw PrgEnv-{cray,intel}
+  463  cd ../INTEL/
+  464  ../../bin/make-profiler-libraries --platform=cray --without-shmem
+  465  ls
+  466  less allinea-reports.pc 
+  467  cat allinea-reports.pc 
+  468  cat ../CRAY/allinea-reports.pc 
+  469  cat ../GNU/allinea-reports.pc 
+  470  cd ..
+  471  ls
+  472  l
+  473  cd INTEL/
+  474  ls
+  475  ll
+  476  l
+  477  chown cira:sinstall libmap-sampler*
+  478  l
+  479  chown cira:sinstall libmap-sampler*
+  480  l
+  481  chown cira:sinstall *
+  482  l
+  483  cd ../
+  484  cd ../../
+  485  ls
+  486  l
+  487  rm allinea-reports-6.1-Suse-11-x86_64/ -rf
+  488  ls
+  489  l src/
+  490  chown cira:sinstall src/allinea-reports-6.1-Suse-11-x86_64.tar 
+  491  l src/
+  492  l
+  493  cd 6.1/
+  494  l
+  495  chown cira:sinstall system.config.template 
+  496  l bin/
+  497  find . -group users *
+  498  find . -group users -name *
+  499  find . -group users
+  500  exit
+  501  cd /afs/.pdc.kth.se/pdc/vol/
+  502  ls
+  503  ll
+  504  l
+  505  ls 
+  506  cd apr
+  507  ls
+  508  less 1.5.2/build/apr-1.5.2/LICENSE 
+  509  grep -i allinea 1.5.2/build/apr-1.5.2/* -r
+  510  les allinea 1.5.2/build/apr-1.5.2/README
+  511  less allinea 1.5.2/build/apr-1.5.2/README
+  512  ls a*
+  513  ls
+  514  cd ..
+  515  ls a*
+  516  ls allinea-reports/
+  517  module avail allinea
+  518  module avail a
+  519  module avail apr
+  520  module avail
+  521  module avail alline
+  522  module show allinea-reports
+  523  module avail all
+  524  module --version
+  525  module avail b
+  526  module avail
+  527  module --version
+  528  ls
+  529  ls
+  530  pwd
+  531  module load allinea-reports
+  532  module list
+  533  cp /cfs/klemming/scratch/c/cira/students/allinea-reports-6.1/ .
+  534  cp /cfs/klemming/scratch/c/cira/students/allinea-reports-6.1/ . -r
+  535  cd allinea-reports-6.1/
+  536  gcc wave.c -o wave_tegner
+  537  mpicc wave.c -o wave_tegner
+  538  pwd
+  539  cd ..
+  540  mv allinea-reports-6.1/ ~/
+  541  cd ~
+  542  cd -
+  543  cd ~/allinea-reports-6.1/
+  544  mpicc wave.c -o wave_tegner
+  545  module list
+  546  cd -
+  547  ls
+  548  cd allineapr/
+  549  ls
+  550  cd 4.2/
+  551  ls
+  552  cd amd64_co6/
+  553  ls
+  554  cd ..
+  555  du -sh
+  556  du -sh *
+  557  cd amd64_co5/
+  558  ls
+  559   ls bin/
+  560  cd lib
+  561  ls -tral
+  562  module list 
+  563  module avail
+  564  ls
+  565  cd ..
+  566  pwd
+  567  cd ../../
+  568  ls all* -tral
+  569  ls
+  570  cd allinea-reports/
+  571  ls
+  572  remctl hokkigai.pdc.kth.se newvolume template V.allinea-reports.6.1
+  573  ls
+  574  pts adduser $USER application-builder -c pdc.kth.se
+  575  pts adduser $USER application-builder -c pdc.kth.se
+  576  /usr/heimdal/bin/afslog -c pdc.kth.se
+  577  ped
+  578  pwd
+  579  fs mkmount 6.1 V.allinea-reports.6.1 -c pdc.kth.se
+  580  ls
+  581  pts removeuser $USER application-builder -c pdc.kth.se
+  582  ls
+  583  mkdir src
+  584  cp ~/Downloads/allinea-reports-6.1-Redhat-7.0-x86_64.tar .
+  585  cp ~/Downloads/allinea-reports-6.1-Redhat-7.0-x86_64.tar src/
+  586  rm src/
+  587  rm src/ -rf
+  588  ls
+  589  rm allinea-reports-6.1-Redhat-7.0-x86_64.tar 
+  590  pts adduser $USER application-builder -c pdc.kth.se
+  591  /usr/heimdal/bin/afslog -c pdc.kth.se
+  592  fs mkmount src V.allinea-reports.src -c pdc.kth.se
+  593  pts removeuser $USER application-builder -c pdc.kth.se
+  594  ls
+  595  cd src/
+  596  cp ~/Downloads/allinea-reports-6.1-Redhat-7.0-x86_64.tar .
+  597  ls
+  598  tar -xvf allinea-reports-6.1-Redhat-7.0-x86_64.tar 
+  599  ls
+  600  cd allinea-reports-6.1-Redhat-7.0-x86_64
+  601  pwd
+  602  ./textinstall.sh 
+  603  cd ../../6.1/bin/
+  604  perf-report --version
+  605  cd ~/allinea-reports-6.1/
+  606  ls
+  607  rm slurm-10306*
+  608  rm wave_*
+  609  ll
+  610  ls
+  611  module load alline-reports/6.1
+  612  module load allinea-reports/6.1
+  613  module load allinea-reports
+  614  module show allinea-reports
+  615  module unload allinea-reports
+  616  module load allinea-reports/6.1
+  617  module load allinea-reports/6.1
+  618  module show allinea-reports/6/1
+  619  module show allinea-reports/6.1
+  620* ls /afs/pdc.kth.se/pdc/vol/allinea-reports/6.1/bin/
+  621  module unload allinea-reports/6.1
+  622  module load allinea-reports/6.1
+  623  module show allinea-reports/6.1
+  624  ls /afs/pdc.kth.se/pdc/vol/allinea-reports/licences/License
+  625  ls /afs/pdc.kth.se/pdc/vol/allinea-reports/6.1/bin
+  626  module load icompilers
+  627  module load i-compilers
+  628  module add intelmpi
+  629  mpiicc  wave.c -o wave.intel
+  630  vim run.this 
+  631  sbatch run.this 
+  632  ls
+  633  ls
+  634  watch squeue -u cira
+  635  watch tail slurm-315630.out 
+  636  ll
+  637  ls
+  638  ls
+  639  pwd
+  640  ls
+  641  pwd
+  642  ls /afs/pdc.kth.se/pdc/vol/allinea-reports/src/
+  643  module show allinea-reports
+  644  pwd
+  645  cd -
+  646  cp ../../../../modules/amd64_co7/base/allinea-reports/6.1 ~/Documents/pdc_software_webpage/software/allinea-reports/centos7/6.1/files/module 
+  647  cd ~/Documents/pdc_software_webpage/software/allinea-reports/centos7/6.1/files/
+  648  ll
+  649  ls
+  650  rm allinea-reports.pc 
+  651  rm apr-example-summary.pdf 
+  652  rm copy-allinea-reports-config 
+  653  rm wave_*
+  654  ls
+  655  history > del.this

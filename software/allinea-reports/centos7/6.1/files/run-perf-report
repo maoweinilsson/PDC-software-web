@@ -1,0 +1,8 @@
+#!/bin/bash -l
+
+#SBATCH -J apr-test
+#SBATCH -t 0:10:00
+#SBATCH --nodes 1
+
+perf-report mpirun -n 24 ./wave.x
+
