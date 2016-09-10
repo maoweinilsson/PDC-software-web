@@ -1,0 +1,46 @@
+#%Module1.0
+
+set version [file tail [module-info name]]
+set name [file dirname [module-info name]]
+
+
+set home /pdc/vol/$name/$version
+
+prepend-path PATH $home/bin
+prepend-path ALLINEA_LICENSE_FILE /pdc/vol/allinea-forge/License/License
+
+if {[info exists ::env(SNIC_TMP)]} {
+    prepend-path ALLINEA_TOOLS_CONFIG_DIR $env(SNIC_TMP)/allinea-reports-config
+}
+
+
+if {[info exists ::env(PE_ENV)]} {
+    set compiler $env(PE_ENV)
+} else {
+    set compiler 0
+}
+
+
+# create config dir for the user
+# by default this would be under $HOME but that is
+# unreachable for the compute nodes
+exec $home/bin/copy-allinea-forge-config $env(SNIC_TMP)
+
+
+if {[info exists ::env(PKGCONFIG_ENABLED)]} {
+
+    prepend-path PE_PKGCONFIG_LIBS "allinea-forge"
+    if { $compiler == "0" } {
+        puts stderr "PrgEnv not recognized in module $name/$version"
+    } else {
+        prepend-path PKG_CONFIG_PATH $home/lib/$compiler
+        prepend-path LD_LIBRARY_PATH $home/lib/$compiler
+    }
+}
+
+setenv CRAYPE_LINK_TYPE dynamic
+setenv CRAY_ROOTFS DSL
+
+module-whatis "Allinea Forge $version"
+module-whatis "DDT $version - The debugger for C, C++ and F90 threaded and parallel code"
+module-whatis "MAP $version - C/C++ profiler and Fortran profiler for high performance Linux code"

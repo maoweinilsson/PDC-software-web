@@ -18,7 +18,6 @@
     <name>pigz</name>
     <name>ROOT</name>
     <name>StarCD</name>
-    <name>allinea-pr</name>
     <name>Comsol</name>
     <name>dssp</name>
     <name>Elmer</name>
@@ -89,6 +88,7 @@
   </category>
   <category name="Tools">
      <name>allinea-reports</name>
+     <name>allinea-forge</name>
      <name>cdo</name>
      <name>CMake</name>
      <name>DDT</name>

@@ -1,0 +1,8 @@
+#!/bin/bash -l
+
+#SBATCH -J forge-test
+#SBATCH -t 0:3:00
+#SBATCH --nodes 2
+#SBATCH -n 64
+
+map --profile -n 64 ./wave.x
