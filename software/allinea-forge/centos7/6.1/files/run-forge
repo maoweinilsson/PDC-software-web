@@ -3,6 +3,6 @@
 #SBATCH -J forge-test
 #SBATCH -t 0:03:00
 #SBATCH --nodes 2
-#SBATCH -n 64
+#SBATCH -n 48
 
-map --profile [aprun] -n 64 ./wave.x
+map --profile [mpirun] -n 48 ./wave.gnu

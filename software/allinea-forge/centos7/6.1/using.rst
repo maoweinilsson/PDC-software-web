@@ -1,34 +1,33 @@
 Load the appropiate compilers and the module allinea-reports/6.1 ::
 
-  $ module load i-compilers
-  $ module load intelmpi 
-  $ module load allinea-reports/6.1
+  $ module load gcc/5.1
+  $ module load openmpi/1.10-gcc-5.1
+  $ module load allinea-forge/6.1
 
 Running example
 _______________
 
 Here is an example from the official documentation ::
 
-  $ mkdir apr-test
-  $ cd apr-test
-  $ cp /pdc/vol/allinea-reports/6.1/examples/wave.c .
-  $ mpiicc  wave.c -o wave.x
+  $ mkdir forge-test
+  $ cd forge-test
+  $ cp /afs/pdc.kth.se/pdc/vol/allinea-forge/6.1/amd64_co7/examples/wave.c .
+  $ mpicc  wave.c -o wave.gnu -lm
 
-The binary ``wave.x`` is now instrumented for Allinea Performance Reports.
+The binary ``wave.gnu`` is now instrumented for Allinea MAP (and DDT).
 
-In order to run you must prepend the *mpirun* command in your bash scipt or interactive run with **perf-report**. Here is a simple script that runs the example compiled above:
+In order to run you must prepend the *mpirun* command in your bash script or interactive run with **map --profile**. Here is a simple script that runs the example compiled above:
 
-.. literalinclude:: files/run-perf-report
+.. literalinclude:: files/run-forge
     :language: bash
 
-The run will generate two additional files next to the normal output of the profiled application, namely::
+One can also ignore the ``mpirun`` command but not its options (see above example). Allinea MAP is aware of that applications are run with mpirun on Tegner. The run will generate two additional files next to the normal output of the mapped application, namely:
 
-  <app>_<cores>p_<date-stamp>_<time-stamp>.html
-  <app>_<cores>p_<date-stamp>_<time-stamp>.txt
+  <app>_<cores>p_<date-stamp>_<time-stamp>**.map**
 
-You can open the **html** file in a browser or the **txt** file directly in the terminal.
 
-The html file will look similar to this one:
+You can open the **map** file in Allinea Forge GUI. The reuslt will look similar to this one:
 
-.. image:: files/apr-example-summary.png
+
+.. image:: files/map-summary.png
     :width: 500pt

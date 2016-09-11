@@ -2,9 +2,11 @@
 
 set version [file tail  [module-info name]]
 set name [file dirname [module-info name]]
-set home /afs/pdc.kth.se/pdc/vol/$name/$version
+set home /afs/pdc.kth.se/pdc/vol/$name/$version/amd64_co7
 
 prepend-path 	PATH 	$home/bin
-prepend-path    ALLINEA_LICENSE_FILE 	/afs/pdc.kth.se/pdc/vol/allinea-reports/licences/License
+prepend-path    ALLINEA_LICENSE_FILE /afs/pdc.kth.se/pdc/vol/allinea-forge/licences/License
 
-module-whatis "Allinea Performance Reports is a low-overhead tool that produces one-page text and HTML reports summarizing and characterizing both scalar and MPI application performance."
+module-whatis	"Allinea Forge 6.1
+		DDT 6.1 - The debugger for C, C++ and F90 threaded and parallel code
+		MAP 6.1 - C/C++ profiler and Fortran profiler for high performance Linux code "
