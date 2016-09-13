@@ -40,8 +40,8 @@
       <name>dazz_db</name>
       <name>falcon</name>
       <name>freebayes</name>
-      <name>hipmer</name>
       <name>idba</name>
+      <name>IQ-TREE</name>
       <name>megahit</name>
       <name>memsat-svm</name>
       <name>phylobayes</name>
@@ -102,6 +102,7 @@
     <category name="Mathematic">
       <name>gams</name>
       <name>mathematica</name>
+      <name>matconvnet</name>
       <name>matlab</name>
       <name>MultiNest</name>
       <name>R</name>
