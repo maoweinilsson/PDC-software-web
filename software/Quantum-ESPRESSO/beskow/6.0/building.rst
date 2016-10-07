@@ -2,8 +2,8 @@
 
 Download and extract the tarball::
 
-  $ wget http://www.qe-forge.org/gf/download/frsrelease/199/855/espresso-5.2.1.tar.gz
-  $ tar xvzf espresso-5.2.1.tar.gz
+  $ wget http://qe-forge.org/gf/download/frsrelease/224/1044/qe-6.0.tar.gz
+  $ tar xzf qe-6.0.tar.gz
 
 Modules loaded::
 
