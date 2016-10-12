@@ -15,8 +15,8 @@
 #SBATCH -e error_file.e%J
 #SBATCH -o output_file.o%J
 
-# Load the ansys/cfx v16.0 module 
-module add ansys/16.0
+# Load the ansys/cfx v17.0 module 
+module add ansys/17.0
 
 # The Input file
 DEF_FILE=Benchmark.def
