@@ -17,7 +17,7 @@
 NCORES=48
 
 # Load the openfoam module
-module load openfoam/v1606+
+module load openfoam/1606+
 
 # Set the openfoam environment variables
 . $FOAM_BASHRC
