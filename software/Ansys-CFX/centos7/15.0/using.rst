@@ -8,7 +8,7 @@ If you want to run Ansys CFX v15.0 on Tegner you can do so by creating a simple 
 .. literalinclude:: files/cfx_run.sh
   :language: bash
 
-and submit it from Povel's login node
+and submit it from Tegner's login node
 
 .. code-block:: bash
 

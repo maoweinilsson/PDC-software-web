@@ -15,8 +15,8 @@
 #SBATCH -e error_file.e
 #SBATCH -o output_file.o
 
-# load module fluent v15.0
-module add fluent/15.0 
+# load module fluent v17.2
+module add fluent/17.2 
 
 # The Journal file
 JOURNALFILE=mycase.jou
@@ -26,12 +26,11 @@ JOURNALFILE=mycase.jou
 NTASKS=`echo $SLURM_TASKS_PER_NODE | cut -c1-2`
 NPROCS=`expr $SLURM_NNODES \* $NTASKS`
 
-
 if [ $SLURM_NNODES -eq 1 ]; then
     # Single node with shared memory
     fluent 3ddp -g -t $NPROCS -i $JOURNALFILE > fluent.log 
 else
     # Multi-node
-    fluent 3ddp -g -slurm -t $NPROCS -mpi=pcmpi -pib -i $JOURNALFILE > fluent.log
+    fluent 3ddp -g -slurm -t $NPROCS -mpi=pcmpi -pib -i $JOURNALFILE > fluent.log 
 fi
 
