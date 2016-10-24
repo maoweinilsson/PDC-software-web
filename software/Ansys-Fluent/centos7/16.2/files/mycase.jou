@@ -1,0 +1,15 @@
+# -----------------------------------------------------------
+# SAMPLE JOURNAL FILE
+#
+# read case file (*.cas.gz) that had previously been prepared
+file/read-case mycase.cas.gz
+# initialize flowfield
+solve/initialize/initialize-flow
+# run 100 iterations
+solve/iterate 100
+# write data
+file/write-data mycase.dat.gz
+# exit fluent
+exit yes
+#------------------------------------------------------------
+
