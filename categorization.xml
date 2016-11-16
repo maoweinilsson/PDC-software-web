@@ -128,6 +128,7 @@
 	  <name>upcc</name>
   </category>
   <category name="Libraries">
+          <name>beef</name>
 	  <name>boost</name>  
 	  <name>cgns</name>
 	  <name>cray-hdf5</name>
