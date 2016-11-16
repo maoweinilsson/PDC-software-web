@@ -42,7 +42,8 @@ Use a previous version of MKL for the moment due to missing scalapack
 Build; makefile is not parallel, but parallel build can be enforced by retrying until success
 ---------------------------------------------------------------------------------------------
 
-	- ``aprun -n 1 -d 32 -j 2 -cc none make -j 64 until !!; do :; done``
+	- ``aprun -n 1 -d 32 -j 2 -cc none make -j 64``
+	- ``until !!; do :; done``
 
 Modify the default binary names & create symbolic link
 ------------------------------------------------------

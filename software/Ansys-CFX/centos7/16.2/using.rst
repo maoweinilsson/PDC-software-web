@@ -3,7 +3,7 @@
 Submitting a CFX job on Tegner
 ------------------------------
 
-If you want to run Ansys CFX v16.0 on a single node on Tegner you can do so by creating a simple script (e.g. *cfx_run.sh*) which includes:
+If you want to run Ansys CFX v16.2 on a single node on Tegner you can do so by creating a simple script (e.g. *cfx_run.sh*) which includes:
 
 .. literalinclude:: files/cfx_run.sh
   :language: bash
