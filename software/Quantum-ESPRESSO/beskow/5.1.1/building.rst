@@ -19,6 +19,7 @@ Download tarballs into archive directory::
 
 Modules loaded::
 
+  $ module swap PrgEnv-cray PrgEnv-intel
   $ module load fftw
 
 Modules at configure time::
