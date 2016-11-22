@@ -1,6 +1,6 @@
 
 
-Version 2.7.8 of Python is available via module anaconda/py27/2.5::
+Version 2.7.11 of Python is available via module anaconda/py27/2.5::
 
   module load anaconda/py27/2.1
 
