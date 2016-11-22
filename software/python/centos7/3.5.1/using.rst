@@ -1,8 +1,8 @@
 
 
-Version 3.4.2 of Python is available via the anaconda/py34/2.1 module::
+Version 3.5.1 of Python is available via the anaconda/py35/2.4.1 module::
 
-  module load anaconda/py34/2.1
+  module load anaconda/py35/2.4.1
 
 Customising the Anaconda environment on Tegner
 ----------------------------------------------
@@ -15,11 +15,11 @@ An example for customising the Anaconda environment on Tegner.
 
 2. Create the customized Anaconda environment with the following commands::
 
- $ module load anaconda/py34/2.1
+ $ module load anaconda/py35/2.4.1
 
  $ conda create -m -p $LOCAL_ANACONDA --file $ANACONDA_HOME/conda-packages
 
- $ module rm anaconda/py34/2.1
+ $ module rm anaconda/py35/2.4.1
 
 3. Use the customised environment for interactive work on the login node. This you do f.ex. to install your own packages.::
  
