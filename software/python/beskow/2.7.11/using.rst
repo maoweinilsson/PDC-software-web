@@ -1,12 +1,8 @@
 
 
-Version 2.7.8 of Python is available via modules::
+Version 2.7.8 of Python is available via module anaconda/py27/2.5::
 
   module load anaconda/py27/2.1
-
-or::
- 
-  module load anaconda/py27/2.3
 
 Customising the Anaconda environment on Beskow
 ----------------------------------------------
@@ -23,9 +19,9 @@ An example for customising the Anaconda environment on Beskow.
 
 .. code-block:: bash
 
- $ module load anaconda/py27/2.1
+ $ module load anaconda/py27/2.5
  $ conda create -m -p $LOCAL_ANACONDA --file $ANACONDA_HOME/conda-packages
- $ module rm anaconda/py27/2.1
+ $ module rm anaconda/py27/2.5
 
 3. Use the customised environment for interactive work on the login node. This you do f.ex. to install your own packages.
  
