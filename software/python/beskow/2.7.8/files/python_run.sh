@@ -23,6 +23,9 @@
 module load anaconda/py27/2.1
 export CRAY_ROOTFS=DSL
 
+#LOCAL_ANACONDA should be changed to yours
+export LOCAL_ANACONDA=/cfs/klemming/nobackup/u/username/anaconda
+
 # put these lines immediately before aprun
 source $LOCAL_ANACONDA/bin/activate $LOCAL_ANACONDA
 export ANACONDA_HOME=$LOCAL_ANACONDA
