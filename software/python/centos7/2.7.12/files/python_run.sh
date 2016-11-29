@@ -15,9 +15,10 @@
 #SBATCH -e error_file.e
 #SBATCH -o output_file.o
 
-module load anaconda/py34/2.1
+module load anaconda/py27/4.2.0
 
-#LOCAL_ANACONDA should be changed to yours
+
+#LOCAL_ANACONDA should be changed to yours!
 export LOCAL_ANACONDA=/cfs/klemming/nobackup/u/username/anaconda
 
 # put these lines immediately before aprun
