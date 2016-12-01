@@ -15,6 +15,13 @@ Vasp Filenames
 - **vasp-gamma** : gamma-point only version of VASP. Use this one if you only have the gamma point. It is much faster and uses less memory.
 - **vasp-noncollinear** : VASP for noncollinear and spin-orbit coupling calculations.
 
+Using vdW functionals
+--------------------
+
+To use one of the nonlocal vdW functionals one needs to put the file vdw_kernel.bindat into the run directory (along with INCAR, POSCAR, POTCAR and KPOINTS). This file can be copied to your directory like this:
+
+``cp /pdc/vol/vasp/data/vdw_kernel.bindat .``
+
 Running Vasp
 ------------
 

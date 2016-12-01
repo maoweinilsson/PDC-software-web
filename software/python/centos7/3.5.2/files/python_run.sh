@@ -15,7 +15,7 @@
 #SBATCH -e error_file.e
 #SBATCH -o output_file.o
 
-module load anaconda/py35/2.4.1
+module load anaconda/py35/4.2.0
 
 #LOCAL_ANACONDA should be changed to yours
 export LOCAL_ANACONDA=/cfs/klemming/nobackup/u/username/anaconda
