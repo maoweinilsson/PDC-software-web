@@ -16,9 +16,9 @@ edit compddi: modify MAXCPUS/MAXNODES::
      set MAXNODES=1600 # bump one or both of these to match your XT
   endif
 
-uncomment GMSPATH::
+comment GMSPATH::
 
-  set GMSPATH=/u/home/boatzj/gamess
+#  set GMSPATH=/u/home/boatzj/gamess
 
 Then edit compiler to be intel compiler::
 
