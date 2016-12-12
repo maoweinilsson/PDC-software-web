@@ -134,6 +134,8 @@
 	  <name>cray-hdf5</name>
 	  <name>cray-libsci</name>
 	  <name>cray-petsc</name>
+	  <name>CUDA</name>
+	  <name>cuDNN</name>
 	  <name>fftw</name>
 	  <name>freesteam</name>
 	  <name>GLPK</name>
