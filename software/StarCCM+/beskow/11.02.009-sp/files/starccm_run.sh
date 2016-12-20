@@ -36,7 +36,7 @@ export TMPDIR=/cfs/klemming/nobackup/$LETTER/$USER
 STARTMACRO=${STARTMACRO:+"-batch $STARTMACRO"}
 
 # Using the POD Key                      
-starccm+ -power -podkey f6cP59+o6MaXfV90pgBBcs9//hQ  -licpath 1999@flex.cd-adapco.com -collab -np 96 -pio  $STARTMACRO -batch -arch linux-x86_64-2.5 -mpidriver crayxt -nbuserdir $LUSTRE_ROOT ${sim_file}> starccmRun.$SLURM_JOBID.log 2>&1
+starccm+ -power -podkey abc123  -licpath 1999@flex.cd-adapco.com -collab -np 96 -pio  $STARTMACRO -batch -arch linux-x86_64-2.5 -mpidriver crayxt -nbuserdir $LUSTRE_ROOT ${sim_file}> starccmRun.$SLURM_JOBID.log 2>&1
 
 # Check out the license from a license server
 #export CDLMD_LICENSE_FILE=31411@license-1.pdc.kth.se
