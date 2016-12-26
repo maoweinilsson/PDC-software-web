@@ -1,7 +1,7 @@
 
 The modules are built using different versions of gcc compiler. You can check available modules using::
 
-  $ module show hdf5
+  $ module avail hdf5
 
 For example, load one module with gcc v4.9.2 ::
 
