@@ -14,7 +14,7 @@
 #SBATCH -o output_file.o
 
 # load module multinest
-module add multinest/3.10-gcc-5.1-openmpi-1.10 
+module add multinest/3.10-gcc-4.8-openmpi-1.8 
 
 # Run multinest
 mpirun -np 48 eggboxC

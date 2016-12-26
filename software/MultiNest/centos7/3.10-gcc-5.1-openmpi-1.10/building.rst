@@ -4,8 +4,8 @@ You can download the source file from  `here <http://ccpforge.cse.rl.ac.uk/gf/pr
 
 The installation needs the following features ::
   
-  module add gcc/5.1
-  module add openmpi/1.10-gcc-5.1
-  module add mkl/16.0.3
+  module add gcc/4.8.4
+  module add openmpi/1.8-gcc-4.8
+  module add mkl/15.0.2
 
 The installation procedure is desribed in detail in the README file.                                                                                                    
