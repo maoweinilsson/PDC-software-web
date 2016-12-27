@@ -92,6 +92,7 @@
      <name>cdo</name>
      <name>CMake</name>
      <name>extrae</name>
+     <name>git</name>
      <name>grib_api</name>
      <name>mercurial</name>
      <name>molden</name>
