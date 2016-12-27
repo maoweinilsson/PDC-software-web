@@ -133,6 +133,7 @@
 	  <name>cgns</name>
 	  <name>cray-hdf5</name>
 	  <name>cray-libsci</name>
+	  <name>cray-netcdf</name>
 	  <name>cray-petsc</name>
 	  <name>CUDA</name>
 	  <name>cuDNN</name>
@@ -148,6 +149,7 @@
 	  <name>mpc</name>
 	  <name>mpfr</name>
 	  <name>mvapich2</name>
+	  <name>NetCDF</name>
 	  <name>openmpi</name>
 	  <name>petsc</name>
 	  <name>slepc</name>
