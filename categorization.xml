@@ -146,6 +146,7 @@
 	  <name>hdf5</name>
 	  <name>intelmpi</name>
 	  <name>lapack</name>
+	  <name>METIS</name>
 	  <name>mkl</name>
 	  <name>mpc</name>
 	  <name>mpfr</name>
