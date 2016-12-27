@@ -153,6 +153,7 @@
 	  <name>mvapich2</name>
 	  <name>NetCDF</name>
 	  <name>openmpi</name>
+	  <name>ParMETIS</name>
 	  <name>petsc</name>
 	  <name>slepc</name>
 	  <name>swig</name>
