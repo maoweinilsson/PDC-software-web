@@ -155,6 +155,7 @@
 	  <name>openmpi</name>
 	  <name>ParMETIS</name>
 	  <name>petsc</name>
+	  <name>SCOTCH</name>
 	  <name>slepc</name>
 	  <name>swig</name>
   </category>
