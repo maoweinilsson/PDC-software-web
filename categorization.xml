@@ -150,6 +150,7 @@
 	  <name>mkl</name>
 	  <name>mpc</name>
 	  <name>mpfr</name>
+	  <name>MUMPS</name>
 	  <name>mvapich2</name>
 	  <name>NetCDF</name>
 	  <name>openmpi</name>
