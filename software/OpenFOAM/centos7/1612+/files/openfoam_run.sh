@@ -7,8 +7,8 @@
 #SBATCH -t 1:00:00
 
 # Set the project to be charged for this
-# should normally be of the format 2016-XX or 2016-10-XX or similar
-#SBATCH -A 2016-XX
+# should normally be of the format 2017-XX or 2017-10-XX or similar
+#SBATCH -A 2017-XX
 
 # Number of nodes
 #SBATCH --nodes=2
@@ -17,7 +17,7 @@
 NCORES=48
 
 # Load the openfoam module
-module load openfoam/1606+
+module load openfoam/1612+
 
 # Set the openfoam environment variables
 . $FOAM_BASHRC
