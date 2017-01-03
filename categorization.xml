@@ -154,6 +154,7 @@
 	  <name>MUMPS</name>
 	  <name>mvapich2</name>
 	  <name>NetCDF</name>
+	  <name>OpenCV</name>
 	  <name>openmpi</name>
 	  <name>ParMETIS</name>
 	  <name>petsc</name>
