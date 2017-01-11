@@ -9,6 +9,7 @@ Obtain and untar the source. Download/apply latest patches
 
 Copy makefile.include to the base directory
 -------------------------------------------
+
 .. literalinclude:: files/install.sh
     :language: bash
 
@@ -47,6 +48,7 @@ Build; makefile is not parallel, but parallel build can be enforced by retrying 
 
 Modify the default binary names & create symbolic link
 ------------------------------------------------------
+
 	- ``cd bin``
 	- ``mv vasp_std vasp-regular``
 	- ``mv vasp_ncl vasp-noncollinear``
@@ -55,6 +57,7 @@ Modify the default binary names & create symbolic link
 
 For debugging with ATP
 ----------------------
+
 	- ``export ATP_ENABLED=1``
 
 

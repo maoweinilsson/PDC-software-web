@@ -12,6 +12,7 @@ Intel compilers (version 16 and up)
    #. Make sure older compilers still work with the new license
 
 #. Install
+
    #. Download latest Intel suite
    #. Untar the file (use CFS due to multi-Gb size of installer)
    #. Prepare the target installation directory
