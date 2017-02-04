@@ -70,6 +70,7 @@
     <category name="Fluid Dynamics">
       <name>Ansys-CFX</name>
       <name>Ansys-Fluent</name>
+      <name>AVL-Fire</name>
       <name>Gerris</name>
       <name>nek5000</name>
       <name>OpenFOAM</name>

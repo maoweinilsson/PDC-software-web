@@ -4,13 +4,9 @@
 
 How to use AVL/Fire on PDC machines
 ===================================
-AVL/Fire is commercial software and PDC has 30 UPP (AST University Partnership Program) licenses for academic users to support research and education.  The other users must provide their own license to the software. The environment variable
+AVL/Fire is commercial software and the users must provide their own license to the software. 
 
-.. code-block:: bash
-
- LM_LICENSE_FILE
-
-Should be set to point to the license server.
+More details about the software, see
 
 http://www.avl.com
 
