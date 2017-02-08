@@ -12,6 +12,6 @@ all explicit linking by using the ``-mkl=[parallel,sequential,cluster]`` compile
 
   CFLAGS="-mkl=parallel"
 
- more information on the flags can be found at 
+more information on the flags can be found at 
 	 
 http://software.intel.com/en-us/articles/intel-mkl-link-line-advisor
