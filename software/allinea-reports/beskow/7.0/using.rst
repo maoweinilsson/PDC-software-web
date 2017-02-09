@@ -1,23 +1,26 @@
-To profile a code with Allinea Performance Reports we need to compile it with the module allinea-reports/6.0 loaded::
+To profile a code with Allinea Performance Reports we need to compile it with the module allinea-reports/7.0 loaded::
 
-  $ module load allinea-reports/6.0
+  $ module load allinea-reports/7.0
 
-If a change of the environment is necessary, make sure you perfom it **before** loading the *allinea-reports/6.0* module. For example ::
+If a change of the environment is necessary, make sure you perfom it **before** loading the *allinea-reports/7.0* module. For example ::
 
 	$ module sw PrgEnv-cray PrgEnv-intel
-	$ module load allinea-reports/6.0
+	$ module load allinea-reports/7.0
 
 Changing the environment after loading the allinea-reports module will result in a error when compling the code. 
 
 Running example
 _______________
 
+On Beskow the program must either be dynamically linked (using -dynamic) or explicitly linked with the Allinea profiling libraries.
+
+
 Here is an example from the official documentation ::
 
   $ cd $SNIC_TMP
   $ mkdir apr-test
   $ cd apr-test
-  $ cp /pdc/vol/allinea-reports/6.0/examples/wave.c .
+  $ cp /pdc/vol/allinea-reports/7.0/examples/wave.c .
   $ cc wave.c -o wave.x
 
 The binary ``wave.x`` is now instrumented for Allinea Performance Reports.
