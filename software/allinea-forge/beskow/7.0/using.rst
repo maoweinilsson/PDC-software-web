@@ -1,11 +1,11 @@
-To use Allinea **DDT**/**MAP** we need to compile it with the module *allinea-forge/6.1* loaded::
+To use Allinea **DDT**/**MAP** we need to compile it with the module *allinea-forge/7.0* loaded::
 
-	$ module load allinea-forge/6.1
+	$ module load allinea-forge/7.0
 
-If a change of the environment is necessary, make sure you perfom it **before** loading the **allinea-forge/6.1** module. For example::
+If a change of the environment is necessary, make sure you perfom it **before** loading the **allinea-forge/7.0** module. For example::
 
 	$ module sw PrgEnv-cray PrgEnv-intel
-	$ module load allinea-forge/6.1
+	$ module load allinea-forge/7.0
 
 Running Allinea MAP
 *******************
@@ -18,7 +18,7 @@ Here is an example from the official documentation ::
   $ cd $SNIC_TMP
   $ mkdir apr-test
   $ cd map-test
-  $ cp /pdc/vol/allinea-forge/6.1/examples/wave.c .
+  $ cp /pdc/vol/allinea-forge/7.0/examples/wave.c .
   $ cc wave.c -o wave.x -dynamic
 
 The binary ``wave.x`` is now instrumented for Allinea MAP (and DDT).

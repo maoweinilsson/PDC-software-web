@@ -1,0 +1,4 @@
+Name: allinea-forge
+Description: Allinea Forge
+Version: 7.0
+Libs: -Wl,--whole-archive -Wl,-z,muldefs -L/pdc/vol/allinea-forge/7.0/lib/INTEL -lmap-sampler-pmpi -lmap-sampler -Wl,--no-whole-archive -Wl,--eh-frame-hdr

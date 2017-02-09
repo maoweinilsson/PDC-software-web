@@ -8,4 +8,4 @@ fi
 TARGET_DIR=$1/allinea-forge-config
 
 mkdir -p $TARGET_DIR/allinea-forge-config
-sed "s_REPLACEME_${TARGET_DIR}_g" /pdc/vol/allinea-forge/6.1/system.config.template > $TARGET_DIR/system.config
+sed "s_REPLACEME_${TARGET_DIR}_g" /pdc/vol/allinea-forge/7.0/system.config.template > $TARGET_DIR/system.config
