@@ -1,0 +1,10 @@
+#%Module1.0
+
+set version [file tail  [module-info name]]
+set name [file dirname [module-info name]]
+set home /afs/pdc.kth.se/pdc/vol/$name/$version
+
+prepend-path 	PATH 	$home/bin
+prepend-path    ALLINEA_LICENSE_FILE 	/afs/pdc.kth.se/pdc/vol/allinea-reports/licences/License
+
+module-whatis "Allinea Performance Reports is a low-overhead tool that produces one-page text and HTML reports summarizing and characterizing both scalar and MPI application performance."

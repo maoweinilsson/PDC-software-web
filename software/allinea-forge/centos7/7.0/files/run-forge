@@ -5,4 +5,4 @@
 #SBATCH --nodes 2
 #SBATCH -n 48
 
-map --profile [mpirun] -n 48 ./wave.tegner
+map --profile [mpirun] -n 48 ./wave.teg
