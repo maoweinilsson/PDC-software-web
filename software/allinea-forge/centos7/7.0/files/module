@@ -1,0 +1,12 @@
+#%Module1.0
+
+set version [file tail  [module-info name]]
+set name [file dirname [module-info name]]
+set home /afs/pdc.kth.se/pdc/vol/$name/$version/amd64_co7
+
+prepend-path 	PATH 	$home/bin
+prepend-path    ALLINEA_LICENSE_FILE /afs/pdc.kth.se/pdc/vol/allinea-forge/licences/License
+
+module-whatis	"Allinea Forge 7.0
+		DDT 7.0 - The debugger for C, C++ and F90 threaded and parallel code
+		MAP 7.0 - C/C++ profiler and Fortran profiler for high performance Linux code "

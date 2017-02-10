@@ -1,0 +1,8 @@
+#!/bin/bash -l
+
+#SBATCH -J forge-test
+#SBATCH -t 0:03:00
+#SBATCH --nodes 2
+#SBATCH -n 48
+
+map --profile [mpirun] -n 48 ./wave.tegner
