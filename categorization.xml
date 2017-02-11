@@ -6,30 +6,31 @@
     <name>Caffe</name>
     <name>cdo</name>
     <name>CFITSIO</name>
+    <name>Comsol</name>
     <name>dock</name>
+    <name>dssp</name>
     <name>edge</name>
+    <name>Elmer</name>
     <name>Elmerice</name>
+    <name>FastUniq</name>
     <name>fastx_toolkit</name>
+    <name>FDTD</name>
     <name>fire</name>
+    <name>geant4</name>
     <name>gensys</name>
+    <name>gribex</name>
     <name>KyotoCabinet</name>
     <name>latex</name>
+    <name>MicroMagnum</name>
     <name>mumax3</name>
+    <name>NCL</name>
+    <name>oommf</name>
     <name>papi</name>
+    <name>pencilcode</name>
+    <name>pflotran</name>
     <name>pigz</name>
     <name>ROOT</name>
     <name>StarCD</name>
-    <name>Comsol</name>
-    <name>dssp</name>
-    <name>Elmer</name>
-    <name>FastUniq</name>
-    <name>FDTD</name>
-    <name>geant4</name>
-    <name>gribex</name>
-    <name>MicroMagnum</name>
-    <name>oommf</name>
-    <name>pflotran</name>
-    <name>pencilcode</name>
     <name>Torch</name>
     <category name="Bioinformatics">
       <name>allpaths-lg</name>
