@@ -4,6 +4,7 @@
     <name>Abaqus</name>
     <name>AVL-Fire</name>
     <name>Caffe</name>
+    <name>cdo</name>
     <name>CFITSIO</name>
     <name>dock</name>
     <name>edge</name>
@@ -35,7 +36,6 @@
       <name>blast</name>
       <name>bwa</name>
       <name>canu</name>
-      <name>cdo</name>
       <name>daligner</name>
       <name>dazz_db</name>
       <name>falcon</name>
