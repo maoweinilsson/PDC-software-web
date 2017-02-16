@@ -1,87 +1,58 @@
 
-
 How to use Python on PDC machines
 ===================================
 
-Multiple versions of python are installed on PDC machines.
+Multiple versions of Python are installed on PDC machines.
 
-To see which version of python is available by default use the command::
+To see which version of Python is available by default use the command::
 
   python -V
 
-You can also see what other versions of python are available using::
-
-  module avail python 
-
-Available python packages
+Anaconda
 =========================
 
-Python has a very large number of optional packages that can be
-installed. These are accessed using the site-python module. If the
-specific package you need is not installed then `contact support <https://www.pdc.kth.se/about/contact/support-requests>`_.
+Python has a very large number of optional packages for 
+large-scale data processing and scientific computing 
+which are not available in the default system Python.
+Many of these packages can be found in the 
+enterprise-ready Anaconda Python distribution, 
+which is installed at PDC and provided in several modules.
+To list all available Anaconda modules, type::
 
-You can see which versions of python have site python components using::
+   $ module avail anaconda
 
-  module avail site-python
+For example, to load Anaconda version 4.3 for Python 2.7, type::
 
-Then load a specific site python module (corresponding to the version
-of python you want to use) using for example::
+   $ module load anaconda/py27/4.3
 
-  module load site-python/2.6
+The Python version can be found by::
 
-Anaconda
-========
+   $ python --version
+   Python 2.7.13 :: Continuum Analytics, Inc.
 
-Anaconda is an enterprise-ready Python distribution for large-scale
-data processing, predictive analytics, and scientific computing. It
-includes Python packages for science, math, engineering and data
-analysis.
 
-It is now available on all PDC systems and provides the Python
-interpreter for various versions of python. 
+The conda package manager can be used to list the packages installed in a given Anaconda module::
 
-You can see which python versions are supported using::
+  $ conda list
 
-  module avail anaconda
+In addition to the root environment, which is activated by default after 
+loading an Anaconda module, there is an environment called custom which is 
+meant to serve as an environment in which additional user-requested 
+packages can be installed.
+To switch to the custom environment, type::
 
-The following output::
+  $ source activate custom
 
-  ------------ /pdc/modules/system/base ------------ 
-  anaconda/py27/1.8 anaconda/py33/1.8 
+If you need a package which is not available in any of the installed Anaconda 
+modules or environments (root or custom), contact PDC support.
 
-shows that anaconda is available for python 2.7 and 3.3
-
-There are acceleration packages as part of anaconda that can make use
-of Intel's MKL library as well as of acceleration by GPUs.
-
-To use anaconda just load the module and start the Python interpreter::
-
-  $ module load anaconda/py27/1.8
-  $ python
-  Python 2.7.6 |Anaconda 1.8.0 (64-bit)| (default, Nov 11 2013, 10:47:18)
-  [GCC 4.1.2 20080704 (Red Hat 4.1.2-54)] on linux2
-  Type "help", "copyright", "credits" or "license" for more information.
-  >>>
-
-To make the python executable link to the correct Anaconda libraries, 
-add this command to your interactive session or submit script::
-
-  $ source activate_python
-
-Canopy
-------
-
-Canopy (also known as EPD) provides an open and intuitive environment
-for scientific and analytic computing for a comprehensive,
-Python-based analysis desktop & Python distribution.
-
-It is also available at all PDC systems, but (but only for python
-2.7). Load the module and use it as follows::
-
-  $ module load canopy/1.1
-  $ python
-  Enthought Canopy Python 2.7.3 | 64-bit | (default, Aug  8 2013, 05:43:23) 
-  [GCC 4.1.2 20080704 (Red Hat 4.1.2-52)] on linux2 
-  Type "help", "copyright", "credits" or "license" for more information. 
-  >>>
-
+Installing your own Python environment
+----------------------------------------
+If you need full control over your Python environment, we recommend that you
+install your own Anaconda or Miniconda distributions, which is 
+relatively easy. The Anaconda 
+distribution is rather large and thus needs to be installed in your 
+`/cfs/klemming/nobackup` directory, while Miniconda is much more lightweight.
+Follow these links to find installation instructions for 
+`Anaconda <https://www.continuum.io/downloads>`_ 
+and `Miniconda <https://conda.io/miniconda.html>`, respectively.

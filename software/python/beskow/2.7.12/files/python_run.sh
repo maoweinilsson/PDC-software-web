@@ -20,21 +20,15 @@
 #SBATCH -o output_file.o
 
 # load the anaconda module
-module load anaconda/py27/2.5
-export CRAY_ROOTFS=DSL
+module load anaconda/py27/4.3
 
-#LOCAL_ANACONDA should be changed to yours
-export LOCAL_ANACONDA=/cfs/klemming/nobackup/u/username/anaconda
-
-# put these lines immediately before aprun
-source $LOCAL_ANACONDA/bin/activate $LOCAL_ANACONDA
-export ANACONDA_HOME=$LOCAL_ANACONDA
-source activate_python
+# if you need the custom conda environment:
+source activate custom
 
 # execute the program
 aprun -n 1 python ./anacondatest.py
 
 # put this line immediately after aprun
-source deactivate_python
+source deactivate
 
 
