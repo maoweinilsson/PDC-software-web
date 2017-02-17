@@ -6,6 +6,7 @@ Running example
 _______________
 
 The Globus Toolkit provides a GridFTP client called **globus-url-copy**, a command line interface, suitable for scripting. For example, the following command ::
+
     $ globus-url-copy gsiftp://remote.host.edu/path/to/file file:///path/on/local/host
 
 would transfer a file from a remote host to the locally accessible path specified in the second URL.

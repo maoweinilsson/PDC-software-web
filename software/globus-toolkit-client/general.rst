@@ -8,8 +8,10 @@ GridFTP Protocol
 ________________
 
 GridFTP is a protocol defined by Global Grid Forum Recommendation GFD.020, RFC 959, RFC 2228, RFC 2389, and a draft before the IETF FTP working group. Key features include::
+
     **Performance** - GridFTP protocol supports using parallel TCP streams and multi-node transfers to achieve high performance.
     **Checkpointing** - GridFTP protocol requires that the server send restart markers (checkpoint) to the client.
     **Third-party transfers** - The FTP protocol on which GridFTP is based separates control and data channels, enabling third-party transfers, that is, the transfer of data between two end hosts, mediated by a third host.
     **Security** - Provides strong security on both control and data channels. Control channel is encrypted by default. Data channel is authenticated by default with optional integrity protection and encryption.
+
 http://http://toolkit.globus.org/toolkit/about.html
