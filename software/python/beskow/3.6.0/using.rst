@@ -1,8 +1,8 @@
 
 
-Version 2.7.12 of Python is available via module anaconda/py27/4.2::
+Version 3.6.0 of Python is available via module anaconda/py36/4.3::
 
-  module load anaconda/py27/4.2
+  module load anaconda/py36/4.3
 
 Using Anaconda Python
 ----------------------------------------------

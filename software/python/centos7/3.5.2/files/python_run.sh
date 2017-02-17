@@ -1,4 +1,9 @@
-#!/bin/bash 
+#!/bin/bash -l
+# The -l above is required to get the full environment with modules
+
+# Set the allocation to be charged for this job
+# not required if you have set a default allocation
+#SBATCH -A 201X-X-XX
 
 # The name of the script is myjob
 #SBATCH -J myjob
@@ -7,28 +12,23 @@
 #SBATCH -t 1:00:00
 
 # Number of nodes
-#SBATCH -N 1
-
+#SBATCH --nodes=1
 # Number of MPI processes per node 
-##SBATCH --ntasks-per-node=24
+##SBATCH --ntasks-per-node=32
 
 #SBATCH -e error_file.e
 #SBATCH -o output_file.o
 
-module load anaconda/py35/4.2.0
+# load the anaconda module
+module load anaconda/py35/4.2
 
-#LOCAL_ANACONDA should be changed to yours
-export LOCAL_ANACONDA=/cfs/klemming/nobackup/u/username/anaconda
-
-# put these lines immediately before aprun
-source $LOCAL_ANACONDA/bin/activate $LOCAL_ANACONDA
-export ANACONDA_HOME=$LOCAL_ANACONDA
-source activate_python
+# if you need the custom conda environment:
+source activate custom
 
 # execute the program
-python ./anacondatest.py
+aprun -n 1 python ./anacondatest.py
 
 # put this line immediately after aprun
-source deactivate_python
+source deactivate
 
 
