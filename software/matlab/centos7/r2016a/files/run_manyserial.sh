@@ -6,15 +6,15 @@
 #SBATCH -e error_file.e                             
 #SBATCH -o output_file.o
 
-# Run matlab fir 24 individual programs serial_program_1.m, 
+module add matlab/r2016a
+# Run matlab for 24 individual programs serial_program_1.m, 
 # serial_program_2.m ... and print output in files logfile_1, logfile_2, ...
 # The input files must be in the directory where you submit this script. 
 # This is also where the output will be created.
 
 for i in {1..24} ; do
-    matlab -nodisplay < serial_program_${i}.m > logfile_$i &
+    matlab -nojvm -nosplash -nodesktop -nodisplay < serial_program_${i}.m > logfile_$i &
 done
+# this wait command must be present since otherwise the job will terminate immediately
+wait  
 
-# If you remove the part:
-# > logfile_$i
-# all output will instead be printed to the file output_file.o specified above

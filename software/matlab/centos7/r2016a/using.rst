@@ -1,7 +1,7 @@
 Getting Started with Serial and Parallel MATLAB on SNIC
 -------------------------------------------------------
 
-In order to work matlab must be run within */cfs/klemming*
+In order to work matlab must be run within */cfs/klemming*.  
 Load the matlab module by
 
   $ module add matlab/r2016a
@@ -28,7 +28,7 @@ start Matlab by (add -X to ssh if you want to run the Matlab GUI)::
   t02n31 $ matlab -nodisplay
 
 In the following example, a parallel pool of 24 workers is opened and 
-a function, parallel_example (described further below), is called.::
+a function, parallel_example (described further below), is called::
 
   >> p=parpool(24)
   Starting parallel pool (parpool) using the 'local' profile ... conected to 24 workers.
@@ -55,7 +55,6 @@ a function, parallel_example (described further below), is called.::
 This is how parallel_example.m might look::
 
   function t = parallel_example
-   p=parpool(24)
    t0 = tic;
    parfor idx = 1:24
      A(idx) = idx;
@@ -64,8 +63,8 @@ This is how parallel_example.m might look::
    t = toc(t0)
 
 
-Parallel batch jobs
-^^^^^^^^^^^^^^^^^^^
+Running parallel batch jobs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can also submit parallel workflows to the SLURM queueing system. 
 The following job script allocates one node on Tegner and runs one Matlab 
@@ -86,8 +85,8 @@ You can then submit the job with::
 It is advisable to run your code with different numbers of workers to
 determine the ideal number to use.
   
-Serial batch jobs
-^^^^^^^^^^^^^^^^^
+Running multiple serial batch jobs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 On Tegner the smallest allocatable computing unit is a whole node. 
 Running serial jobs 
