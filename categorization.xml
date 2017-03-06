@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <categories>
   <category name="Applications">
     <name>Abaqus</name>
@@ -167,5 +167,6 @@
 	  <name>SCOTCH</name>
 	  <name>slepc</name>
 	  <name>swig</name>
+        <name>tensorflow</name>
   </category>
 </categories>
