@@ -75,6 +75,7 @@ request the node and then log into it from a new terminal on your local computer
   salloc: Nodes t02n13 are ready for job
 
 From separate terminal on your own machine::
+
   $ ssh t02n13.pdc.kth.se
   $ module load anaconda
   $ python some_script.py
