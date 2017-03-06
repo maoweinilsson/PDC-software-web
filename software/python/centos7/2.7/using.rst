@@ -33,11 +33,19 @@ modules or environments, contact PDC support.
 Using Anaconda Python on interactive node
 -------------------------------------------
 
-To run Python on an allocated interactive node::
+To run Python on an interactive node on Tegner you first need to
+request the node and then log into it from a new terminal on your local computer::
 
   $ salloc -A <your-project-ID> -t 1:0:0 -N 1
+  salloc: Granted job allocation 596140
+  salloc: Waiting for resource configuration
+  salloc: Nodes t02n13 are ready for job
+
+From separate terminal on your own machine::
+
+  $ ssh t02n13.pdc.kth.se
   $ module load anaconda
-  $ aprun -n 1 python some_script.py
+  $ python some_script.py
 
 Using Anaconda Python in batch job
 ----------------------------------------
