@@ -10,5 +10,5 @@ The following script was tested::
 Save it and run it using::
 
   $ module add R/3.3.1
-  $ salloc -t 60 R --no-save <[myscript]
+  $ salloc -A <your-project-ID> -N 1 -t 60 R --no-save <[myscript]
   
