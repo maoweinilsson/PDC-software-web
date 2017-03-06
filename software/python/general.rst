@@ -1,7 +1,4 @@
 
-How to use Python on PDC machines
-===================================
-
 Multiple versions of Python are installed on PDC machines.
 
 To see which version of Python is available by default use the command::
@@ -70,16 +67,15 @@ Using Anaconda Python on interactive node
 -------------------------------------------
 
 To use Anaconda Python on an interactive node on Tegner you first need to 
-request the node and then log into it::
+request the node and then log into it from a new terminal on your local computer::
 
   $ salloc -A <your-project-ID> -t 1:0:0 -N 1
   salloc: Granted job allocation 596140
   salloc: Waiting for resource configuration
   salloc: Nodes t02n13 are ready for job
 
-  # from separate terminal on your own machine:
+From separate terminal on your own machine::
   $ ssh t02n13.pdc.kth.se
-  # load default Anaconda module:
   $ module load anaconda
   $ python some_script.py
 
@@ -122,7 +118,7 @@ Using Anaconda Python in batch job
 
  # execute the program
  # (on Beskow use aprun instead)
- mpirun -n 1 python some_script.py
+ mpirun -np 1 python some_script.py
 
  # to deactivate the Anaconda environment
  source deactivate
