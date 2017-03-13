@@ -98,6 +98,7 @@
      <name>CMake</name>
      <name>extrae</name>
      <name>Git</name>
+     <name>globus-toolkit-client</name>
      <name>grib_api</name>
      <name>mercurial</name>
      <name>midnightcommander</name>
