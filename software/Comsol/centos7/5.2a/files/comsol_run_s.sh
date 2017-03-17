@@ -24,5 +24,5 @@
 module add comsol/5.2a
 
 # Run the comsol
-comsol -clustersimple  batch -inputfile  input.mph -outputfile output.mph -batchlog batchlog.txt
+comsol batch -inputfile  input.mph -outputfile output.mph -batchlog batchlog.txt
 
