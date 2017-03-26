@@ -2,9 +2,9 @@ To list all available Anaconda modules on Beskow, type::
 
    $ module avail anaconda
 
-For example, to load Anaconda version 4.2 for Python 2.7, type::
+For example, to load Anaconda version 4.2.0 for Python 2.7, type::
 
-   $ module load anaconda/py27/4.2
+   $ module load anaconda/py27/4.2.0
 
 After loading an Anaconda module, the Python version can be printed by::
 
@@ -72,7 +72,7 @@ Using Anaconda Python in batch job
  #SBATCH -o output_file.o
 
  # load the anaconda module
- module load anaconda/py27/4.2
+ module load anaconda/py27/4.2.0
 
  # if you need the custom conda environment:
  source activate custom
