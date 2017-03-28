@@ -11,7 +11,7 @@ module add matlab/r2016b
 # your_matlab_program.out. The input file must be in the directory where you submit this script. 
 # This is also where the output will be created.
 
-matlab -nojvm -nosplash -nodesktop -nodisplay < your_matlab_program.m > your_matlab_program.out
+matlab -nosplash -nodesktop -nodisplay < your_matlab_program.m > your_matlab_program.out
 
 # If you remove the part:
 # > your_matlab_program.out

@@ -13,7 +13,7 @@ module add matlab/r2016b
 # This is also where the output will be created.
 
 for i in {1..24} ; do
-    matlab -nojvm -nosplash -nodesktop -nodisplay < serial_program_${i}.m > logfile_$i &
+    matlab -nosplash -nodesktop -nodisplay < serial_program_${i}.m > logfile_$i &
 done
 # this wait command must be present since otherwise the job will terminate immediately
 wait  
