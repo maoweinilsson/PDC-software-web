@@ -18,7 +18,7 @@ If you you want to run in batch mode you do:
 
 .. code-block:: bash
 
-  matlab -nojvm -nosplash -nodesktop < input.m > output.out
+  matlab -nosplash -nodesktop < input.m > output.out
 
 where input.m is your instructions to Matlab and output.out will be your output when running that script in Matlab.
 If you are using  MATLAB Compiler or builder products run:
