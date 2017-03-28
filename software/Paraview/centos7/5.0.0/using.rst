@@ -58,7 +58,7 @@ You now have to tell your client to connect to the server:
  - This opens the configure new server box:
     - The name field is just to help you remember which server you are configuring.
     - Server type should be client server.
-    - Host is the address of the nodes you are running the server on (e.g. k33n39.pdc.kth.se). The server shold NOT be running on the login nodes.
+    - Host is the address of the nodes you are running the server on (e.g. t01n01.pdc.kth.se). The server shold NOT be running on the login nodes.
     - Port is as above (default is 11111).
     - Click configure.
     - Then select manual startup type.
