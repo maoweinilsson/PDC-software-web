@@ -9,5 +9,5 @@ The package can be loaded in the following way:
   $ import tensorflow as tf
   $ source deactivate
   
-(5th step is typed after you close the python)
+(6th step is typed after you close the python)
 
