@@ -168,5 +168,6 @@
 	  <name>slepc</name>
 	  <name>swig</name>
         <name>tensorflow</name>
+        <name>keras</name>
   </category>
 </categories>
