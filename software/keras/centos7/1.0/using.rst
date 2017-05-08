@@ -10,4 +10,8 @@ Keras is build upon tensorflow. The package can be loaded in the following way:
   $ source deactivate
   
 (6th step is typed after you close the python)
+If you intend to use keras with python 2.7, change the second line from the above to:
+::
+
+  $ module load anaconda/py27/4.2.0
 
