@@ -10,7 +10,7 @@
 #SBATCH -N 2
 
 # Number of MPI processes per node 
-##SBATCH --ntasks-per-node=24
+#SBATCH --ntasks-per-node=24
 
 #SBATCH -e error_file.e%J
 #SBATCH -o output_file.o%J
