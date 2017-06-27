@@ -95,10 +95,14 @@ Follow the default procedure using :ref:`git_tool` for the repository
 All documentations is rendered to http://pdc-software-web.readthedocs.io/en/latest/
 To build new documentation...
 
-#. Push the changed repository to the github master
-#. Goto https://readthedocs.org/
-#. Login using username: *PDC-support* and password
-#. select **PDC-software-web**
-#. Press **Build**
+* Push the changed repository to the github master
+* Goto https://readthedocs.org/
+* Login using username: *PDC-support* and password
+* select **PDC-software-web**
+* Press **Build**
+
+  * Upon pressing build, besides building the software pages readthedocs
+    also executes the python script *setup.py* which is enabled using the
+    *Install project* option in **Advanced settings**
 
 The new documentation will be rendered to the above link.
