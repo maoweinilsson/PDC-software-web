@@ -78,7 +78,8 @@ release = version
 # directories to ignore when looking for source files.
 exclude_patterns = ['_build', '*/*/*/*/building.rst', '*/*/*/*/using.rst', '*/*/general.rst','*/*/*/*/plugin.rst',
                     '*/*/*/*/package.rst','*/*/*/*/library.rst','*/*/*/*/module.rst',
-                    '*/*/lindgren/*','*/*/zorn/*','*/*/centos5/*','*/*/centos6/*',]
+                    '*/*/lindgren/*','*/*/zorn/*','*/*/centos5/*','*/*/centos6/*',
+                    '*/*/milner/*',]
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.

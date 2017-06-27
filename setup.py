@@ -341,13 +341,15 @@ def main():
   # list of systems/OS, if you remove OS, also ignore them
   # in conf.py (search there for "lindgren")
   # we should use ordereddict here but web server has too old python for that
-  systems = ['all','beskow', 'centos7', 'milner']
+  systems = ['all','beskow', 'centos7']
   systems_dict = {}
   systems_dict['all'] = 'All'
   systems_dict['beskow'] = 'Beskow'
   systems_dict['centos7'] = 'Tegner'
-  systems_dict['milner'] = 'Milner'
 
+  if os.path.isfile('index_alpha.rst'):
+    os.system('rm index_*')
+    os.system('rm overview_*')
   generate_files('_alpha',systems,systems_dict)
   generate_files('',systems,systems_dict)
   xml_file = xml.etree.ElementTree.parse('categorization.xml').getroot()
