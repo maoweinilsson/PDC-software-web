@@ -44,7 +44,7 @@ Removing old systems or adding system or operating systems
 Software for multiple systems are installed under the OS in question. If only your system is using this
 particular OS, follow the instructions at :ref:`removingos` for removing a whole operating system.
 
-* Open *generate_index.py*
+* Open *setup.py*
 * If you want to add an operating system or a unique system add the system OS in...::
 
     systems = ['beskow', 'centos6', 'milner', 'centos5', '[SYSTEM_OS]']
@@ -67,7 +67,7 @@ files.
 
     exclude_patterns = ['_build', '*/*/*/*/building.rst', '*/*/*/*/using.rst', '*/*/general.rst''*/*/lindgren/*','*/*/zorn/*',]
 
-* Open *generate_index.py* and remove the SYSTEM_NAMEX, and SYSTEM_OS from...::
+* Open *setup.py* and remove the SYSTEM_NAMEX, and SYSTEM_OS from...::
 
     systems = ['beskow', 'centos6', 'milner', 'centos5', '[SYSTEM_OS]']
     ...
@@ -80,7 +80,7 @@ You can test your changes locally on your computer before pushing them to the ce
 For this you need to install python-sphinx for this (we recommend to do this via virtualenv). 
 Then you can build the html with::
 
-  python generate_index.py
+  setup.py
   make html
 
 Then point your browser to _build/html/index.html
