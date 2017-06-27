@@ -1,4 +1,7 @@
 
+.. index:: r_at_pdc
+
+.. _r_at_pdc:
 
 Instructions for using R at PDC
 ===============================

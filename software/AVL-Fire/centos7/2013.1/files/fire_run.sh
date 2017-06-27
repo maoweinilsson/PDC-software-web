@@ -25,6 +25,7 @@ ncpus=48
 # Adapt the name of nodes for AVL Fire
 srun hostname  |  sort |  uniq > nodelist
 export hosts=`hostconvert_fire_tegner.pl nodelist`
+export MPI_REMSH=/pdc/vol/fire/2013.1/PDC_bin/ssh
 
 # Run the fire command
 fire_cmd -name=fire -no_file_locking -nomapping -mpi -cpu=$ncpus -hostlist=$hosts -project_dir=$PWD -case=Case -solver_vers=v2013

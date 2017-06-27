@@ -1,7 +1,7 @@
 
 
 Running in batch mode on Tegner
-------------------------------
+-------------------------------
 
 To submit a job on single node, you can do so by creating a simple script (fire_run.sh) which includes
 

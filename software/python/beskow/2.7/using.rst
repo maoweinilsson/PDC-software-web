@@ -37,7 +37,9 @@ To run Python on an allocated interactive node::
 
   $ salloc -A <your-project-ID> -t 1:0:0 -N 1
   $ module load anaconda
+  $ source activate_python # using the default conda environment  
   $ aprun -n 1 python some_script.py
+  $ source deactivate_python
 
 Using Anaconda Python in batch job
 ----------------------------------------
@@ -67,10 +69,12 @@ Using Anaconda Python in batch job
  module load anaconda/py27/4.3
 
  # if you need the custom conda environment:
- source activate custom
+ #source activate custom
+ # use the default environment
+ source activate_python
 
  # execute the program
  aprun -n 1 python some_script.py
 
  # to deactivate the Anaconda environment
- source deactivate
+ source deactivate_python
