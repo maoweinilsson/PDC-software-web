@@ -23,7 +23,7 @@ Based on the input to this configuration, you can add the following environment 
 Test using::
   
   $ cd su2code/TestCases/euler/naca0012
-  $ salloc
+  $ salloc -N 1
   $ aprun -n 8 SU2_CFD inv_NACA0012.cfg 
 
 
