@@ -45,19 +45,10 @@ Modules at configure time::
 Configuring and building has to be done on a compute node
 since the code is aware of instruction sets!
 
-This requires a hack in the configure script. Change::
-
-  auxdir=`echo $0 | sed 's/\(.*\)\/.*/\1/'` # extract pathname
-
-to::
-
-  # radovan: changed 0 to 3 because of aprun -n 1
-  auxdir=`echo $3 | sed 's/\(.*\)\/.*/\1/'` # extract pathnam
-
 Configuring::
 
   $ salloc
-  $ aprun -n 1 ./configure ARCH=crayxt4 --enable-openmp --enable-parallel --with-scalapack
+  $ aprun -n 1 -b ./configure ARCH=crayxt4 --enable-openmp --enable-parallel --with-scalapack
 
 If everything is OK then copy the contents of bin to the installation_directory/bin.  Make sure you copy the executables and not just the symlinks as they reference relative paths::
 
