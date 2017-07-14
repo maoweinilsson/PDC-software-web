@@ -1,8 +1,5 @@
 #!/bin/bash 
 
-# Set the allocation to be charged for this job
-# not required if you have set a default allocation
-
 # The name of the script is myjob
 #SBATCH -J myjob
 
