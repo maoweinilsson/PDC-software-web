@@ -41,6 +41,7 @@
       <name>dazz_db</name>
       <name>falcon</name>
       <name>freebayes</name>
+      <name>fusioncatcher</name>
       <name>idba</name>
       <name>IQ-TREE</name>
       <name>megahit</name>
@@ -112,6 +113,7 @@
       <name>matconvnet</name>
       <name>matlab</name>
       <name>MultiNest</name>
+      <name>Octave</name>
       <name>R</name>
       <name>sage</name>
     </category>  
@@ -152,6 +154,7 @@
 	  <name>hdf5</name>
 	  <name>intelmpi</name>
 	  <name>lapack</name>
+	  <name>MAGMA</name>
 	  <name>Mesa</name>
 	  <name>METIS</name>
 	  <name>mkl</name>
