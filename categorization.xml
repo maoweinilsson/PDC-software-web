@@ -64,6 +64,7 @@
       <name>gpaw</name>
       <name>libxc</name>
       <name>NWChem</name>
+      <name>openbabel</name>
       <name>Quantum-ESPRESSO</name>
       <name>siesta</name>
       <name>VASP</name>
