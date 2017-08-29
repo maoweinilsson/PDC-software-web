@@ -109,6 +109,7 @@
      <name>scons</name>
      <name>tcl</name>
     <category name="Mathematic">
+      <name>cvodes</name>
       <name>gams</name>
       <name>mathematica</name>
       <name>matconvnet</name>
