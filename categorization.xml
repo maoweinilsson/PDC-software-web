@@ -159,6 +159,7 @@
 	  <name>hdf5</name>
 	  <name>intelmpi</name>
 	  <name>lapack</name>
+          <name>LLVM</name>
 	  <name>MAGMA</name>
 	  <name>Mesa</name>
 	  <name>METIS</name>
