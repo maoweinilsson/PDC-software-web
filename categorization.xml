@@ -131,8 +131,10 @@
   </category>
   <category name="Compilers and Languages">
 	  <name>cray</name>
+          <name>Clang</name>
 	  <name>gcc</name>
 	  <name>intel</name>
+          <name>Julia</name>
 	  <name>perl</name>
 	  <name>pgi</name>
 	  <name>python</name>
