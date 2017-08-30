@@ -148,6 +148,7 @@
 	  <name>cray-petsc</name>
 	  <name>CUDA</name>
 	  <name>cuDNN</name>
+          <name>CVODES</name>
 	  <name>fftw</name>
 	  <name>freesteam</name>
 	  <name>GLPK</name>
