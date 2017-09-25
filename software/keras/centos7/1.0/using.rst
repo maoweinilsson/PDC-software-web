@@ -7,6 +7,7 @@ Keras is build upon tensorflow. The package can be loaded in the following way:
   $ source activate tensorflow
   $ python
   $ from keras.models import Sequential
+  $ rm -Rf /tmp/.keras
   $ source deactivate
   
 (6th step is typed after you close the python)
