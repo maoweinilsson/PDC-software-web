@@ -24,7 +24,8 @@ A typical output will look like::
 Node t02n31 is now yours for the next hour, and you can log into it and 
 start Matlab by (add -X to ssh if you want to run the Matlab GUI)::
 
-  $ ssh <your-username>@t02n31.pdc.kth.se
+  (Open a new terminal on the local computer and login from there)
+  local_computer$ ssh <your-username>@t02n31.pdc.kth.se
   t02n31 $ matlab -nodisplay
 
 In the following example, a parallel pool of 24 workers is opened and 
