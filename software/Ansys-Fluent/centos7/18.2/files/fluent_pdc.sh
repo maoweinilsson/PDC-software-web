@@ -60,7 +60,7 @@ while [ $i -lt $PPN ]; do
 done
 echo "CNF file is: ">>$LOGFILE
 cat $SP_JID.hosts >>$LOGFILE
-FLUENTARGS="-t`expr $PPN \* $SP_PROCS` -cnf=$SP_JID.hosts -pib -mpi=pcmpi"
+FLUENTARGS="-t`expr $PPN \* $SP_PROCS` -cnf=$SP_JID.hosts -pib -mpi=ibmmpi"
 elif [ $PPN -gt 1 ]; then
 # use shared memory MPI only
 FLUENTARGS="-t$PPN"
