@@ -24,5 +24,5 @@
 module add lammps/11Aug17
 
 # Run with the file in.lj as input, output is written to log.lammps by default
-# Run using 14 cores and both GPUs (using "-sf gpu" and "-pk gpu 2" which alleviates the need to modify the input file in.lj) 
-mpirun -np 14 lmp -sf gpu -pk gpu 2  < in.lj
+# Run using 8 cores and both GPUs (using "-sf gpu" and "-pk gpu 2" which alleviates the need to modify the input file in.lj) 
+mpirun -np 8 lmp -sf gpu -pk gpu 2  < in.lj
