@@ -1,6 +1,7 @@
 
 
-**Matlab is installed on several of PDC's machines. The Matlab license from your home institution will be used when you run Matlab at PDC. In addition there is a national license for Matlab Distributed COmpute Server that can be used to run Matlab in Parallel**
+**Matlab is available only on Tegner now. There are two licenses for matlab at PDC: The base KTH-site license is for KTH users , and includes the various toolboxes etc. Users from other Swedish universities may use the base license. Please contact PDC support (support@pdc.kth.se) for more details.  The other is the Matlab Distributed Compute Server (MDCS) license, which is SNIC wide and hosted at NSC. The MDCS license is available for all SNIC/PDC users.**
+
 
 General usage
 -------------
