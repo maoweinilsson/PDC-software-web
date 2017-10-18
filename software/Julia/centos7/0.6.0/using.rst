@@ -9,7 +9,7 @@ As an example, you can run Julia on a Haswell(thin) node on Tegner likes
  t02n04$ julia hello_world.jl 
    hello world
  
-or on a Ivy Bridge (fet) node 
+or on a Ivy Bridge (fat) node 
 
 .. code-block:: bash
 
