@@ -1,5 +1,5 @@
 
-Clang is a sub-project of the LLVM Project which is a collection of modular and reusable compiler and toolchain technologies. It is an "LLVM native" C/C++/Objective-C compiler.
+Julia is a high-level, high-performance dynamic programming language for numerical computing.
 
-More information can be found here http://clang.llvm.org/
+More information can be found here https://julialang.org
 
