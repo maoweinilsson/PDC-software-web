@@ -1,6 +1,7 @@
 # PDC-software-web
 This repository contains documentation regarding software at PDC.
 All files should be created in sphinx and are rendered to the readthedocs site.
+The project is licensed under the terms of the GNU Free Documentation License (GFDL).
   
 Update installed software
 =========================
