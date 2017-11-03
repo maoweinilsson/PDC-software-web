@@ -133,6 +133,13 @@ html_theme_options = {
     'collapsiblesidebar': True
 }
 
+html_sidebars = {
+    '**': [
+        'localtoc.html',
+        'searchbox.html'
+    ]
+}
+
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'PDCDocumentationdoc'
 
