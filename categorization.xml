@@ -78,7 +78,7 @@
       <name>nek5000</name>
       <name>OpenFOAM</name>
       <name>PowerFLOW</name>
-      <name>StarCCM+</name>
+      <name>StarCCM-Plus</name>
       <name>SU2</name>
     </category>
     <category name="Molecular Dynamics">
