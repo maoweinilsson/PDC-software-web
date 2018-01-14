@@ -2,3 +2,5 @@
 
 GROMACS is a versatile package to perform molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles. It provides extremely high performance compared to all other programs through custom algorithmic optimizations. More information at http://www.gromacs.org.
 
+Several versions of GROMACS are installed at PDC. Generally, it is recommended to use the most recent version since it can be expected to be faster, 
+more stable and less memory demanding.
