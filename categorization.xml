@@ -107,6 +107,7 @@
      <name>mono</name>
      <name>nano</name>
      <name>scons</name>
+     <name>singularity</name>
      <name>tcl</name>
     <category name="Mathematic">
       <name>CVODES</name>
