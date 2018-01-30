@@ -36,9 +36,11 @@ DEF_FILE=Benchmark.def
 NUM_PART=256
 
 # Run the cfx 
-echo "Start to do partition "
+echo "Start to do simulation "
 
-cfx5solve -def $DEF_FILE  -part $NUM_PART -start-method "Cray MPI Distributed Parallel"
+# NOTICE: the partition file should be created on Tegner or local computer 
+#         using flag -part-only (cfx5solve -def $DEF_FILE -part-only $NUM_PART)
+cfx5solve -def $DEF_FILE  -parfile-read Benchmark.par -start-method "Cray MPI Distributed Parallel"
 
 echo ""
 echo "Program ran to completion at `date`"
