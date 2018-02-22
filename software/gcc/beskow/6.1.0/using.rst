@@ -7,7 +7,7 @@ e.g. by doing::
 
   module swap PrgEnv-cray PrgEnv-gnu
 
-To use the intel compiler gcc, g++ or gfortran should not be called
+To use the gnu compilers gcc, g++ or gfortran should not be called
 directly, but the wrappers used instead, e.g. ::
 
   cc hello.c
@@ -22,5 +22,5 @@ The versions available can be seen using ::
 
 The version required can then be loaded using for example ::
 
-  module swap gcc/6.1.0 gcc/6.1.0
+  module swap gcc gcc/6.1.0
 
