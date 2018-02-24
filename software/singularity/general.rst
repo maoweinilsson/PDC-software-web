@@ -2,6 +2,19 @@
 Singularity
 ===========
 
+Temporary limitation of Singularity user namespaces (Feb 23)
+------------------------------------------------------------
+
+Due to secondary effects of 
+[CVE-2017-16939](https://access.redhat.com/security/cve/cve-2017-16939) 
+we need to make certain
+changes to the functionality of Singularity on Tegner until fixes for
+the the CVE are available and have been installed. Specifically we
+will disable the use of so called "user namespaces" on which some of
+Singularity's functionality depends. Singularity can be run without
+this but in a - in some ways - limited mode.
+
+
 What is singularity
 -------------------
 
