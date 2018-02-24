@@ -6,7 +6,7 @@ Temporary limitation of Singularity user namespaces (Feb 23)
 ------------------------------------------------------------
 
 Due to secondary effects of 
-[CVE-2017-16939](https://access.redhat.com/security/cve/cve-2017-16939) 
+`CVE-2017-16939 <https://access.redhat.com/security/cve/cve-2017-16939>`_ 
 we need to make certain
 changes to the functionality of Singularity on Tegner until fixes for
 the the CVE are available and have been installed. Specifically we
