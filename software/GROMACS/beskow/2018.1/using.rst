@@ -6,9 +6,8 @@ Beskow is a little special because the compute nodes have Haswell CPUs which
 support AVX2 instructions, but those are not supported by the login node.
 In the case of GROMACS, AVX2 delivers approximately 40% speed-up over the standard AVX instruction set.
 
-In order to use GROMACS, first you need to change to the GNU the programming environment::
+In order to use GROMACS, you need to::
 
-  $ module swap PrgEnv-cray PrgEnv-gnu
   $ module add gromacs/2018.1
 
 Important note about GROMACS binary names: starting with the 5.1 series, GROMACS provides a single wrapper binary, *gmx*, for launching any of the simulation engines (e.g. mdrun) and the pre-processing (e.g. grompp) and analysis tools (e.g. g_rms). The specific tool is provided as an argument to that wrapper binary. In pre-5.1 versions the original binaries were provided as symbolic links but now users would need to update existing scripts. For example the following commands need to be substited as follows::
